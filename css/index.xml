@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>林萧学习博客</title>
-    <link>https://lijianqiang.github.io/</link>
-    <description>Recent content on 林萧学习博客</description>
+    <title>Csses on 林萧学习博客</title>
+    <link>https://lijianqiang.github.io/css/</link>
+    <description>Recent content in Csses on 林萧学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Oct 2019 10:33:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Oct 2019 10:31:17 +0800</lastBuildDate>
     
-	<atom:link href="https://lijianqiang.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lijianqiang.github.io/css/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>First</title>
-      <link>https://lijianqiang.github.io/post/css/first/</link>
-      <pubDate>Wed, 30 Oct 2019 10:33:34 +0800</pubDate>
-      
-      <guid>https://lijianqiang.github.io/post/css/first/</guid>
-      <description>sss</description>
-    </item>
     
     <item>
       <title>Stackingcontext(层叠上下文)</title>
@@ -30,15 +21,6 @@
 (1) 位于最下面的background/border特指层叠上下文元素的边框和背景色。每一个层叠顺序规则仅适用于当前层叠上下文元素的小世界。
 (2)inline水平盒子指的是包括inline/inline-block/inline-table元素的&amp;rdquo;层叠顺序&amp;rdquo;,它们都是同级别的。 (3)单纯从层叠水平上看,实际上z-index:0和z-index:auto是可以看成是一样的。注意这里的措辞——“单纯从层叠水平看，实际上，定位元素设置z-index：0会建立新的层叠上下文
  如何形成层叠上下文 如何形成层叠上下文 | &amp;mdash;|&amp;mdash; 根元素(html) | z-index不为auto的相对/绝对定位 | z-index不为auto的flex item(即父元素display: flex|inline-flex) | opacity小于1 | transform不为none | mix-blend-mode不为normal | filter不为none | perspective不为none | isolation:isolate | position:fixed | 在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值 | -webkit-overflow-scrolling:touch |</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://lijianqiang.github.io/post/css/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://lijianqiang.github.io/post/css/</guid>
-      <description>222</description>
     </item>
     
   </channel>
