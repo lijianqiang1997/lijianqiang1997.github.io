@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Githubs on 林萧学习博客</title>
+    <link>https://lijianqiang1997.github.io/github/</link>
+    <description>Recent content in Githubs on 林萧学习博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://lijianqiang1997.github.io/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://lijianqiang1997.github.io/github/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/github/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2/</guid>
+      <description>完成github托管到本地后
+1.https://github.com/gohugoio/hugo/releases下载对应版本的hugo
+2.将hugo.exe加入到环境变量
+3.执行以下命令
+hugo version // 检查安装 hugo new site my 新建站点 cd my 进入站点  4.进入themes目录下载主题，这里我下的是hyde
+cd themes https://github.com/htr3n/hyde-hyde.git cd ../  5.本地运行
+hugo server --theme=hyde  执行完后可以在本地localhost:1313运行
+6.部署到github
+hugo --theme=hyde --baseUrl=&amp;quot;https://username.github.io&amp;quot; --buildDrafts // 生成页面模板 然后进入public文件下 将文件push到github的username.github.io仓库  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lijianqiang1997.github.io/github/%E5%B0%86github%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/github/%E5%B0%86github%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
+      <description>进入github首页，新建一个仓库，命名为你的用户名.github.io(lijianqiang1997.github.io)  进入SSH key设置 2.在本地生成SSH key
+ssh-keygen -t rsa -C &amp;quot;xiangshuo1992@gmail.com&amp;quot; //账号  3.记事本打开id_rsa.pub，复制文本，粘贴到要添加的地方 gitBash 操作
+cat id_rsa.pub //拷贝秘钥 ssh-rsa开头  4、验证和修改
+测试是否成功配置SSH Key
+ssh -T git@github.com //运行结果出现类似如下 Hi xiangshuo1992! You&#39;ve successfully authenticated, but GitHub does not provide shell access.  接下来就可以使用git进行愉快的操作了</description>
+    </item>
+    
+  </channel>
+</rss>

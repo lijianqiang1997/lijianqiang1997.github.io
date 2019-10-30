@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> &middot; 林萧学习博客</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://lijianqiang1997.github.io/"><h1>林萧学习博客</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1></h1>
+  <time datetime=0001-01-01T00:00:00Z class="post-date">Mon, Jan 1, 0001</time>
+  <p>完成github托管到本地后</p>
+
+<p>1.<a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a>下载对应版本的hugo</p>
+
+<p><img src="en-resource://database/8944:1" alt="b4719f660fa431a1ed067357e274e695.png" /></p>
+
+<p>2.将hugo.exe加入到环境变量</p>
+
+<p>3.执行以下命令</p>
+
+<pre><code>hugo version // 检查安装
+hugo new site my 新建站点
+cd my
+进入站点
+</code></pre>
+
+<p>4.进入themes目录下载主题，这里我下的是hyde</p>
+
+<pre><code>cd themes
+https://github.com/htr3n/hyde-hyde.git
+cd ../
+</code></pre>
+
+<p>5.本地运行</p>
+
+<pre><code>hugo server --theme=hyde
+</code></pre>
+
+<p>执行完后可以在本地localhost:1313运行</p>
+
+<p>6.部署到github</p>
+
+<pre><code>hugo --theme=hyde --baseUrl=&quot;https://username.github.io&quot; --buildDrafts // 生成页面模板
+
+然后进入public文件下 将文件push到github的username.github.io仓库
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> &middot; 林萧学习博客</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://lijianqiang1997.github.io/"><h1>林萧学习博客</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1></h1>
+  <time datetime=0001-01-01T00:00:00Z class="post-date">Mon, Jan 1, 0001</time>
+  <ol>
+<li>进入github首页，新建一个仓库，命名为你的用户名.github.io(lijianqiang1997.github.io)</li>
+</ol>
+
+<p><img src="en-resource://database/8732:1" alt="d5bdd8f010ffc1a2f143d0659a5463c7.png" />
+进入SSH key设置
+<img src="en-resource://database/8734:1" alt="6c75923bec42fb59070130c959fe5dd7.png" />
+<img src="en-resource://database/8736:1" alt="f5160101e87f8a80f55091f80b92f7f5.png" /></p>
+
+<p>2.在本地生成SSH key</p>
+
+<pre><code>ssh-keygen -t rsa -C &quot;xiangshuo1992@gmail.com&quot; //账号
+
+</code></pre>
+
+<p>3.记事本打开id_rsa.pub，复制文本，粘贴到要添加的地方
+<img src="en-resource://database/8738:1" alt="461c1aafdd67f989360ab6639b3be726.png" /></p>
+
+<p>gitBash 操作</p>
+
+<pre><code>cat id_rsa.pub //拷贝秘钥 ssh-rsa开头
+</code></pre>
+
+<p><img src="en-resource://database/8740:1" alt="f384b8bf2c119f3f9049a42514da8b46.png" /></p>
+
+<p>4、验证和修改</p>
+
+<p>测试是否成功配置SSH Key</p>
+
+<pre><code>ssh -T git@github.com
+//运行结果出现类似如下
+Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
+
+</code></pre>
+
+<p>接下来就可以使用git进行愉快的操作了</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
