@@ -12,10 +12,10 @@
   <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -32,7 +32,7 @@
   <aside class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="https://lijianqiang1997.github.io/"><h1>林萧学习博客</h1></a>
+      <a href="https://lijianqiang1997.github.io"><h1>林萧学习博客</h1></a>
       <p class="lead">
       An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
       </p>
@@ -40,7 +40,7 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
+        <li><a href="https://lijianqiang1997.github.io">Home</a> </li>
         
       </ul>
     </nav>
@@ -52,6 +52,18 @@
     <main class="content container">
     <div class="posts">
 <article class="post">
+  <h1 class="post-title">
+    <a href="https://lijianqiang1997.github.io/html/picture/">Picture</a>
+  </h1>
+  <time datetime="2019-10-31T14:35:53&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
+  :HTMLPictureElement 元素包含0或多个元素和一个元素和可选的script-supporting elements(script、template)混合来为不同设备场景提供图像。浏览会先选择最匹配的元素，如果没有匹配的，就选择元素,所选的图像最终都呈现在img元素占据的空间中
+    说明     src 资源地址   type 资源类型   srcset 在不同情况下使用的图像   sizes 不同页面布局的图像尺寸   media 应用的媒体查询    示例 media 属性 media 属性允许你提供一个用于给用户代理作为选择 &lt;source&gt; 元素的依据的媒体条件(media condition)（类似于媒体查询）。如果这个媒体条件匹配结果为 false，那么这个 &lt;source&gt; 元素会被跳过。 &lt;picture&gt; &lt;source srcset=&quot;mdn-logo-wide.png&quot; media=&quot;(min-width: 600px)&quot;&gt; &lt;img src=&quot;mdn-logo-narrow.png&quot; alt=&quot;MDN&quot;&gt; &lt;/picture&gt;  type 属性 type 属性允许你为 &lt;source&gt; 元素的 srcset 属性指向的资源指定一个 MIME 类型。如果用户代理不支持指定的类型，那么这个 &lt;source&gt; 元素会被跳过 &lt;picture&gt; &lt;source srcset=&quot;mdn-logo.svg&quot; type=&quot;image/svg+xml&quot;&gt; &lt;img src=&quot;mdn-logo.
+  
+  <div class="read-more-link">
+    <a href="/html/picture/">Read More…</a>
+  </div>
+  
+</article><article class="post">
   <h1 class="post-title">
     <a href="https://lijianqiang1997.github.io/post/css/first/">First</a>
   </h1>
@@ -67,7 +79,7 @@
 1.https://github.com/gohugoio/hugo/releases下载对应版本的hugo
 2.将hugo.exe加入到环境变量
 3.执行以下命令
-hugo version // 检查安装 hugo new site my 新建站点 cd my 进入站点  4.进入themes目录下载主题，这里我下的是hyde
+hugo version // 检查安装 hugo new site my // 新建站点my cd my // 进入站点 my hugo new blog.md // 新建文章blog  4.进入themes目录下载主题，这里我下的是hyde
 cd themes https://github.com/htr3n/hyde-hyde.git cd ../  5.本地运行
 hugo server --theme=hyde  执行完后可以在本地localhost:1313运行
 6.部署到github

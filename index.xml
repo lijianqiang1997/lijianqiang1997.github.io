@@ -6,10 +6,20 @@
     <description>Recent content on 林萧学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Oct 2019 10:33:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 14:35:53 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Picture</title>
+      <link>https://lijianqiang1997.github.io/html/picture/</link>
+      <pubDate>Thu, 31 Oct 2019 14:35:53 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/picture/</guid>
+      <description>:HTMLPictureElement 元素包含0或多个元素和一个元素和可选的script-supporting elements(script、template)混合来为不同设备场景提供图像。浏览会先选择最匹配的元素，如果没有匹配的，就选择元素,所选的图像最终都呈现在img元素占据的空间中
+    说明     src 资源地址   type 资源类型   srcset 在不同情况下使用的图像   sizes 不同页面布局的图像尺寸   media 应用的媒体查询    示例 media 属性 media 属性允许你提供一个用于给用户代理作为选择 &amp;lt;source&amp;gt; 元素的依据的媒体条件(media condition)（类似于媒体查询）。如果这个媒体条件匹配结果为 false，那么这个 &amp;lt;source&amp;gt; 元素会被跳过。 &amp;lt;picture&amp;gt; &amp;lt;source srcset=&amp;quot;mdn-logo-wide.png&amp;quot; media=&amp;quot;(min-width: 600px)&amp;quot;&amp;gt; &amp;lt;img src=&amp;quot;mdn-logo-narrow.png&amp;quot; alt=&amp;quot;MDN&amp;quot;&amp;gt; &amp;lt;/picture&amp;gt;  type 属性 type 属性允许你为 &amp;lt;source&amp;gt; 元素的 srcset 属性指向的资源指定一个 MIME 类型。如果用户代理不支持指定的类型，那么这个 &amp;lt;source&amp;gt; 元素会被跳过 &amp;lt;picture&amp;gt; &amp;lt;source srcset=&amp;quot;mdn-logo.svg&amp;quot; type=&amp;quot;image/svg+xml&amp;quot;&amp;gt; &amp;lt;img src=&amp;quot;mdn-logo.</description>
+    </item>
     
     <item>
       <title>First</title>
@@ -30,7 +40,7 @@
 1.https://github.com/gohugoio/hugo/releases下载对应版本的hugo
 2.将hugo.exe加入到环境变量
 3.执行以下命令
-hugo version // 检查安装 hugo new site my 新建站点 cd my 进入站点  4.进入themes目录下载主题，这里我下的是hyde
+hugo version // 检查安装 hugo new site my // 新建站点my cd my // 进入站点 my hugo new blog.md // 新建文章blog  4.进入themes目录下载主题，这里我下的是hyde
 cd themes https://github.com/htr3n/hyde-hyde.git cd ../  5.本地运行
 hugo server --theme=hyde  执行完后可以在本地localhost:1313运行
 6.部署到github

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Picture &middot; 林萧学习博客</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://lijianqiang1997.github.io"><h1>林萧学习博客</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://lijianqiang1997.github.io">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Picture</h1>
+  <time datetime=2019-10-31T14:35:53&#43;0800 class="post-date">Thu, Oct 31, 2019</time>
+  
+
+<h2 id="picture-htmlpictureelement"><picture>:HTMLPictureElement</h2>
+
+<p><picture>元素包含0或多个<source>元素和一个<img>元素和可选的script-supporting elements(script、template)混合来为不同设备场景提供图像。浏览会先选择最匹配的<source>元素，如果没有匹配的，就选择<img>元素,所选的图像最终都呈现在img元素占据的空间中</p>
+
+<table>
+<thead>
+<tr>
+<th><source></th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>src</td>
+<td>资源地址</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>资源类型</td>
+</tr>
+
+<tr>
+<td>srcset</td>
+<td>在不同情况下使用的图像</td>
+</tr>
+
+<tr>
+<td>sizes</td>
+<td>不同页面布局的图像尺寸</td>
+</tr>
+
+<tr>
+<td>media</td>
+<td>应用的媒体查询</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="示例">示例</h3>
+
+<h4 id="media-属性">media 属性</h4>
+
+<pre><code class="language-html">
+media 属性允许你提供一个用于给用户代理作为选择 &lt;source&gt; 元素的依据的媒体条件(media condition)（类似于媒体查询）。如果这个媒体条件匹配结果为 false，那么这个 &lt;source&gt; 元素会被跳过。
+
+&lt;picture&gt;
+  &lt;source srcset=&quot;mdn-logo-wide.png&quot; media=&quot;(min-width: 600px)&quot;&gt;
+  &lt;img src=&quot;mdn-logo-narrow.png&quot; alt=&quot;MDN&quot;&gt;
+ &lt;/picture&gt;
+</code></pre>
+
+<h4 id="type-属性">type 属性</h4>
+
+<pre><code class="language-html">
+type 属性允许你为 &lt;source&gt; 元素的 srcset 属性指向的资源指定一个 MIME 类型。如果用户代理不支持指定的类型，那么这个 &lt;source&gt; 元素会被跳过
+&lt;picture&gt;
+  &lt;source srcset=&quot;mdn-logo.svg&quot; type=&quot;image/svg+xml&quot;&gt;
+  &lt;img src=&quot;mdn-logo.png&quot; alt=&quot;MDN&quot;&gt;
+ &lt;/picture&gt;
+</code></pre>
+
+<h4 id="srcset-属性">srcset 属性</h4>
+
+<pre><code class="language-html">srcset=&quot;images/team-photo.jpg 1x, images/team-photo-retina.jpg 2x, images/team-photo-full 2048w&quot;
+
+srcset=&quot;header640.png 640w, header960.png 960w, header1024.png 1024w, header.png&quot;
+
+srcset=&quot;icon32px.png 32w, icon64px.png 64w, icon-retina.png 2x icon-ultra.png 3x icon.svg&quot;
+
+&lt;div class=&quot;box&quot;&gt;
+  &lt;img src=&quot;/files/16797/clock-demo-200px.png&quot;
+       alt=&quot;Clock&quot;
+       srcset=&quot;/files/16864/clock-demo-200px.png 1x, /files/16797/clock-demo-400px.png 2x&quot;&gt;
+&lt;/div&gt;
+
+js获取img使用的src:img.currentSrc
+
+let box = document.querySelector(&quot;.box&quot;);let image = box.querySelector(&quot;img&quot;);
+let newElem = document.createElement(&quot;p&quot;);
+newElem.innerHTML = `Image: &lt;code&gt;${image.currentSrc}&lt;/code&gt;`;
+box.appendChild(newElem);
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
