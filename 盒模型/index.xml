@@ -18,7 +18,7 @@
       
       <guid>https://lijianqiang1997.github.io/%E7%9B%92%E6%A8%A1%E5%9E%8B/margin/</guid>
       <description>page relative(Physical)Margin 属性（页相对外边距属性）
-   margin      margin-top(margin-right、margin-bottom、margin-left)    值  | auto   应用于 所有元素除了internal table elements(table-row-group, table-header-group, table-footer-group, table-row, table-cell, table-column-group, table-column)   默认值 0   百分比 相对于containing block 的logical width   继承性 无   动画性 通过计算值    Flow-relative Margin 属性（页相对外边距属性）
+   margin      margin-top(margin-right、margin-bottom、margin-left)    值 &amp;lt;length-percentage&amp;gt; | auto   应用于 所有元素除了internal table elements(table-row-group, table-header-group, table-footer-group, table-row, table-cell, table-column-group, table-column)   默认值 0   百分比 相对于containing block 的logical width   继承性 无   动画性 通过计算值    Flow-relative Margin 属性（页相对外边距属性）
    Flow-relative Margin      margin-block-start    margin-block-end    margin-inline-start    margin-inline-end    margin-block    margin-inline     垂直外边距合并 不会合并的情况  根元素的margin不会合并 If the top and bottom margins of an element with clearance are adjoining, its margins collapse with the adjoining margins of following siblings but that resulting margin does not collapse with the bottom margin of the parent block.</description>
     </item>
     
