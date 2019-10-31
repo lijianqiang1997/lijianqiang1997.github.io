@@ -6,10 +6,21 @@
     <description>Recent content on 林萧学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 15:27:14 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 15:39:05 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Code</title>
+      <link>https://lijianqiang1997.github.io/html/code/</link>
+      <pubDate>Thu, 31 Oct 2019 15:39:05 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/code/</guid>
+      <description>元素代表计算机代码的一部分。 这可以是XML元素名称，文件名，计算机程序或计算机可以识别的任何其他字符串。
+没有正式的方法可以表明被标记的计算机代码的语言。 希望使用所用语言标记代码元素的作者，例如 这样语法突出显示脚本可以使用正确的规则，可以使用class属性，例如 通过向元素添加前缀为“ language-”的类。
+ 示例 以下示例显示如何在段落中使用元素来标记元素名称和计算机代码，包括标点符号。 &amp;lt;p&amp;gt;The &amp;lt;code&amp;gt;code&amp;lt;/code&amp;gt; element represents a fragment of computer code.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; When you call the &amp;lt;code&amp;gt;activate()&amp;lt;/code&amp;gt; method on the &amp;lt;code&amp;gt;robotSnowman&amp;lt;/code&amp;gt; object, the eyes glow. &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;The example below uses the &amp;lt;code&amp;gt;begin&amp;lt;/code&amp;gt; keyword to indicate the start of a statement block. It is paired with an &amp;lt;code&amp;gt;end&amp;lt;/code&amp;gt; keyword, which is followed by the &amp;lt;code&amp;gt;.&amp;lt;/code&amp;gt; punctuation character (full stop) to indicate the end of the program.</description>
+    </item>
     
     <item>
       <title>Margin</title>
@@ -51,7 +62,7 @@
 1.https://github.com/gohugoio/hugo/releases下载对应版本的hugo
 2.将hugo.exe加入到环境变量
 3.执行以下命令
-hugo version // 检查安装 hugo new site my // 新建站点my cd my // 进入站点 my hugo new blog.md // 新建文章blog  4.进入themes目录下载主题，这里我下的是hyde
+hugo version // 检查安装 hugo new site my // 新建站点my cd my // 进入站点 my hugo new blog.md // 新建文章blog 想要让文章发布显示需要将draft改为false  4.进入themes目录下载主题，这里我下的是hyde
 cd themes https://github.com/htr3n/hyde-hyde.git cd ../  5.本地运行
 hugo server --theme=hyde  执行完后可以在本地localhost:1313运行
 6.部署到github
