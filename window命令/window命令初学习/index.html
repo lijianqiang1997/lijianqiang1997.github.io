@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Window命令初学习 &middot; 学习博客</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://lijianqiang1997.github.io/"><h1>学习博客</h1></a>
+      <p class="lead">
+      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Window命令初学习</h1>
+  <time datetime=2019-10-31T18:47:33&#43;0800 class="post-date">Thu, Oct 31, 2019</time>
+  
+
+<h4 id="chdir和cd-获取当前目录">chdir和cd(获取当前目录)</h4>
+
+<pre><code>cd [/d] [&lt;Drive&gt;:][&lt;Path&gt;] cd [..] // 显示或更改目录路径，不同驱动器下是显示
+chdir [/d] [&lt;Drive&gt;:][&lt;Path&gt;] chdir [..] // 显示或更改目录路径,不同驱动器下是显示
+cd /? 获取帮助
+chdir /? 获取帮助
+</code></pre>
+
+<p><img src="/window操作命令/chdir和cd.png" alt="chdir和cd" /></p>
+
+<h4 id="ren和rename-重命名文件">ren和rename(重命名文件)</h4>
+
+<pre><code>ren [&lt;Drive&gt;:][&lt;Path&gt;]&lt;FileName1&gt; &lt;FileName2&gt; 
+rename [&lt;Drive&gt;:][&lt;Path&gt;]&lt;FileName1&gt; &lt;FileName2&gt;
+
+在重命名文件时，不能指定新的驱动器或路径。
+不能使用ren命令在驱动器之间重命名文件，或将文件移动到不同的目录。
+可以在 FileName 参数中使用 * 通配符（和 ？ ） 。 
+FileName2中由通配符表示的字符将与FileName1中的相应字符相同。FileName2必须是唯一的文件名。 
+如果FileName2与现有文件名相匹配，则ren会显示以下消息：
+Duplicate file name or file not found
+
+
+若要将当前目录中的所有 .txt 文件扩展名更改为 .doc 扩展名，请键入：
+ren *.txt *.doc
+
+若要将目录的名称从 Chap10 更改为 Part10，请键入：
+ren chap10 part10
+</code></pre>
+
+<h4 id="cls-清除-命令提示符-窗口">cls(清除 &ldquo;命令提示符&rdquo; 窗口)</h4>
+
+<p><img src="/window操作命令/cls-before.png" alt="cls前" />
+<img src="/window操作命令/cls-after.png" alt="cls后" /></p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
