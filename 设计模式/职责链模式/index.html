@@ -86,6 +86,7 @@
 </code></pre>
 
 <pre><code>var Chain = function() {
+        let _args = arguments;
         return {
           fnArr: [],
           currentIndex: 0,
@@ -98,7 +99,8 @@
             let length = fnArr.length;
             for (; i &lt; length; ++i) {
               this.currentIndex = i;
-              let result = fnArr[i]();
+              let fn = fnArr[i];
+              let result = fn.apply(fn,_args);
               if (result !== true) {
                 break;
               }
@@ -117,18 +119,19 @@
           }
         };
       };
-      let ca = Chain();
-      var fn1 = function() {
-        console.log(1);
+      let ca = Chain(&quot;m&quot;);
+      var fn1 = function(prefix) {
+        console.log(prefix+'1');
         return true;
       };
-      var fn2 = function() {
+      var fn2 = function(prefix) {
+        console.log(prefix+'2');
         setTimeout(()=&gt;{
           ca.next();
         },1000)
       };
-      var fn3 = function() {
-        console.log(3);
+      var fn3 = function(prefix) {
+        console.log(prefix+'3');
         return false;
       };
       ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
