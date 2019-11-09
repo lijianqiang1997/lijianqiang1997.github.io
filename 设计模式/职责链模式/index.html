@@ -88,44 +88,50 @@
 <pre><code>var Chain = function() {
         return {
           fnArr: [],
-          next: function(fn) {
+          currentIndex: 0,
+          addNext: function(fn) {
             return this.fnArr.push(fn), this;
           },
           run: function() {
-            let i;
+            let i = this.currentIndex;
             let fnArr = this.fnArr;
             let length = fnArr.length;
-            for (i = 0; i &lt; length; ++i) {
+            for (; i &lt; length; ++i) {
+              this.currentIndex = i;
               let result = fnArr[i]();
               if (result !== true) {
-                this.fnArr = [];
                 break;
               }
             }
-            if (i === length) {
-              this.fnArr = [];
+            if(i === length) {
+              this.init();
             }
+          },
+          init: function() {
+            this.currentIndex = 0;
+            this.fnArr = [];
+          },
+          next:function() {
+            this.currentIndex ++;
+            this.run();
           }
         };
       };
-
+      let ca = Chain();
       var fn1 = function() {
         console.log(1);
         return true;
       };
       var fn2 = function() {
-        console.log(2);
-        return true;
+        setTimeout(()=&gt;{
+          ca.next();
+        },1000)
       };
       var fn3 = function() {
         console.log(3);
         return false;
       };
-      let k = Chain().next(fn2).next(fn3).run();
-      let c = Chain().next(fn1)
-        .next(fn2)
-        .next(fn3)
-        .run();
+      ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
 </code></pre>
 
 </div>
