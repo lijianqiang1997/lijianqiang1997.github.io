@@ -6,10 +6,19 @@
     <description>Recent content on 学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Nov 2019 12:19:59 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2019 21:22:29 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>享元模式</title>
+      <link>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 10 Nov 2019 21:22:29 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>职责链模式</title>
