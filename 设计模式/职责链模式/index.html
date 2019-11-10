@@ -142,13 +142,13 @@ var Chain = function() {
         let _args = arguments;
         let _ObjectPool = [];
         return _ObjectPool.length?_ObjectPool.pop():{
-          expectResult: true,
-          fnArr: [],
-          currentIndex: 0,
+          expectResult: true, // 让它进入到下一环节的收到的预期结果
+          fnArr: [], // 所有环节
+          currentIndex: 0, // 进行到的环节
           addNext: function(fn) {
             return this.fnArr.push(fn), this;
-          },
-          run: function() {
+          } ,// 添加下一环节
+          run: function() { // 运行环节
             let i = this.currentIndex;
             let fnArr = this.fnArr;
             let length = fnArr.length;
@@ -164,7 +164,8 @@ var Chain = function() {
               this.init();
             }
           },
-          init: function() {
+          init: function() { // 恢复初始化
+            this.expectResult = true;
             this.currentIndex = 0;
             this.fnArr = [];
             this.recover();
@@ -172,10 +173,10 @@ var Chain = function() {
           next:function() {
             this.currentIndex ++;
             this.run();
-          },
+          }, // 接着往下执行
           recover: function() {
             _ObjectPool.push(this)
-          }
+          } // 回收对象
         };
       };
       let ca = Chain(&quot;m&quot;);
