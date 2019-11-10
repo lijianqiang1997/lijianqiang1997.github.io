@@ -52,32 +52,32 @@
     <div class="post">
   <h1>享元模式</h1>
   <time datetime=2019-11-10T21:22:29&#43;0800 class="post-date">Sun, Nov 10, 2019</time>
-  <pre><code>var Person = function(sex) {
-            this.sex = sex;
-        }
-        var factory = (function() {
-            var people= {},
-            return {
-                create: function(sex) {
-                    let human = people[sex];
-                    if(human) {
-                        return human;
-                    }else {
-                        people[sex] = human;
-                    }
-                }
+  <pre><code class="language-javascript">var Person = function(sex) {
+    this.sex = sex;
+}
+var factory = (function() {
+    var people= {},
+    return {
+        create: function(sex) {
+            let human = people[sex];
+            if(human) {
+                return human;
+            }else {
+                people[sex] = human;
             }
-        }());
+        }
+    }
+}());
 
-        var manager = function() {
-            var database = {};
-            return {
-                add: function(id) {
-                    var obj = factory.create('male');
-                    databse[id] = obj;
-                }
-            }
+var manager = function() {
+    var database = {};
+    return {
+        add: function(id) {
+            var obj = factory.create('male');
+            databse[id] = obj;
         }
+    }
+}
 </code></pre>
 
 </div>

@@ -52,47 +52,43 @@
     <div class="post">
   <h1>命令模式</h1>
   <time datetime=2019-11-10T21:22:29&#43;0800 class="post-date">Sun, Nov 10, 2019</time>
-  <pre><code>
+  <pre><code class="language-javascript">var setCommand = function({
+element = null,
+eventType = &quot;onclick&quot;,
+command = null,
+commandType = &quot;execute&quot;
+}) {
+if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) {
+    if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) {
+    element[eventType] = command[commandType];
+    }
+}
+};
 
-      var setCommand = function({
-        element = null,
-        eventType = &quot;onclick&quot;,
-        command = null,
-        commandType = &quot;execute&quot;
-      }) {
-        if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) {
-          if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) {
-            element[eventType] = command[commandType];
-          }
-        }
-      };
-
-      var command = (function() {
-        let _i = 0;
-        return {
-          execute: function() {
-            _i++;
-            console.log(_i);
-          },
-          undo: function() {
-            _i--;
-            consoloe.log(_i);
-          }
-        };
-      })();
-
-      var ExecuteBtnbtn  = document.querySelector('#ExecuteBtnbtn');
-      var UndoBtn = document.querySelector('#UndoBtn');
-      setCommand({
-          element: ExecuteBtnbtn,
-          command:command
-      })
-      setCommand({
-          element: UndoBtn,
-          command:command,
-          commandType: 'undo'
-      })
-
+var command = (function() {
+let _i = 0;
+return {
+    execute: function() {
+    _i++;
+    console.log(_i);
+    },
+    undo: function() {
+    _i--;
+    consoloe.log(_i);
+    }
+};
+})();
+var ExecuteBtnbtn  = document.querySelector('#ExecuteBtnbtn');
+var UndoBtn = document.querySelector('#UndoBtn');
+setCommand({
+    element: ExecuteBtnbtn,
+    command:command
+})
+setCommand({
+    element: UndoBtn,
+    command:command,
+    commandType: 'undo'
+})
 </code></pre>
 
 </div>
