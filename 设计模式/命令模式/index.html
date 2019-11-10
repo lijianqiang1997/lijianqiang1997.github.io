@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>享元模式 &middot; 学习博客</title>
+  <title>命令模式 &middot; 学习博客</title>
   <meta name="description" content="" />
 
   
@@ -50,34 +50,63 @@
 
     <main class="content container">
     <div class="post">
-  <h1>享元模式</h1>
+  <h1>命令模式</h1>
   <time datetime=2019-11-10T21:22:29&#43;0800 class="post-date">Sun, Nov 10, 2019</time>
-  <pre><code>var Person = function(sex) {
-            this.sex = sex;
-        }
-        var factory = (function() {
-            var people= {},
-            return {
-                create: function(sex) {
-                    let human = people[sex];
-                    if(human) {
-                        return human;
-                    }else {
-                        people[sex] = human;
-                    }
-                }
-            }
-        }());
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
 
-        var manager = function() {
-            var database = {};
-            return {
-                add: function(id) {
-                    var obj = factory.create('male');
-                    databse[id] = obj;
-                }
-            }
+    &lt;button id=&quot;ExecuteBtn&quot;&gt;execute&lt;/button&gt;
+    &lt;button id=&quot;UndoBtn&quot;&gt;undo&lt;/button&gt;
+    &lt;script&gt;
+      var setCommand = function({
+        element = null,
+        eventType = &quot;onclick&quot;,
+        command = null,
+        commandType = &quot;execute&quot;
+      }) {
+        if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) {
+          if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) {
+            element[eventType] = command[commandType];
+          }
         }
+      };
+
+      var command = (function() {
+        let _i = 0;
+        return {
+          execute: function() {
+            _i++;
+            console.log(_i);
+          },
+          undo: function() {
+            _i--;
+            consoloe.log(_i);
+          }
+        };
+      })();
+
+      var ExecuteBtnbtn  = document.querySelector('#ExecuteBtnbtn');
+      var UndoBtn = document.querySelector('#UndoBtn');
+      setCommand({
+          element: ExecuteBtnbtn,
+          command:command
+      })
+      setCommand({
+          element: UndoBtn,
+          command:command,
+          commandType: 'undo'
+      })
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
 </code></pre>
 
 </div>

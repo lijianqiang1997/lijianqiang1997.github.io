@@ -56,7 +56,18 @@
     <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/">享元模式</a>
   </h1>
   <time datetime="2019-11-10T21:22:29&#43;0800" class="post-date">Sun, Nov 10, 2019</time>
+  var Person = function(sex) { this.sex = sex; } var factory = (function() { var people= {}, return { create: function(sex) { let human = people[sex]; if(human) { return human; }else { people[sex] = human; } } } }()); var manager = function() { var database = {}; return { add: function(id) { var obj = factory.create('male'); databse[id] = obj; } } }  
   
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a>
+  </h1>
+  <time datetime="2019-11-10T21:22:29&#43;0800" class="post-date">Sun, Nov 10, 2019</time>
+  &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot; /&gt; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt; &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt; &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;button id=&quot;ExecuteBtn&quot;&gt;execute&lt;/button&gt; &lt;button id=&quot;UndoBtn&quot;&gt;undo&lt;/button&gt; &lt;script&gt; var setCommand = function({ element = null, eventType = &quot;onclick&quot;, command = null, commandType = &quot;execute&quot; }) { if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) { if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) { element[eventType] = command[commandType]; } } }; var command = (function() { let _i = 0; return { execute: function() { _i++; console.
+  
+  <div class="read-more-link">
+    <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">Read More…</a>
+  </div>
   
 </article><article class="post">
   <h1 class="post-title">
