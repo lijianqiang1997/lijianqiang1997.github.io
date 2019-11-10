@@ -137,6 +137,65 @@
       ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
 </code></pre>
 
+<pre><code>对象池改善职责链模式
+var Chain = function() {
+        let _args = arguments;
+        let _ObjectPool = [];
+        return _ObjectPool.length?_ObjectPool.pop():{
+          expectResult: true,
+          fnArr: [],
+          currentIndex: 0,
+          addNext: function(fn) {
+            return this.fnArr.push(fn), this;
+          },
+          run: function() {
+            let i = this.currentIndex;
+            let fnArr = this.fnArr;
+            let length = fnArr.length;
+            for (; i &lt; length; ++i) {
+              this.currentIndex = i;
+              let fn = fnArr[i];
+              let result = fn.apply(fn,_args);
+              if (result !== this.expectResult) {
+                break;
+              }
+            }
+            if(i === length) {
+              this.init();
+            }
+          },
+          init: function() {
+            this.currentIndex = 0;
+            this.fnArr = [];
+            this.recover();
+          },
+          next:function() {
+            this.currentIndex ++;
+            this.run();
+          },
+          recover: function() {
+            _ObjectPool.push(this)
+          }
+        };
+      };
+      let ca = Chain(&quot;m&quot;);
+      var fn1 = function(prefix) {
+        console.log(prefix+'1');
+        return true;
+      };
+      var fn2 = function(prefix) {
+        console.log(prefix+'2');
+        setTimeout(()=&gt;{
+          ca.next();
+        },1000)
+      };
+      var fn3 = function(prefix) {
+        console.log(prefix+'3');
+        return false;
+      };
+      ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
+</code></pre>
+
 </div>
 
 
