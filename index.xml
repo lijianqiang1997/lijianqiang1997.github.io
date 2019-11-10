@@ -17,7 +17,7 @@
       <pubDate>Sat, 09 Nov 2019 12:19:59 +0800</pubDate>
       
       <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
-      <description>var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;amp;&amp;amp; this.fn.apply(this,arguments); if(result === true) { return this.successor &amp;amp;&amp;amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.</description>
+      <description>var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;amp;&amp;amp; this.fnfn(..._args); if(result === true) { return this.successor &amp;amp;&amp;amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.</description>
     </item>
     
     <item>

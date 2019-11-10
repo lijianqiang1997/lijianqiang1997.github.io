@@ -56,7 +56,7 @@
     <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/">职责链模式</a>
   </h1>
   <time datetime="2019-11-09T12:19:59&#43;0800" class="post-date">Sat, Nov 9, 2019</time>
-  var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;&amp; this.fn.apply(this,arguments); if(result === true) { return this.successor &amp;&amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.
+  var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;&amp; this.fnfn(..._args); if(result === true) { return this.successor &amp;&amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.
   
   <div class="read-more-link">
     <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/">Read More…</a>

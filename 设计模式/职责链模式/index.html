@@ -57,7 +57,7 @@
         this.successor = null;
       }
       Chain.prototype.run = function() {
-        var result = this.fn &amp;&amp; this.fn.apply(this,arguments);
+        var result = this.fn &amp;&amp; this.fnfn(..._args);
         if(result === true) {
           return this.successor &amp;&amp; this.successor.run.apply(this.successor,arguments)
         }
@@ -100,7 +100,7 @@
             for (; i &lt; length; ++i) {
               this.currentIndex = i;
               let fn = fnArr[i];
-              let result = fn.apply(fn,_args);
+              let result = fn(..._args);
               if (result !== true) {
                 break;
               }
@@ -155,7 +155,7 @@ var Chain = function() {
             for (; i &lt; length; ++i) {
               this.currentIndex = i;
               let fn = fnArr[i];
-              let result = fn.apply(fn,_args);
+              let result = fn(..._args);
               if (result !== this.expectResult) {
                 break;
               }
@@ -195,6 +195,73 @@ var Chain = function() {
         return false;
       };
       ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
+</code></pre>
+
+<pre><code>// 添加回收变量
+var Chain = function(obj) {
+        let _args = arguments;
+        let _ObjectPool = [];
+        return _ObjectPool.length?_ObjectPool.pop():{
+          expectResult: true, // 让它进入到下一环节的收到的预期结果
+          fnArr: [], // 所有环节
+          currentIndex: 0, // 进行到的环节
+          addNext: function(fn) {
+            return this.fnArr.push(fn), this;
+          } ,// 添加下一环节
+          run: function() { // 运行环节
+            let i = this.currentIndex;
+            let fnArr = this.fnArr;
+            let length = fnArr.length;
+            for (; i &lt; length; ++i) {
+              this.currentIndex = i;
+              let fn = fnArr[i];
+              let result = fn(..._args);
+              if (result !== this.expectResult) {
+                break;
+              }
+            }
+            if(i === length) {
+              this.init(obj);
+            }
+          },
+          init: function(obj) { // 恢复初始化
+            this.expectResult = true;
+            this.currentIndex = 0;
+            this.fnArr = [];
+            this.recover();
+            obj = null;
+          },
+          next:function() {
+            this.currentIndex ++;
+            this.run();
+          }, // 接着往下执行
+          recover: function() {
+            _ObjectPool.push(this)
+          } // 回收对象
+        };
+      };
+      let ca = Chain(&quot;m&quot;);
+      var fn1 = function(prefix) {
+        console.log(prefix+'1');
+        return true;
+      };
+      var fn2 = function(prefix) {
+        console.log(prefix+'2');
+        setTimeout(()=&gt;{
+          ca.next();
+        },1000)
+      };
+      var fn3 = function(prefix) {
+        console.log(prefix+'3');
+        return false;
+      };
+      ca.addNext(fn1).addNext(fn2).addNext(fn3).run(ca)
+
+      var cb = Chain(&quot;k&quot;);
+       cb.addNext(fn1).addNext(fn2).addNext(fn3);
+       setTimeout(function() {
+        cb.run();
+      },100)
 </code></pre>
 
 </div>
