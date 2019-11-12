@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Diff算法初学习 &middot; 学习博客</title>
+  <title>Snabbdom中的diff算法 &middot; 学习博客</title>
   <meta name="description" content="" />
 
   
@@ -50,53 +50,10 @@
 
     <main class="content container">
     <div class="post">
-  <h1>Diff算法初学习</h1>
-  <time datetime=2019-11-12T11:11:44&#43;0800 class="post-date">Tue, Nov 12, 2019</time>
-  <pre><code class="language-js">//diff算法中的三个主要函数分别为patch,patchVnode,updateChildren
-function sameVnode(vnode1, vnode2) {
-    // 比较唯一键
-    return vnode1.key === vnode2.key &amp;&amp; vnode1.sel === vnode2.sel;
-}
-// 利用虚拟DOM的位置来操作真实DOM
-var updateChildren = function(oldCh,newCh) {
-    // 如果头头相同,，进入递归,指针右移
-    // 如果尾尾相同,进入递归,指针左移
-    // 如果头尾相同,,塞到尾后，头右移，尾左移
-    // 如果尾头相同,塞到头前，尾左移，头右移
-    // 如果都不同，创建新头,塞到头前
-    // oldCh遍历完，则把ch没有遍历的元素全部创建，塞到尾后
-    // ch遍历完，则把oldCh没有遍历的全部删除
-};
-// 比对新旧节点
-var patchVnode = function(oldVnode, vnode) {
-    // 如果是同一节点,无需分析
-    if (oldVnode === vnode) {
-        return;
-} 
-// 分析子节点
-else{
-    let oldChildren = oldVnode.children;
-    let children = vnode.children;
-    if(!oldChildren) {
-        // 将新节点的children全部添加到旧节点
-    }
-    else if(!children) {
-        // 移除所有oldChildren
-    }
-    // 分析子节点
-    else if(oldChildren!==children) {
-        updateChildren(oldChildren,children)
-    }
-}
-};
-var patch = function(oldVnode, vnode) {
-    // 表象相同，进一步分析
-    if (sameVnode(oldVnode, vnode)) {
-        patchVnode(oldVnode, vnode);
-    } else {
-        // 将旧节点替换为新节点，销毁旧节点
-    }
-};
+  <h1>Snabbdom中的diff算法</h1>
+  <time datetime=2019-11-12T11:15:10&#43;0800 class="post-date">Tue, Nov 12, 2019</time>
+  <pre><code>
+
 </code></pre>
 
 </div>
