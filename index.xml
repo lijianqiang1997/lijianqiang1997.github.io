@@ -17,7 +17,7 @@
       <pubDate>Tue, 12 Nov 2019 11:15:10 +0800</pubDate>
       
       <guid>https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/snabbdom%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</guid>
-      <description>  </description>
+      <description>var VNode = function(sel, data, children, text, elm) { this.sel = sel; this.data = data; this.children = children; this.text = text; this.elm = elm; this.key = data === undefined ? undefined : data.key; }; function sameVnode(vnode1, vnode2) { // 索引相同且选择器相同 return vnode1.key === vnode2.key &amp;amp;&amp;amp; vnode1.sel === vnode2.sel; } function createElm(vnode) { var children = vnode.children, sel = vnode.sel; if (sel === &amp;quot;!&amp;quot;) { if (isUndef(vnode.text)) { vnode.text = &amp;quot;&amp;quot;; } vnode.</description>
     </item>
     
     <item>

@@ -52,7 +52,199 @@
     <div class="post">
   <h1>Snabbdom中的diff算法</h1>
   <time datetime=2019-11-12T11:15:10&#43;0800 class="post-date">Tue, Nov 12, 2019</time>
-  <pre><code>
+  <pre><code>var VNode = function(sel, data, children, text, elm) {
+        this.sel = sel;
+        this.data = data;
+        this.children = children;
+        this.text = text;
+        this.elm = elm;
+        this.key = data === undefined ? undefined : data.key;
+      };
+      function sameVnode(vnode1, vnode2) {
+        // 索引相同且选择器相同
+        return vnode1.key === vnode2.key &amp;&amp; vnode1.sel === vnode2.sel;
+      }
+      function createElm(vnode) {
+        var children = vnode.children,
+          sel = vnode.sel;
+        if (sel === &quot;!&quot;) {
+          if (isUndef(vnode.text)) {
+            vnode.text = &quot;&quot;;
+          }
+          vnode.elm = api.createComment(vnode.text);
+        } else if (sel !== undefined) {
+          // Parse selector
+          var hashIdx = sel.indexOf(&quot;#&quot;);
+          var dotIdx = sel.indexOf(&quot;.&quot;, hashIdx);
+          var hash = hashIdx &gt; 0 ? hashIdx : sel.length;
+          var dot = dotIdx &gt; 0 ? dotIdx : sel.length;
+          var tag =
+            hashIdx !== -1 || dotIdx !== -1
+              ? sel.slice(0, Math.min(hash, dot))
+              : sel;
+          var elm = (vnode.elm =
+            isDef(data) &amp;&amp; isDef((i = data.ns))
+              ? api.createElementNS(i, tag)
+              : api.createElement(tag));
+          if (hash &lt; dot) elm.setAttribute(&quot;id&quot;, sel.slice(hash + 1, dot));
+          if (dotIdx &gt; 0)
+            elm.setAttribute(&quot;class&quot;, sel.slice(dot + 1).replace(/\./g, &quot; &quot;));
+          for (i = 0; i &lt; cbs.create.length; ++i)
+            cbs.create[i](emptyNode, vnode);
+          if (is.array(children)) {
+            for (i = 0; i &lt; children.length; ++i) {
+              var ch = children[i];
+              if (ch != null) {
+                api.appendChild(elm, createElm(ch, insertedVnodeQueue));
+              }
+            }
+          } else if (is.primitive(vnode.text)) {
+            api.appendChild(elm, api.createTextNode(vnode.text));
+          }
+          i = vnode.data.hook; // Reuse variable
+          if (isDef(i)) {
+            if (i.create) i.create(emptyNode, vnode);
+            if (i.insert) insertedVnodeQueue.push(vnode);
+          }
+        } else {
+          vnode.elm = api.createTextNode(vnode.text);
+        }
+        return vnode.elm;
+      }
+      function removeVnodes(parentElm, vnodes, startIdx, endIdx) {
+        for (; startIdx &lt;= endIdx; ++startIdx) {
+            var vnode = vnodes[startIdx];
+            if (vnode != null) {
+                parentElm.removeChild(vnode.elm);
+            }
+        }
+    }
+
+    function updateChildren(parentElm, oldCh, newCh, insertedVnodeQueue) {
+        var oldStartIdx = 0, newStartIdx = 0;
+        var oldEndIdx = oldCh.length - 1;
+        var oldStartVnode = oldCh[0];
+        var oldEndVnode = oldCh[oldEndIdx];
+        var newEndIdx = newCh.length - 1;
+        var newStartVnode = newCh[0];
+        var newEndVnode = newCh[newEndIdx];
+        var oldKeyToIdx;
+        var idxInOld;
+        var elmToMove;
+        var before;
+        while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {
+            // 找到oldCh中第一个不为null的节点
+            if (oldStartVnode == null) {
+                oldStartVnode = oldCh[++oldStartIdx]; // Vnode might have been moved left
+            }
+            // 找到oldCh中最后一个不为null的节点
+            else if (oldEndVnode == null) {
+                oldEndVnode = oldCh[--oldEndIdx];
+            }
+            // 找到ch中第一个不为null的节点
+            else if (newStartVnode == null) {
+                newStartVnode = newCh[++newStartIdx];
+            }
+            // 找到ch中最后一个不为null的节点
+            else if (newEndVnode == null) {
+                newEndVnode = newCh[--newEndIdx];
+            }
+            // oldch与ch第一个不为null的子节点索引相同且选择器相同，进入递归
+            else if (sameVnode(oldStartVnode, newStartVnode)) {
+                patchVnode(oldStartVnode, newStartVnode, insertedVnodeQueue);
+                oldStartVnode = oldCh[++oldStartIdx];
+                newStartVnode = newCh[++newStartIdx];
+            }
+            // // oldch与ch最后一个不为null的子节点索引相同且选择器相同，也进入递归
+            else if (sameVnode(oldEndVnode, newEndVnode)) {
+                patchVnode(oldEndVnode, newEndVnode, insertedVnodeQueue);
+                oldEndVnode = oldCh[--oldEndIdx];
+                newEndVnode = newCh[--newEndIdx];
+            }
+            else if (sameVnode(oldStartVnode, newEndVnode)) {
+                patchVnode(oldStartVnode, newEndVnode, insertedVnodeQueue);
+                // oldEndVnode.elm -&gt; oldStartVnode.elm
+                parentElm.insertBefore(oldStartVnode.elm, oldEndVnode.elm.nextSibling());
+                oldStartVnode = oldCh[++oldStartIdx];
+                newEndVnode = newCh[--newEndIdx];
+            }
+            else if (sameVnode(oldEndVnode, newStartVnode)) {
+                // oldEndVnode.elm -&gt; oldStartVnode.elm
+                patchVnode(oldEndVnode, newStartVnode, insertedVnodeQueue);
+                parentElm.insertBefore(oldEndVnode.elm, oldStartVnode.elm);
+                oldEndVnode = oldCh[--oldEndIdx];
+                newStartVnode = newCh[++newStartIdx];
+            }
+            else {
+                parentElm.insertBefore( createElm(newStartVnode), oldStartVnode.elm);
+                newStartVnode = newCh[++newStartIdx];
+            }
+        }
+        if (oldStartIdx &gt; oldEndIdx) {
+            before = newCh[newEndIdx + 1] == null ? null : newCh[newEndIdx + 1].elm;
+            addVnodes(parentElm, before, newCh, newStartIdx, newEndIdx);
+        }
+        // ch遍历完移除oldCh没有遍历的
+        else if (newStartIdx &gt; newEndIdx) {
+            removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+        }
+    }
+
+    function patchVnode(oldVnode, vnode) {
+        var elm = vnode.elm = oldVnode.elm;
+        var oldCh = oldVnode.children;
+        var ch = vnode.children;
+        // 如果oldVnode和vnode是同一节点,不做任何处理
+        if (oldVnode === vnode)
+            return;
+        // 新节点文本不存在
+        if (isUndef(vnode.text)) {
+            if (isDef(oldCh) &amp;&amp; isDef(ch)) {
+                // 子节点不相同
+                if (oldCh !== ch)
+                    // 更新子节点
+                    updateChildren(elm, oldCh, ch);
+            }
+            // oldVnode没有子节点
+            else if (isDef(ch)) {
+                // 原节点text存在则清空
+                if (isDef(oldVnode.text))
+                    elm.textContent = &quot;&quot;;
+                // 添加Vnode的子节点
+                addVnodes(elm, null, ch, 0, ch.length - 1);
+            }
+            // Vnode没有子节点
+            else if (isDef(oldCh)) {
+                // 移除Vnode的子节点
+                removeVnodes(elm, oldCh, 0, oldCh.length - 1);
+            }
+            // oldVnode的text存在
+            else if (isDef(oldVnode.text)) {
+                elm.textContent = &quot;&quot;;
+            }
+        }
+        // vnode.text存在，文本更新为更新vnode.text
+        else if (oldVnode.text !== vnode.text) {
+            elm.textContent = vnode.text;
+        }
+    }
+      function patch(oldVnode, vnode) {
+        var i, elm, parent;
+        // oldVnode与vnode索引相同且选择器相同
+        if (sameVnode(oldVnode, vnode)) {
+          // 比对oldVnode与vnode
+          patchVnode(oldVnode, vnode);
+        } else {
+          elm = oldVnode.elm;
+          parent = elm.parentNode();
+          createElm(vnode);
+          if (parent !== null) {
+            parent.insertBefore(vnode.elm, elm.nextSibling());
+            removeVnodes(parent, [oldVnode], 0, 0);
+          }
+        }
+        return vnode;
+      }
 
 </code></pre>
 
