@@ -6,10 +6,19 @@
     <description>Recent content on 学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Nov 2019 21:22:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 11:11:44 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Diff算法初学习</title>
+      <link>https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/diff%E7%AE%97%E6%B3%95%E5%88%9D%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 12 Nov 2019 11:11:44 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/diff%E7%AE%97%E6%B3%95%E5%88%9D%E5%AD%A6%E4%B9%A0/</guid>
+      <description>//diff算法中的三个主要函数分别为patch,patchVnode,updateChildren function sameVnode(vnode1, vnode2) { // 比较唯一键 return vnode1.key === vnode2.key &amp;amp;&amp;amp; vnode1.sel === vnode2.sel; } var updateChildren = function() {}; // 比对新旧节点 var patchVnode = function(oldVnode, vnode) { // 如果是同一节点,无需分析 if (oldVnode === vnode) { return; } // 分析子节点 else{ let oldChildren = oldVnode.children; let children = vnode.children; if(!oldChildren) { // 将新节点的children全部添加到旧节点 } else if(!children) { // 移除所有oldChildren } // 分析子节点 else if(oldChildren!==children) { updateChildren(oldChildren,children) } } }; var patch = function(oldVnode, vnode) { // 表象相同，进一步分析 if (sameVnode(oldVnode, vnode)) { patchVnode(oldVnode, vnode); } else { // 将旧节点替换为新节点，销毁旧节点 } };  </description>
+    </item>
     
     <item>
       <title>享元模式</title>
