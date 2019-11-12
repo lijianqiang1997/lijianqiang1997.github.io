@@ -58,10 +58,13 @@ function sameVnode(vnode1, vnode2) {
     return vnode1.key === vnode2.key &amp;&amp; vnode1.sel === vnode2.sel;
 }
 
-var updateChildren = function() {};
-    // 比对新旧节点
-    var patchVnode = function(oldVnode, vnode) {
-        // 如果是同一节点,无需分析
+var updateChildren = function() {
+    
+};
+
+// 比对新旧节点
+var patchVnode = function(oldVnode, vnode) {
+    // 如果是同一节点,无需分析
     if (oldVnode === vnode) {
         return;
 } 
