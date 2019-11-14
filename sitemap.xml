@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://lijianqiang1997.github.io/elementui/</loc>
+    <lastmod>2019-11-14T20:28:54+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lijianqiang1997.github.io/elementui/form/</loc>
+    <lastmod>2019-11-14T20:28:54+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lijianqiang1997.github.io/</loc>
+    <lastmod>2019-11-14T20:28:54+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-11-12T11:15:10+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/snabbdom%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2019-11-12T11:15:10+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lijianqiang1997.github.io/</loc>
     <lastmod>2019-11-12T11:15:10+08:00</lastmod>
   </url>
   

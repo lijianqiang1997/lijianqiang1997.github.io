@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elementuis on 学习博客</title>
+    <link>https://lijianqiang1997.github.io/elementui/</link>
+    <description>Recent content in Elementuis on 学习博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Nov 2019 20:28:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://lijianqiang1997.github.io/elementui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Form表单如何在提交时只显示一项错误项</title>
+      <link>https://lijianqiang1997.github.io/elementui/form/</link>
+      <pubDate>Thu, 14 Nov 2019 20:28:54 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/elementui/form/</guid>
+      <description>this.$refs[&amp;quot;ruleForm&amp;quot;].validate(async (valid,fields) =&amp;gt; { try { if(!this.validateConfirmPass()) { throw new Error(&amp;quot;两次密码输入不一致&amp;quot;); } if (valid) { await myPurse.updateTransactionPassword(this.ruleForm); this.$successMessage(&amp;quot;设置成功&amp;quot;); } else { // 清楚不要的检测字段 let fieldsArr = Object.keys(fields); let props = fieldsArr.slice(1); form.clearValidate(props) let formEl = form.$el; setTimeout(() =&amp;gt; { let FirstInputEl = formEl .querySelector( &amp;quot;.is-error input[type=&#39;text&#39;],.is-error input[type=&#39;password&#39;],is-required input[type=&#39;text&#39;],.is-required input[type=&#39;password&#39;]&amp;quot; ); // 使第一个input聚焦 FirstInputEl.focus(); FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView(); }, 0); throw new Error(&amp;quot;请修改不合法字段&amp;quot;); } } catch (e) { this.$errorMessage(e.message); } });  </description>
+    </item>
+    
+  </channel>
+</rss>

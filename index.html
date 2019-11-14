@@ -34,7 +34,7 @@
     <div class="sidebar-about">
       <a href="https://lijianqiang1997.github.io/"><h1>学习博客</h1></a>
       <p class="lead">
-      An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.
+          
       </p>
     </div>
 
@@ -52,6 +52,13 @@
     <main class="content container">
     <div class="posts">
 <article class="post">
+  <h1 class="post-title">
+    <a href="https://lijianqiang1997.github.io/elementui/form/">Form表单如何在提交时只显示一项错误项</a>
+  </h1>
+  <time datetime="2019-11-14T20:28:54&#43;0800" class="post-date">Thu, Nov 14, 2019</time>
+  this.$refs[&quot;ruleForm&quot;].validate(async (valid,fields) =&gt; { try { if(!this.validateConfirmPass()) { throw new Error(&quot;两次密码输入不一致&quot;); } if (valid) { await myPurse.updateTransactionPassword(this.ruleForm); this.$successMessage(&quot;设置成功&quot;); } else { // 清楚不要的检测字段 let fieldsArr = Object.keys(fields); let props = fieldsArr.slice(1); form.clearValidate(props) let formEl = form.$el; setTimeout(() =&gt; { let FirstInputEl = formEl .querySelector( &quot;.is-error input[type='text'],.is-error input[type='password'],is-required input[type='text'],.is-required input[type='password']&quot; ); // 使第一个input聚焦 FirstInputEl.focus(); FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView(); }, 0); throw new Error(&quot;请修改不合法字段&quot;); } } catch (e) { this.$errorMessage(e.message); } });  
+  
+</article><article class="post">
   <h1 class="post-title">
     <a href="https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/snabbdom%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/">Snabbdom中的diff算法</a>
   </h1>
