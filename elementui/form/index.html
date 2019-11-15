@@ -52,7 +52,8 @@
     <div class="post">
   <h1>Form表单如何在提交时只显示一项错误项</h1>
   <time datetime=2019-11-14T20:28:54&#43;0800 class="post-date">Thu, Nov 14, 2019</time>
-  <pre><code>this.$refs[&quot;ruleForm&quot;].validate(async (valid,fields) =&gt; {
+  <pre><code>let form = this.$refs[&quot;ruleForm&quot;];
+form.validate(async (valid,fields) =&gt; {
     try {
         if(!this.validateConfirmPass()) {
         throw new Error(&quot;两次密码输入不一致&quot;);
