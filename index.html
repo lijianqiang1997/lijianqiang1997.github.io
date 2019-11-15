@@ -50,159 +50,159 @@
 </aside>
 
     <main class="content container">
-    <div class="posts">
+    <style>
+    .post-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .post-title a{
+      text-decoration: none;
+      transition: 200ms;;
+    }
+    .post-title a:hover {
+      color: skyblue;
+    }
+    .post-img {
+      display: block;
+      max-width: 100%;
+    }
+  </style>
+<div class="posts">
+
 <article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/elementui/form/">Form表单如何在提交时只显示一项错误项</a>
+    <a href="https://lijianqiang1997.github.io/elementui/form/" title="Form表单如何在提交时只显示一项错误项">Form表单如何在提交时只显示一项错误项</a>
   </h1>
   <time datetime="2019-11-14T20:28:54&#43;0800" class="post-date">Thu, Nov 14, 2019</time>
-  let form = this.$refs[&quot;ruleForm&quot;]; form.validate(async (valid,fields) =&gt; { try { if(!this.validateConfirmPass()) { throw new Error(&quot;两次密码输入不一致&quot;); } if (valid) { await myPurse.updateTransactionPassword(this.ruleForm); this.$successMessage(&quot;设置成功&quot;); } else { // 清楚不要的检测字段 let fieldsArr = Object.keys(fields); let props = fieldsArr.slice(1); form.clearValidate(props) let formEl = form.$el; setTimeout(() =&gt; { let FirstInputEl = formEl .querySelector( &quot;.is-error input[type='text'],.is-error input[type='password'],is-required input[type='text'],.is-required input[type='password']&quot; ); // 使第一个input聚焦 FirstInputEl.focus(); FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView(); }, 0); throw new Error(&quot;请修改不合法字段&quot;); } } catch (e) { this.$errorMessage(e.message); } });  
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/snabbdom%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/">Snabbdom中的diff算法</a>
+    <a href="https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/snabbdom%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/" title="Snabbdom中的diff算法">Snabbdom中的diff算法</a>
   </h1>
   <time datetime="2019-11-12T11:15:10&#43;0800" class="post-date">Tue, Nov 12, 2019</time>
-  var VNode = function(sel, data, children, text, elm) { this.sel = sel; this.data = data; this.children = children; this.text = text; this.elm = elm; this.key = data === undefined ? undefined : data.key; }; function sameVnode(vnode1, vnode2) { // 索引相同且选择器相同 return vnode1.key === vnode2.key &amp;&amp; vnode1.sel === vnode2.sel; } function createElm(vnode) { var children = vnode.children, sel = vnode.sel; if (sel === &quot;!&quot;) { if (isUndef(vnode.text)) { vnode.text = &quot;&quot;; } vnode.
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/diff%E7%AE%97%E6%B3%95/snabbdom%E4%B8%AD%E7%9A%84diff%E7%AE%97%E6%B3%95/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/diff%E7%AE%97%E6%B3%95%E5%88%9D%E5%AD%A6%E4%B9%A0/">Diff算法初学习</a>
+    <a href="https://lijianqiang1997.github.io/diff%E7%AE%97%E6%B3%95/diff%E7%AE%97%E6%B3%95%E5%88%9D%E5%AD%A6%E4%B9%A0/" title="Diff算法初学习">Diff算法初学习</a>
   </h1>
   <time datetime="2019-11-12T11:11:44&#43;0800" class="post-date">Tue, Nov 12, 2019</time>
-  //diff算法中的三个主要函数分别为patch,patchVnode,updateChildren function sameVnode(vnode1, vnode2) { // 比较唯一键 return vnode1.key === vnode2.key &amp;&amp; vnode1.sel === vnode2.sel; } // 利用虚拟DOM的位置来操作真实DOM var updateChildren = function(oldCh,newCh) { // 如果头头相同,，进入递归,指针右移 // 如果尾尾相同,进入递归,指针左移 // 如果头尾相同,,塞到尾后，头右移，尾左移 // 如果尾头相同,塞到头前，尾左移，头右移 // 如果都不同，创建新头,塞到头前 // oldCh遍历完，则把ch没有遍历的元素全部创建，塞到尾后 // ch遍历完，则把oldCh没有遍历的全部删除 }; // 比对新旧节点 var patchVnode = function(oldVnode, vnode) { // 如果是同一节点,无需分析 if (oldVnode === vnode) { return; } // 分析子节点 else{ let oldChildren = oldVnode.children; let children = vnode.children; if(!oldChildren) { // 将新节点的children全部添加到旧节点 } else if(!
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/diff%E7%AE%97%E6%B3%95/diff%E7%AE%97%E6%B3%95%E5%88%9D%E5%AD%A6%E4%B9%A0/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/">享元模式</a>
+    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/" title="享元模式">享元模式</a>
   </h1>
   <time datetime="2019-11-10T21:22:29&#43;0800" class="post-date">Sun, Nov 10, 2019</time>
-  var Person = function(sex) { this.sex = sex; } var factory = (function() { var people= {}, return { create: function(sex) { let human = people[sex]; if(human) { return human; }else { people[sex] = human; } } } }()); var manager = function() { var database = {}; return { add: function(id) { var obj = factory.create('male'); databse[id] = obj; } } }  
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a>
+    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/" title="命令模式">命令模式</a>
   </h1>
   <time datetime="2019-11-10T21:22:29&#43;0800" class="post-date">Sun, Nov 10, 2019</time>
-  var setCommand = function({ element = null, eventType = &quot;onclick&quot;, command = null, commandType = &quot;execute&quot; }) { if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) { if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) { element[eventType] = command[commandType]; } } }; var command = (function() { let _i = 0; return { execute: function() { _i++; console.log(_i); }, undo: function() { _i--; consoloe.
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/">职责链模式</a>
+    <a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/" title="职责链模式">职责链模式</a>
   </h1>
   <time datetime="2019-11-09T12:19:59&#43;0800" class="post-date">Sat, Nov 9, 2019</time>
-  var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;&amp; this.fnfn(..._args); if(result === true) { return this.successor &amp;&amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/window%E5%91%BD%E4%BB%A4/window%E5%91%BD%E4%BB%A4%E5%88%9D%E5%AD%A6%E4%B9%A0/">Window命令初学习</a>
+    <a href="https://lijianqiang1997.github.io/window%E5%91%BD%E4%BB%A4/window%E5%91%BD%E4%BB%A4%E5%88%9D%E5%AD%A6%E4%B9%A0/" title="Window命令初学习">Window命令初学习</a>
   </h1>
   <time datetime="2019-10-31T18:47:33&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
-   chdir和cd(获取当前目录) cd [/d] [&lt;Drive&gt;:][&lt;Path&gt;] cd [..] // 显示或更改目录路径，不同驱动器下是显示 chdir [/d] [&lt;Drive&gt;:][&lt;Path&gt;] chdir [..] // 显示或更改目录路径,不同驱动器下是显示 cd /? 获取帮助 chdir /? 获取帮助  ren和rename(重命名文件) ren [&lt;Drive&gt;:][&lt;Path&gt;]&lt;FileName1&gt; &lt;FileName2&gt; rename [&lt;Drive&gt;:][&lt;Path&gt;]&lt;FileName1&gt; &lt;FileName2&gt; 在重命名文件时，不能指定新的驱动器或路径。 不能使用ren命令在驱动器之间重命名文件，或将文件移动到不同的目录。 可以在 FileName 参数中使用 * 通配符（和 ？ ） 。 FileName2中由通配符表示的字符将与FileName1中的相应字符相同。FileName2必须是唯一的文件名。 如果FileName2与现有文件名相匹配，则ren会显示以下消息： Duplicate file name or file not found 若要将当前目录中的所有 .txt 文件扩展名更改为 .doc 扩展名，请键入： ren *.txt *.doc 若要将目录的名称从 Chap10 更改为 Part10，请键入： ren chap10 part10  cls(清除 &ldquo;命令提示符&rdquo; 窗口) 
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/html/code/">Code</a>
+    <a href="https://lijianqiang1997.github.io/html/code/" title="Code">Code</a>
   </h1>
   <time datetime="2019-10-31T15:39:05&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
-  &lt;code&gt;元素代表计算机代码的一部分。 这可以是XML元素名称，文件名，计算机程序或计算机可以识别的任何其他字符串。
-没有正式的方法可以表明被标记的计算机代码的语言。 希望使用所用语言标记代码元素的作者，例如 这样语法突出显示脚本可以使用正确的规则，可以使用class属性，例如 通过向元素添加前缀为“ language-”的类。
- 示例 以下示例显示如何在段落中使用元素来标记元素名称和计算机代码，包括标点符号。 &lt;p&gt;The &lt;code&gt;code&lt;/code&gt; element represents a fragment of computer code.&lt;/p&gt; &lt;p&gt; When you call the &lt;code&gt;activate()&lt;/code&gt; method on the &lt;code&gt;robotSnowman&lt;/code&gt; object, the eyes glow. &lt;/p&gt; &lt;p&gt;The example below uses the &lt;code&gt;begin&lt;/code&gt; keyword to indicate the start of a statement block. It is paired with an &lt;code&gt;end&lt;/code&gt; keyword, which is followed by the &lt;code&gt;.&lt;/code&gt; punctuation character (full stop) to indicate the end of the program.
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/html/code/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/%E7%9B%92%E6%A8%A1%E5%9E%8B/margin/">Margin</a>
+    <a href="https://lijianqiang1997.github.io/%E7%9B%92%E6%A8%A1%E5%9E%8B/margin/" title="Margin">Margin</a>
   </h1>
   <time datetime="2019-10-31T15:27:14&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
-  page relative(Physical)Margin 属性（页相对外边距属性）
-   margin      margin-top(margin-right、margin-bottom、margin-left)    值 &lt;length-percentage&gt; | auto   应用于 所有元素除了internal table elements(table-row-group, table-header-group, table-footer-group, table-row, table-cell, table-column-group, table-column)   默认值 0   百分比 相对于containing block 的logical width   继承性 无   动画性 通过计算值    Flow-relative Margin 属性（页相对外边距属性）
-   Flow-relative Margin      margin-block-start    margin-block-end    margin-inline-start    margin-inline-end    margin-block    margin-inline     垂直外边距合并 不会合并的情况  根元素的margin不会合并 If the top and bottom margins of an element with clearance are adjoining, its margins collapse with the adjoining margins of following siblings but that resulting margin does not collapse with the bottom margin of the parent block.
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/%E7%9B%92%E6%A8%A1%E5%9E%8B/margin/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/html/picture/">Picture</a>
+    <a href="https://lijianqiang1997.github.io/html/picture/" title="Picture">Picture</a>
   </h1>
   <time datetime="2019-10-31T14:35:53&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
-  &lt;picture&gt;:HTMLPictureElement 元素包含0或多个元素和一个元素和可选的script-supporting elements(script、template)混合来为不同设备场景提供图像。浏览会先选择最匹配的元素，如果没有匹配的，就选择元素,所选的图像最终都呈现在img元素占据的空间中
-   &lt;source&gt; 说明     src 资源地址   type 资源类型   srcset 在不同情况下使用的图像   sizes 不同页面布局的图像尺寸   media 应用的媒体查询    示例 media 属性 media 属性允许你提供一个用于给用户代理作为选择 &lt;source&gt; 元素的依据的媒体条件(media condition)（类似于媒体查询）。如果这个媒体条件匹配结果为 false，那么这个 &lt;source&gt; 元素会被跳过。 &lt;picture&gt; &lt;source srcset=&quot;mdn-logo-wide.png&quot; media=&quot;(min-width: 600px)&quot;&gt; &lt;img src=&quot;mdn-logo-narrow.png&quot; alt=&quot;MDN&quot;&gt; &lt;/picture&gt;  type 属性 type 属性允许你为 &lt;source&gt; 元素的 srcset 属性指向的资源指定一个 MIME 类型。如果用户代理不支持指定的类型，那么这个 &lt;source&gt; 元素会被跳过 &lt;picture&gt; &lt;source srcset=&quot;mdn-logo.svg&quot; type=&quot;image/svg+xml&quot;&gt; &lt;img src=&quot;mdn-logo.
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
   
-  <div class="read-more-link">
-    <a href="/html/picture/">Read More…</a>
-  </div>
+  
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/post/css/first/">First</a>
+    <a href="https://lijianqiang1997.github.io/post/css/first/" title="First">First</a>
   </h1>
   <time datetime="2019-10-30T10:33:34&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
-  sss
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/github/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2/">使用hugo搭建github博客</a>
+    <a href="https://lijianqiang1997.github.io/github/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2/" title="使用hugo搭建github博客">使用hugo搭建github博客</a>
   </h1>
   <time datetime="2019-10-30T10:33:34&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
-  完成github托管到本地后
-1.https://github.com/gohugoio/hugo/releases下载对应版本的hugo
-2.将hugo.exe加入到环境变量
-3.执行以下命令
-hugo version // 检查安装 hugo new site my // 新建站点my cd my // 进入站点 my hugo new blog.md // 新建文章blog 想要让文章发布显示需要将draft改为false  4.进入themes目录下载主题，这里我下的是hyde
-cd themes https://github.com/htr3n/hyde-hyde.git cd ../  5.本地运行
-hugo server --theme=hyde  执行完后可以在本地localhost:1313运行
-6.部署到github
-hugo --theme=hyde --baseUrl=&quot;https://username.github.io&quot; --buildDrafts // 生成页面模板 然后进入public文件下 将文件push到github的username.github.io仓库  
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/css/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/stacking-context%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">Stackingcontext(层叠上下文)</a>
+    <a href="https://lijianqiang1997.github.io/css/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/stacking-context%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/" title="Stackingcontext(层叠上下文)">Stackingcontext(层叠上下文)</a>
   </h1>
   <time datetime="2019-10-30T10:31:17&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
-  说明：
-(1) 位于最下面的background/border特指层叠上下文元素的边框和背景色。每一个层叠顺序规则仅适用于当前层叠上下文元素的小世界。
-(2)inline水平盒子指的是包括inline/inline-block/inline-table元素的&rdquo;层叠顺序&rdquo;,它们都是同级别的。 (3)单纯从层叠水平上看,实际上z-index:0和z-index:auto是可以看成是一样的。注意这里的措辞——“单纯从层叠水平看，实际上，定位元素设置z-index：0会建立新的层叠上下文
- 如何形成层叠上下文 如何形成层叠上下文 | &mdash;|&mdash; 根元素(html) | z-index不为auto的相对/绝对定位 | z-index不为auto的flex item(即父元素display: flex|inline-flex) | opacity小于1 | transform不为none | mix-blend-mode不为normal | filter不为none | perspective不为none | isolation:isolate | position:fixed | 在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值 | -webkit-overflow-scrolling:touch |
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/github/%E5%B0%86github%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%88%B0%E6%9C%AC%E5%9C%B0/">将github仓库关联到本地</a>
+    <a href="https://lijianqiang1997.github.io/github/%E5%B0%86github%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%88%B0%E6%9C%AC%E5%9C%B0/" title="将github仓库关联到本地">将github仓库关联到本地</a>
   </h1>
   <time datetime="2019-10-30T10:31:17&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
-  进入github首页，新建一个仓库，命名为你的用户名.github.io(lijianqiang1997.github.io) 进入SSH key设置   2.在本地生成SSH key
-ssh-keygen -t rsa -C &quot;xiangshuo1992@gmail.com&quot; //账号  3.记事本打开id_rsa.pub，复制文本，粘贴到要添加的地方 gitBash 操作
-cat id_rsa.pub //拷贝秘钥 ssh-rsa开头  4、验证和修改
-测试是否成功配置SSH Key
-ssh -T git@github.com //运行结果出现类似如下 Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.  接下来就可以使用git进行愉快的操作了
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article><article class="post">
   <h1 class="post-title">
-    <a href="https://lijianqiang1997.github.io/post/css/"></a>
+    <a href="https://lijianqiang1997.github.io/post/css/" title=""></a>
   </h1>
   <time datetime="0001-01-01T00:00:00Z" class="post-date">Mon, Jan 1, 0001</time>
-  222
+  <img class="post-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573817430514&di=ba5b1b57832b3f196f40faf4fb21c9ba&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1207%2F03%2Fc0%2F12204258_12204258_1341277099254_mthumb.jpg" alt="">
+  
   
 </article>
 </div>
