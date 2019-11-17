@@ -6,10 +6,19 @@
     <description>Recent content on 学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Nov 2019 20:28:54 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2019 21:34:58 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>神术</title>
+      <link>https://lijianqiang1997.github.io/%E8%82%A1%E7%A5%A8/%E7%A5%9E%E6%9C%AF/</link>
+      <pubDate>Sun, 17 Nov 2019 21:34:58 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%82%A1%E7%A5%A8/%E7%A5%9E%E6%9C%AF/</guid>
+      <description> 神术价格分析 2X-T // 低点 2T-X // 上涨 (XT)^1/2 回调 x^0.618*t^0.382 源自于地震学 物理学 速度和惯性的概念 天文学有一定联系 目的在如何识别相对最高点，相对低点 每一波高低你都可以初步 动能爆发点一定是动能突破点  </description>
+    </item>
     
     <item>
       <title>Form表单如何在提交时只显示一项错误项</title>
