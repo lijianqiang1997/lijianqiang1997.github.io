@@ -6,10 +6,19 @@
     <description>Recent content on 学习博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Nov 2019 21:34:58 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 16:59:36 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>发布订阅模式</title>
+      <link>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 19 Nov 2019 16:59:36 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>var EventEmiter = (function() { var _events = {}; return { on: function(eventName, fn) { if (!eventName in this._events) { this._events[eventName] = []; } this._events[eventName].push(fn); }, emit: function(eventName) { var _args = Array.prototype.slice.call(arguments, 1), _events = this._events; if (eventName in _events) { _events[eventName].forEach(fn =&amp;gt; { fn.apply(_args); }); } }, off: function(eventName, fn) { var _events = this._events, index; if (eventName in _events) { if (fn) { if(typeof fn === &#39;function&#39;) { index = _events.</description>
+    </item>
     
     <item>
       <title>神术</title>
