@@ -52,7 +52,9 @@
     <div class="post">
   <h1>FormData</h1>
   <time datetime=2019-11-21T15:42:49&#43;0800 class="post-date">Thu, Nov 21, 2019</time>
-  <pre><code>typedef (File or USVString) FormDataEntryValue;
+  
+
+<pre><code>typedef (File or USVString) FormDataEntryValue;
 
 [Exposed=(Window,Worker)]
 interface FormData {
@@ -130,7 +132,7 @@ interface FormData {
 </tbody>
 </table>
 
-<p>####FormData构造函数</p>
+<h4 id="formdata构造函数">FormData构造函数</h4>
 
 <pre><code class="language-js">语法: 
 var formData = new FormData(form)
@@ -138,7 +140,7 @@ form(可选):
 一个HTML 上的&lt;form&gt;表单元素——当指定了，这种方式创建的FormData对象会自动将form中的表单值也包含进去，包括文件内容也会被编码之后包含进去。
 </code></pre>
 
-<p>####利用FormData提交表单</p>
+<h4 id="利用formdata提交表单">利用FormData提交表单</h4>
 
 <pre><code class="language-html">&lt;form id=&quot;myForm&quot; name=&quot;myForm&quot;&gt;
   &lt;div&gt;
