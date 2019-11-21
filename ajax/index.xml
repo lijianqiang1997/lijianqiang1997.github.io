@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ajaxes on 学习博客</title>
+    <link>https://lijianqiang1997.github.io/ajax/</link>
+    <description>Recent content in Ajaxes on 学习博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Nov 2019 15:42:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://lijianqiang1997.github.io/ajax/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FormData</title>
+      <link>https://lijianqiang1997.github.io/ajax/formdata/</link>
+      <pubDate>Thu, 21 Nov 2019 15:42:49 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/ajax/formdata/</guid>
+      <description>typedef (File or USVString) FormDataEntryValue; [Exposed=(Window,Worker)] interface FormData { constructor(optional HTMLFormElement form); void append(USVString name, USVString value); void append(USVString name, Blob blobValue, optional USVString filename); void delete(USVString name); FormDataEntryValue? get(USVString name); sequence&amp;lt;FormDataEntryValue&amp;gt; getAll(USVString name); boolean has(USVString name); void set(USVString name, USVString value); void set(USVString name, Blob blobValue, optional USVString filename); iterable&amp;lt;USVString, FormDataEntryValue&amp;gt;; };     FormData 类型 说明     has(name) boolean    get(name) FormDataEntryValue    getAll(name) sequence    append(name,value) void    append(name,blobValue,filename) void    set(name) void    set(name,blobValue,filename) void    delete(name) void     ####FormData构造函数</description>
+    </item>
+    
+  </channel>
+</rss>
