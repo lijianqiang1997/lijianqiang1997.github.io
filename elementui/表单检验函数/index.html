@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>表单检验函数 &middot; 学习笔记</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://lijianqiang1997.github.io/"><h1>学习笔记</h1></a>
+      <p class="lead">
+          
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>表单检验函数</h1>
+  <time datetime=2019-11-23T21:38:08&#43;0800 class="post-date">Sat, Nov 23, 2019</time>
+  <pre><code>src/utils/validate.js
+
+// 检查数值
+const checkNumber = (rule, value, callback) =&gt; {
+    value===''||/^-?\d+(\.\d+)?$/.test(value) ? callback() : callback(new Error('必须是数字值'))
+}
+
+// 检查正整数
+const positiveInt = (rule, value, callback) =&gt; {
+   value  = +value;
+   value&gt;0 &amp;&amp; Number.isInteger(value)?callback() : callback(new Error('必须为正整数'))
+}
+
+// 检查大于1
+const great1 = (rule, value, callback) =&gt; {
+    +value &gt;= 1 ? callback() : callback(new Error('充值金额不少于1元'))
+}
+
+// 检查大于0
+const great0 = (rule, value, callback) =&gt; {
+    +value &gt;= 0 ? callback() : callback(new Error('扣款金额不少于0元'))
+}
+
+// 检查长度
+const maxLength_200 = (rule, value, callback) =&gt; {
+    value.length&lt;=200 ? callback() : callback(new Error('长度不能超过200'))
+}
+
+// 检查区间
+const between = function(min,max) {
+    return (rule, value, callback) =&gt; {
+        value  = +value;
+        value&lt;=max &amp;&amp; value&gt;=min? callback() : callback(new Error('长度不能超过200'))
+    }
+}
+// 检查包含两种字符且不包括空格的密码
+const password = (rule, value, callback) =&gt; {
+    // let errorMessage = &quot;&quot;;
+    // let length = value.length;
+    // if(length&gt;16) {
+    //     errorMessage = &quot;密码不能超过16位&quot;;
+    // }else if(length &lt;6) {
+    //     errorMessage = &quot;密码不能少于6位&quot;;
+    // }else if(value.includes(' ')) {
+    //     errorMessage = &quot;密码不能包含空格&quot;;
+    // } else if(!/(?!^[0-9]{6,16}$)(?!^[a-zA-Z]{6,16}$)^.{6,16}$/.test(value)) {
+    //     errorMessage = &quot;密码不能只包含一种字符&quot;;
+    // }
+    // errorMessage!==''?callback(errorMessage):callback();
+    /(?!^[^0-9a-zA-Z]{6,16}$)(?!^[0-9]{6,16}$)(?!^[a-zA-Z]{6,16}$)^[^(\s)]{6,16}$/.test(value)?callback():callback(new Error(&quot;密码必须为6-16位，字母、数字、字符至少两种组合，不包含空格&quot;))
+   
+}
+export default {
+    checkNumber,
+    positiveInt,
+    great0,
+    great0_withdrawal,
+    great1,
+    maxLength_200,
+    between,
+    password
+}
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
