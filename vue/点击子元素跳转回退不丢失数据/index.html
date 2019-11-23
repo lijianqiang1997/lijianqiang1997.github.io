@@ -122,7 +122,15 @@ export default {
 &lt;/template&gt;
 
 &lt;script&gt;
+const defaultData = {
+
+};
     export default {
+        data() {
+            return {
+                ...defaultData
+            }
+        }
         activated() {
             const routeHistory = this.$store.state.routeHistory;
             let totalFlag = true;
