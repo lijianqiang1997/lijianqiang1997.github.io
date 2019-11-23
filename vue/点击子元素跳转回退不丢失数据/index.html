@@ -71,6 +71,7 @@ export default store;
 import Router from 'vue-router'
 
 var routerInstance = new Router()
+
 //开启routeHistory总线
 routerInstance.beforeEach((to,form,next)=&gt;{
     store.state.routeHistory.push(to.fullPath);
@@ -94,6 +95,9 @@ export default {
         }
         num = (num+length) % length;
         return routeHistory[num];
+    }，
+    getLast:function() {
+        return this.get(-1);
     }
 }
 </code></pre>
@@ -112,6 +116,7 @@ export default {
 </code></pre>
 
 <pre><code>demo.vue
+
 &lt;template&gt;
     &lt;div class=&quot;demo&quot;&gt;&lt;/div&gt;
 &lt;/template&gt;
@@ -123,18 +128,23 @@ export default {
             let totalFlag = true;
             let fromPath,PfromPath,flag;
             if(!routeHistory.lenght&lt;3) {
-            fromPath = routeHistory[routeHistory.length-2];
-            PfromPath = routeHistory[routeHistory.length-3];
-            flag = this.checkPath(fromPath);
-            totalFlag = !flag || PfromPath !== this.$route.path;
+                //最后一条记录是自身
+                // 获取最后第二条记录
+                fromPath = routeHistory[routeHistory.length-2];
+                 // 获取最后第三条记录
+                PfromPath = routeHistory[routeHistory.length-3];
+                // 判断上一条路径是否是我们期望的
+                flag = this.checkPath(fromPath);
+                // 判断上上条记录是否是自身
+                totalFlag = !flag || PfromPath !== this.$route.path;
             }
-            
+            // 如果上一条路径不在期望中或者上上条路径不是自身的话，重置初始数据
             if (totalFlag) {
-            for (var attr in data) {
-                if (data.hasOwnProperty(attr)) {
-                this[attr] = data[attr];
+                for (var attr in data) {
+                    if (data.hasOwnProperty(attr)) {
+                    this[attr] = data[attr];
+                    }
                 }
-            }
             }
             this.getData();
         }
