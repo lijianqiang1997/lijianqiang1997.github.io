@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>分享我封装的axios &middot; 学习笔记</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://lijianqiang1997.github.io/"><h1>学习笔记</h1></a>
+      <p class="lead">
+          
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>分享我封装的axios</h1>
+  <time datetime=2019-11-23T21:25:58&#43;0800 class="post-date">Sat, Nov 23, 2019</time>
+  <pre><code>src/axios/http.js
+
+import axios from &quot;axios&quot;;
+import router from &quot;../router&quot;;
+import store from &quot;../store/store&quot;;
+import { Message } from &quot;element-ui&quot;;
+import apiConfig from '../../config/api.config'
+import qs from 'qs'
+// let loadingInstance = Loading.service({ fullscreen: true });
+
+const tip = msg =&gt; {
+  Message({
+    showClose: true,
+    message: msg,
+    type: &quot;error&quot;
+  });
+};
+
+let tipBanMessage = (function() {
+	var index =0;
+	return {
+		show: function(msg) {
+			if(index === 0) {
+        index = 1;
+        tip(msg);
+			}
+		},
+		init: function() {
+			index= 0;
+		}
+	}
+})();
+
+
+const concatData = function(data){
+  const defaultData = {
+      userGuid: localStorage.getItem('guid')
+  };
+  return typeof data === 'object'&amp;&amp; Object.keys(data).length ? {...defaultData,...data}:defaultData;
+}
+
+const toLogin = () =&gt; {
+  router.replace({
+    path: &quot;/login&quot;,
+    query: {
+      redirect: router.currentRoute.fullPath
+    }
+  });
+};
+
+
+const errorHandle = (status, other) =&gt; {
+
+  switch (status) {
+
+    case 401:
+      toLogin();
+      break;
+    case 403:
+      tip(&quot;登录过期，请重新登录&quot;);
+      localStorage.removeItem(&quot;token&quot;);
+      store.commit(&quot;loginSuccess&quot;, null);
+      setTimeout(() =&gt; {
+        toLogin();
+      }, 1000);
+      break;
+    case 404:
+      tip(&quot;请求的资源不存在&quot;);
+      break;
+    default:
+      console.log(other);
+  }
+};
+
+
+var instance = axios.create({
+  baseURL: apiConfig.baseUrl,
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8'
+  },
+  timeout: 5000,
+  transformRequest: [function (data, headers) {
+    // 混入全局所需token
+    return JSON.stringify(concatData(data));
+  }],
+});
+
+instance.interceptors.request.use(
+  config =&gt; {
+    const token = store.state.token;
+    token &amp;&amp; (config.headers.Authorization = token);
+    return config;
+  },
+  error =&gt; {
+    return Promise.error(error)
+  }
+);
+
+
+instance.interceptors.response.use(
+
+  res =&gt; {
+    if (res.status &gt;= 200 &amp;&amp; res.status &lt; 300) {
+      let data = res.data;
+      if (data.code &lt; 0 || data.code===1) {
+        let message = data.message;
+        if(message.includes(&quot;账号不可用&quot;)) {
+          tipBanMessage.show(message);
+          new Promise(function(resolve){
+            store.dispatch(&quot;ban&quot;);
+            resolve();
+          }).then(function() {
+            router.push(&quot;/&quot;);
+          })
+        }
+        return Promise.reject(data);
+      } else {
+        return Promise.resolve(data);
+      }
+    }
+    return Promise.reject(res);
+  },
+
+  error =&gt; {
+    const { response } = error;
+    if (response) {
+      errorHandle(response.status, response.data.message);
+      return Promise.reject(response);
+    } else {
+      if (!window.navigator.onLine) {
+        store.commit(&quot;changeNetwork&quot;, false);
+      } else {
+        return Promise.reject(error);
+      }
+    }
+  }
+);
+
+export default instance;
+
+</code></pre>
+
+<pre><code>src/axios/api/myPurse.js
+
+/** 
+ * 
+ * 我的钱包接口
+*/
+import axios from '../http'
+import qs from 'qs'
+import store from '../../store/store'
+
+
+const tel = function() {
+    return store.state.tel
+}
+ const accountBaseUrl = '/api/balanceAccount';
+// 获取账户余额
+
+const balance = function(data) {
+    return axios.post(`${accountBaseUrl}/balance`,data);
+}
+// 提现申请
+ const withdraw = function(data) {
+    data.contactPhone = tel();
+    return axios.post(`${accountBaseUrl}/withdraw`,data);
+}
+
+// 交易记录
+ const transactionRecords = function(data) {
+    return axios.post(`${accountBaseUrl}/transactionRecords`,data);
+}
+
+// 设置（重置）交易密码
+const resetTransactionPassword = function(data) {
+    data.phone = tel();
+    return axios.post(`${accountBaseUrl}/resetTransactionPassword`,data);
+}
+
+
+// 是否修改交易密码
+const isTradePasswordSet = function(data) {
+    return axios.post(`${accountBaseUrl}/isTradePasswordSet`,data);
+}
+
+
+// 修改交易密码
+ const updateTransactionPassword = function(data) {
+    return axios.post(`${accountBaseUrl}/updateTransactionPassword`,data);
+}
+
+// 托管资金
+ const deposit = function(data) {
+    return axios.post(`/api/tenderee/deposit`,data);
+}
+
+// 充值金额
+const recharge = function(data) {
+    return axios.post(`${accountBaseUrl}/recharge`,data);
+}
+
+const settleAccount = function(data) {
+    return axios.post(`/api/tenderee/settleAccount`,data);
+}
+
+
+
+export default {
+    balance,
+    withdraw,
+    transactionRecords,
+    resetTransactionPassword,
+    isTradePasswordSet,
+    updateTransactionPassword,
+    deposit,
+    recharge,
+    settleAccount
+}
+
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>
