@@ -59,26 +59,28 @@ form.validate(async (valid,fields) =&gt; {
         throw new Error(&quot;两次密码输入不一致&quot;);
         }
         if (valid) {
-        await myPurse.updateTransactionPassword(this.ruleForm);
-        this.$successMessage(&quot;设置成功&quot;);
+            // 调用接口
+            await myPurse.updateTransactionPassword(this.ruleForm);
+            // 调用成功后的相关操作
+            ...codes
         } else {
         // 清楚不要的检测字段
         let fieldsArr = Object.keys(fields);
         let props = fieldsArr.slice(1);
-        form.clearValidate(props)
+        if(props.length) {
+            form.clearValidate(props)
+        }
         let formEl = form.$el;
         setTimeout(() =&gt; {
             let FirstInputEl =  formEl
             .querySelector(
-            &quot;.is-error input[type='text'],.is-error input[type='password'],is-required input[type='text'],.is-required input[type='password']&quot;
+            &quot;.is-error input[type='text'],.is-error input[type='password'],.is-required input[type='text'],.is-required input[type='password']&quot;
             );
             // 使第一个input聚焦
             FirstInputEl.focus();
             FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView();
         }, 0);
-
-
-        throw new Error(&quot;请修改不合法字段&quot;);
+        throw new Error(fields[fieldsArr[0]][0].message);
         }
     } catch (e) {
         this.$errorMessage(e.message);
