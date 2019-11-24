@@ -44,7 +44,7 @@
       </ul>
     </nav>
 
-    <p>&copy; 2019. All rights reserved. </p>
+    
   </div>
 </aside>
 
@@ -87,6 +87,7 @@ const between = function(min,max) {
         value&lt;=max &amp;&amp; value&gt;=min? callback() : callback(new Error('长度不能超过200'))
     }
 }
+
 // 检查包含两种字符且不包括空格的密码
 const password = (rule, value, callback) =&gt; {
     // let errorMessage = &quot;&quot;;
@@ -101,9 +102,9 @@ const password = (rule, value, callback) =&gt; {
     //     errorMessage = &quot;密码不能只包含一种字符&quot;;
     // }
     // errorMessage!==''?callback(errorMessage):callback();
-    /(?!^[^0-9a-zA-Z]{6,16}$)(?!^[0-9]{6,16}$)(?!^[a-zA-Z]{6,16}$)^[^(\s)]{6,16}$/.test(value)?callback():callback(new Error(&quot;密码必须为6-16位，字母、数字、字符至少两种组合，不包含空格&quot;))
-   
+    /(?!^[^0-9a-zA-Z]{6,16}$)(?!^[0-9]{6,16}$)(?!^[a-zA-Z]{6,16}$)^[^(\s)]{6,16}$/.test(value)?callback():callback(new Error(&quot;密码必须为6-16位，字母、数字、字符至少两种组合，不包含空格&quot;))   
 }
+
 export default {
     checkNumber,
     positiveInt,

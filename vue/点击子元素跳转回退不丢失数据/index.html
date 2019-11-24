@@ -44,7 +44,7 @@
       </ul>
     </nav>
 
-    <p>&copy; 2019. All rights reserved. </p>
+    
   </div>
 </aside>
 
@@ -98,6 +98,9 @@ export default {
     }，
     getLast:function() {
         return this.get(-1);
+    },
+    getLentgh: function() {
+        return store.state.routeHistory.length;
     }
 }
 </code></pre>
@@ -122,6 +125,8 @@ export default {
 &lt;/template&gt;
 
 &lt;script&gt;
+import routeHistoryUtil from '@/utils/routeHistoryUtil.js'
+
 const defaultData = {
 
 };
@@ -132,15 +137,14 @@ const defaultData = {
             }
         }
         activated() {
-            const routeHistory = this.$store.state.routeHistory;
             let totalFlag = true;
             let fromPath,PfromPath,flag;
-            if(!routeHistory.lenght&lt;3) {
+            if(!routeHistoryUtil.getLength() &lt; 3) {
                 //最后一条记录是自身
                 // 获取最后第二条记录
-                fromPath = routeHistory[routeHistory.length-2];
+                fromPath = routeHistoryUtil.get(-2);
                  // 获取最后第三条记录
-                PfromPath = routeHistory[routeHistory.length-3];
+                PfromPath = routeHistoryUtil.get(-3);
                 // 判断上一条路径是否是我们期望的
                 flag = this.checkPath(fromPath);
                 // 判断上上条记录是否是自身
@@ -154,6 +158,7 @@ const defaultData = {
                     }
                 }
             }
+            // 初始化调用接口操作
             this.getData();
         }
     }
