@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>神术 &middot; 学习笔记</title>
+  <title>Hugo Menu参数 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -117,25 +117,156 @@
 </style>
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>神术</h1>
-  <time datetime=2019-11-17T21:34:58&#43;0800 class="post-date">Sun, Nov 17, 2019</time>
-  
+  <h1>Hugo Menu参数</h1>
+  <time datetime=2019-11-25T13:29:04&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
+  <table>
+<thead>
+<tr>
+<th>Menu Entry Variables</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
 
-<h4 id="神术价格分析">神术价格分析</h4>
+<tbody>
+<tr>
+<td>.Menu</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
 
-<pre><code>2X-T // 低点
-2T-X // 上涨
-(XT)^1/2  回调
-x^0.618*t^0.382
+<tr>
+<td>.URL</td>
+<td>string</td>
+<td>page’s .RelPermalink</td>
+<td></td>
+</tr>
 
-源自于地震学
-物理学 速度和惯性的概念
-天文学有一定联系
+<tr>
+<td>.Page</td>
+<td></td>
+<td>指向关联menu entry的page object,如果menu entry是通过首页而非配置文件设置时，为非0</td>
+<td></td>
+</tr>
 
-目的在如何识别相对最高点，相对低点
-每一波高低你都可以初步
-动能爆发点一定是动能突破点
-</code></pre>
+<tr>
+<td>.Name</td>
+<td>string</td>
+<td>.LinkTitle</td>
+<td>menu entry的名字</td>
+</tr>
+
+<tr>
+<td>.Identifier</td>
+<td>string</td>
+<td></td>
+<td>menu  entry的识别码,如果超过一个menu erntries有同样的.Name时必须设置</td>
+</tr>
+
+<tr>
+<td>.Pre</td>
+<td>HTML</td>
+<td></td>
+<td>一般为图标</td>
+</tr>
+
+<tr>
+<td>.Post</td>
+<td>HTML</td>
+<td></td>
+<td>一般为事件按钮</td>
+</tr>
+
+<tr>
+<td>.Weight</td>
+<td>int</td>
+<td>page&rsquo;s .Weight</td>
+<td>menu entry的权重，也即导航栏的排列顺序</td>
+</tr>
+
+<tr>
+<td>.Parent</td>
+<td>string</td>
+<td></td>
+<td>为parent menu entry的Name(或Identifier如果指定的话)，如果设置了这个menu entry设置在父导航下，否则设置在总导航下</td>
+</tr>
+
+<tr>
+<td>.Children</td>
+<td>Menu</td>
+<td></td>
+<td>当前菜单的子菜单集合</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Menu Entry Functions</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>.HasChildren</td>
+<td>boolean</td>
+<td>如果.Children不为0返回true</td>
+</tr>
+
+<tr>
+<td>.keyName</td>
+<td>string</td>
+<td>如果存在.Indentifier返回.Indentifier，否则返回.Name</td>
+</tr>
+
+<tr>
+<td>.IsEqual</td>
+<td>boolean</td>
+<td>如果两个menu entries为同一个menu entry返回true</td>
+</tr>
+
+<tr>
+<td>.IsSameResource</td>
+<td>boolean</td>
+<td>两个menu entries是否有同样的.URL</td>
+</tr>
+
+<tr>
+<td>.Title</td>
+<td>string</td>
+<td>链接标题，用于menu entries下a标签的title属性，如果menu entry是由首页产生的，返回页面的.LinkTitle,否则返回设置的title或空字符串</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Other Menu-related Functions</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>.IsMenuCurrent</td>
+<td>(menu string, menuEntry *MenuEntry ) boolean</td>
+<td>如果Page与给定MenuEntry的.Page是同一个对象，返回true</td>
+</tr>
+
+<tr>
+<td>.HasMenuCurrent</td>
+<td>(menu string, menuEntry *MenuEntry) boolean</td>
+<td>如果Page与给定Menu中Menu Entry的子菜单项之一中的.Page相同返回true</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 

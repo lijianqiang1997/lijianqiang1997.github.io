@@ -55,6 +55,9 @@
     background: inherit;
     content: '';
   }
+  .sidebar-nav-item.active a {
+    color:  #2b6b84;
+  }
 </style>
 
 <aside class="sidebar">
@@ -72,7 +75,17 @@
       <ul class="sidebar-nav">
         
         
-        <li class="sidebar-nav-item"><a href="/"> Home </a></li><li class="sidebar-nav-item"><a href="/elementui/"> elementUI </a></li><li class="sidebar-nav-item"><a href="/github/"> github </a></li><li class="sidebar-nav-item"><a href="/vue/"> vue </a></li><li class="sidebar-nav-item"><a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"> 设计模式 </a></li>
+        <li class="sidebar-nav-item">
+          <a href="/"><i class='fa fa-heart'></i> Home </a
+        ></li><li class="sidebar-nav-item">
+          <a href="/github/"><i class='fa fa-heart'></i> github </a
+        ></li><li class="sidebar-nav-item">
+          <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class='fa fa-heart'></i> 设计模式 </a
+        ></li><li class="sidebar-nav-item">
+          <a href="/vue/"><i class='fa fa-heart'></i> vue </a
+        ></li><li class="sidebar-nav-item">
+          <a href="/elementui/"><i class='fa fa-road'></i> elementUI </a
+        ></li>
       </ul>
     </nav>
 
@@ -81,7 +94,29 @@
 </aside>
 
     <main class="content container">
-    <div class="post">
+    <style>
+  .main-return {
+    display: none;
+  }
+  @media (min-width: 48em) {
+    .main-return {
+      position: fixed;
+      top: 0;
+      left: 14rem;
+      display: block;
+      width: 4rem;
+      border: 1px solid #2c96b2;  
+      border-radius: 5px    
+      line-height: 2.5rem;
+      text-align: center;
+      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
+      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+    }
+  }
+</style>
+<a href="javascript:history.go(-1)" class="main-return">返回</a>
+<div class="post">
   <h1>职责链模式</h1>
   <time datetime=2019-11-09T12:19:59&#43;0800 class="post-date">Sat, Nov 9, 2019</time>
   <pre><code> var Chain = function(fn) {
