@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.59.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>导航栏的修改 &middot; 学习笔记</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <style>
+  @media (max-width: 48em) {
+    .sidevbar-logo__img {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+  .sidebar-nav-item {
+    position: relative;
+    border-right: 1.25rem solid transparent;
+  }
+  .sidebar-nav-item.active {
+    background: skyblue;
+    background-clip: content-box;
+    -webkit-filter: hue-rotate(45deg);
+    filter: hue-rotate(45deg)
+  }
+  .sidebar-nav-item.active:after {
+    position: absolute;
+    left: 100%;
+    border: 1.25rem solid skyblue;
+    border-top-color: transparent;
+    border-right: 0 none;
+    border-bottom-color: transparent;
+    background: inherit;
+    content: '';
+  }
+</style>
+
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidevbar-logo">
+      <img
+        src="https://lijianqiang1997.github.io/images/logo.png"
+        alt="logo"
+        class="sidevbar-logo__img"
+      />
+    </div>
+    
+
+    <nav>
+      <ul class="sidebar-nav">
+        
+        
+        <li class="sidebar-nav-item"><a href="/"> Home </a></li><li class="sidebar-nav-item"><a href="/elementui/"> elementUI </a></li><li class="sidebar-nav-item"><a href="/github/"> github </a></li><li class="sidebar-nav-item"><a href="/vue/"> vue </a></li><li class="sidebar-nav-item"><a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"> 设计模式 </a></li>
+      </ul>
+    </nav>
+
+    
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>导航栏的修改</h1>
+  <time datetime=2019-11-25T10:18:51&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
+  <pre><code class="language-css">    @media (max-width: 48em) {
+    .sidevbar-logo__img {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+  .sidebar-nav-item {
+    position: relative;
+    border-right: 1.25rem solid transparent;
+  }
+  .sidebar-nav-item.active {
+    background: skyblue;
+    background-clip: content-box;
+    -webkit-filter: hue-rotate(45deg);
+    filter: hue-rotate(45deg)
+  }
+  .sidebar-nav-item.active:after {
+    position: absolute;
+    left: 100%;
+    border: 1.25rem solid skyblue;
+    border-top-color: transparent;
+    border-right: 0 none;
+    border-bottom-color: transparent;
+    background: inherit;
+    content: '';
+  }
+</code></pre>
+
+<pre><code class="language-html">&lt;aside class=&quot;sidebar&quot;&gt;
+  &lt;div class=&quot;container sidebar-sticky&quot;&gt;
+    &lt;div class=&quot;sidevbar-logo&quot;&gt;
+      &lt;img
+        src=&quot;{{ .Site.BaseURL }}images/logo.png&quot;
+        alt=&quot;logo&quot;
+        class=&quot;sidevbar-logo__img&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;!-- &lt;div class=&quot;sidebar-about&quot;&gt;
+      &lt;a href=&quot;{{ .Site.BaseURL }}&quot;&gt;&lt;h1&gt;{{ .Site.Title }}&lt;/h1&gt;&lt;/a&gt;
+      &lt;p class=&quot;lead&quot;&gt;&lt;/p&gt;
+    &lt;/div&gt; --&gt;
+
+    &lt;nav&gt;
+      &lt;ul class=&quot;sidebar-nav&quot;&gt;
+        &lt;!-- &lt;li&gt;&lt;a href=&quot;{{ .Site.BaseURL }}&quot;&gt;Home&lt;/a&gt;&lt;/li&gt; --&gt;
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main -}}
+        &lt;!--给导航栏添加选中类--&gt;
+        &lt;li class=&quot;sidebar-nav-item{{if or ($currentPage.IsMenuCurrent &quot;main&quot; .) ($currentPage.HasMenuCurrent &quot;main&quot; .) }} active{{end}}&quot;&gt;&lt;a href=&quot;{{.URL}}&quot;&gt; {{ .Name }} &lt;/a&gt;&lt;/li&gt;
+        {{- end }}
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;!--去除copyright--&gt;
+    &lt;!-- &lt;p&gt;{{ with .Site.Params.copyright }}{{.}}{{ else }}&amp;copy; {{ now.Format &quot;2006&quot;}}. All rights reserved. {{end}}&lt;/p&gt; --&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;
+</code></pre>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

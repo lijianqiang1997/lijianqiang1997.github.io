@@ -6,10 +6,19 @@
     <description>Recent content in Githubs on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Oct 2019 10:33:34 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 Nov 2019 10:18:51 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/github/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>导航栏的修改</title>
+      <link>https://lijianqiang1997.github.io/github/%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E4%BF%AE%E6%94%B9/</link>
+      <pubDate>Mon, 25 Nov 2019 10:18:51 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/github/%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E4%BF%AE%E6%94%B9/</guid>
+      <description>@media (max-width: 48em) { .sidevbar-logo__img { max-width: 50%; margin: 0 auto; } } .sidebar-nav-item { position: relative; border-right: 1.25rem solid transparent; } .sidebar-nav-item.active { background: skyblue; background-clip: content-box; -webkit-filter: hue-rotate(45deg); filter: hue-rotate(45deg) } .sidebar-nav-item.active:after { position: absolute; left: 100%; border: 1.25rem solid skyblue; border-top-color: transparent; border-right: 0 none; border-bottom-color: transparent; background: inherit; content: &#39;&#39;; }  &amp;lt;aside class=&amp;quot;sidebar&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;container sidebar-sticky&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;sidevbar-logo&amp;quot;&amp;gt; &amp;lt;img src=&amp;quot;{{ .Site.BaseURL }}images/logo.png&amp;quot; alt=&amp;quot;logo&amp;quot; class=&amp;quot;sidevbar-logo__img&amp;quot; /&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;!</description>
+    </item>
     
     <item>
       <title>使用hugo搭建github博客</title>
