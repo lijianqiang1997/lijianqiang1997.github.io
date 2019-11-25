@@ -29,19 +29,51 @@
 </head>
 
   <body class=" ">
-  <aside class="sidebar">
+  <style>
+  @media (max-width: 48em) {
+    .sidevbar-logo__img {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+  .sidebar-nav-item {
+    position: relative;
+    border-right: 1.25rem solid transparent;
+  }
+  .sidebar-nav-item.active {
+    background: skyblue;
+    background-clip: content-box;
+    -webkit-filter: hue-rotate(45deg);
+    filter: hue-rotate(45deg)
+  }
+  .sidebar-nav-item.active:after {
+    position: absolute;
+    left: 100%;
+    border: 1.25rem solid skyblue;
+    border-top-color: transparent;
+    border-right: 0 none;
+    border-bottom-color: transparent;
+    background: inherit;
+    content: '';
+  }
+</style>
+
+<aside class="sidebar">
   <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="https://lijianqiang1997.github.io/"><h1>学习笔记</h1></a>
-      <p class="lead">
-          
-      </p>
+    <div class="sidevbar-logo">
+      <img
+        src="https://lijianqiang1997.github.io/images/logo.png"
+        alt="logo"
+        class="sidevbar-logo__img"
+      />
     </div>
+    
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="https://lijianqiang1997.github.io/">Home</a> </li>
-        <li><a href="/vue/"> vue </a></li><li><a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"> 设计模式 </a></li><li><a href="/elementui/"> elementUI </a></li>
+        
+        
+        <li class="sidebar-nav-item"><a href="/"> Home </a></li><li class="sidebar-nav-item"><a href="/elementui/"> elementUI </a></li><li class="sidebar-nav-item"><a href="/github/"> github </a></li><li class="sidebar-nav-item"><a href="/vue/"> vue </a></li><li class="sidebar-nav-item active"><a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"> 设计模式 </a></li>
       </ul>
     </nav>
 
