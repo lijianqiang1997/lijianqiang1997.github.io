@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>命令模式 &middot; 学习笔记</title>
+  <title>stroke-dashoffset &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -142,46 +142,38 @@
 </style>
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>命令模式</h1>
-  <time datetime=2019-11-10T21:22:29&#43;0800 class="post-date">Sun, Nov 10, 2019</time>
-  <pre><code class="language-javascript">var setCommand = function({
-element = null,
-eventType = &quot;onclick&quot;,
-command = null,
-commandType = &quot;execute&quot;
-}) {
-if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) {
-    if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) {
-    element[eventType] = command[commandType];
-    }
-}
-};
+  <h1>stroke-dashoffset</h1>
+  <time datetime=2019-11-26T13:23:44&#43;0800 class="post-date">Tue, Nov 26, 2019</time>
+  <table>
+<thead>
+<tr>
+<th>stroke-dashoffset</th>
+<th>显示属性</th>
+</tr>
+</thead>
 
-var command = (function() {
-let _i = 0;
-return {
-    execute: function() {
-    _i++;
-    console.log(_i);
-    },
-    undo: function() {
-    _i--;
-    consoloe.log(_i);
-    }
-};
-})();
-var ExecuteBtnbtn  = document.querySelector('#ExecuteBtnbtn');
-var UndoBtn = document.querySelector('#UndoBtn');
-setCommand({
-    element: ExecuteBtnbtn,
-    command:command
-})
-setCommand({
-    element: UndoBtn,
-    command:command,
-    commandType: 'undo'
-})
-</code></pre>
+<tbody>
+<tr>
+<td>值</td>
+<td><percentage>(百分比相对于viewport) | <length> | inherit</td>
+</tr>
+
+<tr>
+<td>初始值</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>动画系</td>
+<td>yes</td>
+</tr>
+
+<tr>
+<td>规范</td>
+<td><a href="https://www.w3.org/TR/SVG11/painting.html#StrokeDashoffsetProperty" target="https://www.w3.org/TR/SVG11/painting.html#StrokeDashoffsetProperty">SVG 1.1 (2nd Edition)</a></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 

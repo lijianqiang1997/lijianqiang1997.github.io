@@ -6,18 +6,27 @@
     <description>Recent content on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Nov 2019 13:12:28 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Nov 2019 13:23:44 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>stroke-dashoffset</title>
+      <link>https://lijianqiang1997.github.io/svg/stroke/stroke-dashoffset/</link>
+      <pubDate>Tue, 26 Nov 2019 13:23:44 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/svg/stroke/stroke-dashoffset/</guid>
+      <description>   stroke-dashoffset 显示属性     值 (百分比相对于viewport) |  | inherit   初始值 1   动画系 yes   规范 SVG 1.1 (2nd Edition)    </description>
+    </item>
+    
+    <item>
       <title>stroke-dasharray</title>
-      <link>https://lijianqiang1997.github.io/svg/stroke-dasharray/</link>
+      <link>https://lijianqiang1997.github.io/svg/stroke/stroke-dasharray/</link>
       <pubDate>Tue, 26 Nov 2019 13:12:28 +0800</pubDate>
       
-      <guid>https://lijianqiang1997.github.io/svg/stroke-dasharray/</guid>
-      <description></description>
+      <guid>https://lijianqiang1997.github.io/svg/stroke/stroke-dasharray/</guid>
+      <description>路径绘制动画 css @keyframes line { from { stroke-dasharray: 0 10000; } to { stroke-dasharray: 400 10000; } } .svg-dasharray { animation: 1.5s infinite line; }  html &amp;lt;svg xmlns=&amp;quot;http://www.w3.org/svg/2000&amp;quot; width=&amp;quot;120&amp;quot; height=&amp;quot;120&amp;quot; class=&amp;quot;svg-dasharray&amp;quot; viewBox=&amp;quot;0 0 110 110&amp;quot;&amp;gt; &amp;lt;path d=&amp;quot;M 10 10 h 100 v 100 h -100 z&amp;quot; stroke-width=&amp;quot;2&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;black&amp;quot; /&amp;gt; &amp;lt;/svg&amp;gt;  示例 @keyframes line { from { stroke-dasharray: 0 10000; } to { stroke-dasharray: 400 10000; }</description>
     </item>
     
     <item>

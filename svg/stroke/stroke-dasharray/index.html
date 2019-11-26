@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>命令模式 &middot; 学习笔记</title>
+  <title>stroke-dasharray &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -142,46 +142,71 @@
 </style>
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>命令模式</h1>
-  <time datetime=2019-11-10T21:22:29&#43;0800 class="post-date">Sun, Nov 10, 2019</time>
-  <pre><code class="language-javascript">var setCommand = function({
-element = null,
-eventType = &quot;onclick&quot;,
-command = null,
-commandType = &quot;execute&quot;
-}) {
-if (element &amp;&amp; eventType &amp;&amp; typeof element === &quot;object&quot; &amp;&amp; eventType in element) {
-    if (command &amp;&amp; commandType &amp;&amp; typeof command === &quot;object&quot; &amp;&amp; commandType in command) {
-    element[eventType] = command[commandType];
+  <h1>stroke-dasharray</h1>
+  <time datetime=2019-11-26T13:12:28&#43;0800 class="post-date">Tue, Nov 26, 2019</time>
+  
+
+<h3 id="路径绘制动画">路径绘制动画</h3>
+
+<pre><code class="language-css">css
+
+@keyframes line {
+    from {
+        stroke-dasharray: 0 10000;
+    }
+    to {
+        stroke-dasharray: 400 10000;
     }
 }
-};
 
-var command = (function() {
-let _i = 0;
-return {
-    execute: function() {
-    _i++;
-    console.log(_i);
-    },
-    undo: function() {
-    _i--;
-    consoloe.log(_i);
-    }
-};
-})();
-var ExecuteBtnbtn  = document.querySelector('#ExecuteBtnbtn');
-var UndoBtn = document.querySelector('#UndoBtn');
-setCommand({
-    element: ExecuteBtnbtn,
-    command:command
-})
-setCommand({
-    element: UndoBtn,
-    command:command,
-    commandType: 'undo'
-})
+.svg-dasharray {
+    animation: 1.5s infinite line;
+}
+
 </code></pre>
+
+<pre><code class="language-html">html
+
+&lt;svg xmlns=&quot;http://www.w3.org/svg/2000&quot; width=&quot;120&quot; height=&quot;120&quot; class=&quot;svg-dasharray&quot; viewBox=&quot;0 0 110 110&quot;&gt;
+    &lt;path  d=&quot;M 10 10 h 100 v 100 h -100 z&quot;  stroke-width=&quot;2&quot; fill=&quot;none&quot; stroke=&quot;black&quot; /&gt;
+&lt;/svg&gt;
+
+</code></pre>
+
+<h4 id="示例">示例</h4>
+
+<p><style type="text/css">
+    @keyframes line {
+        from {
+            stroke-dasharray: 0 10000;
+        }
+        to {
+            stroke-dasharray: 400 10000;
+        }<br />
+    }
+    .svg-dasharray {
+        display: block;
+        margin: 0 auto;
+    }
+    .svg-dasharray path{
+        animation: 1.5s infinite line;
+    }
+</style>
+<svg
+    xmlns="http://www.w3.org/svg/2000"
+    width="120"
+    height="120"
+    class="svg-dasharray"
+    viexBox="0 0 110 110"
+>
+<path
+d="M 10 10 h 100 v 100 h -100 z"
+stroke-width="2"
+fill="none"
+stroke="black"
+stroke-linecap="round"
+/>
+</svg></p>
 
 </div>
 
