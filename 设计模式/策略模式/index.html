@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>设计模式s &middot; 学习笔记</title>
+  <title>策略模式 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -24,7 +24,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="alternate" type="application/rss+xml" title="学习笔记" />
   
 </head>
 
@@ -124,7 +123,7 @@
               
           
               
-                  <li class="sidebar-nav-item active">
+                  <li class="sidebar-nav-item">
                       <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
                           <svg t="1574732239448" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M1022.976 256.512L767.488 1.024 512 256.512 256.512 1.024 1.024 256.512 256.512 512 1.024 767.488v255.488h255.488L512 767.488l255.488 255.488 255.488-255.488L767.488 512l255.488-255.488zM262.912 428.992l108.544-108.608-44.672-44.736-108.608 108.608-38.336-38.336L294.848 231.04l-51.136-44.8-108.544 115.008-44.8-44.672 166.144-166.08L467.2 301.184 301.184 467.264l-38.272-38.272z m-198.016 530.112V831.36l127.744 127.744H64.896z m191.616-25.536l-166.08-166.08 677.12-677.12 166.016 166.144-677.12 677.12z m677.12-166.08l-166.144 166.08-44.672-44.736 114.944-114.944-44.736-44.736-114.944 115.008-38.336-38.336 115.008-114.944-51.136-44.8-114.944 115.008-38.4-38.272 166.144-166.08 217.152 210.752z" fill="currentColor"></path></svg>
                           <span>设计模式</span>
@@ -168,19 +167,39 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
-<li>
-    <span><a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a> <time class="pull-right post-list" datetime="2019-11-26T23:06:36&#43;0800">Tue, Nov 26, 2019</time></span>
-  </li><li>
-    <span><a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/">发布订阅模式</a> <time class="pull-right post-list" datetime="2019-11-19T16:59:36&#43;0800">Tue, Nov 19, 2019</time></span>
-  </li><li>
-    <span><a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/">享元模式</a> <time class="pull-right post-list" datetime="2019-11-10T21:22:29&#43;0800">Sun, Nov 10, 2019</time></span>
-  </li><li>
-    <span><a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a> <time class="pull-right post-list" datetime="2019-11-10T21:22:29&#43;0800">Sun, Nov 10, 2019</time></span>
-  </li><li>
-    <span><a href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/">职责链模式</a> <time class="pull-right post-list" datetime="2019-11-09T12:19:59&#43;0800">Sat, Nov 9, 2019</time></span>
-  </li>
-</ul>
+    <style>
+  .main-return {
+    display: none;
+  }
+  @media (min-width: 48em) {
+    .main-return {
+      position: fixed;
+      top: 0;
+      left: 14rem;
+      display: block;
+      width: 4rem;
+      border: 1px solid #2c96b2;  
+      border-radius: 5px    
+      line-height: 2.5rem;
+      text-align: center;
+      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
+      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+    }
+  }
+</style>
+<a href="javascript:history.go(-1)" class="main-return">返回</a>
+<div class="post">
+  <h1>策略模式</h1>
+  <time datetime=2019-11-26T23:06:36&#43;0800 class="post-date">Tue, Nov 26, 2019</time>
+  <blockquote>
+<p>策略模式将算法的使用与实现分离
+一个基于策略模式的程序至少由两部分组成：一部分是策略类，封装了各种算法的实现，另外一部分是环境类Context，Context类接收客户的请求，将请求委托给一个策略类</p>
+</blockquote>
+
+</div>
+
+
     </main>
 
     
