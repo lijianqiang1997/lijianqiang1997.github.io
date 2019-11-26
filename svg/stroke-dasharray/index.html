@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Margin &middot; 学习笔记</title>
+  <title>stroke-dasharray &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -139,140 +139,9 @@
 </style>
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>Margin</h1>
-  <time datetime=2019-10-31T15:27:14&#43;0800 class="post-date">Thu, Oct 31, 2019</time>
+  <h1>stroke-dasharray</h1>
+  <time datetime=2019-11-26T13:12:28&#43;0800 class="post-date">Tue, Nov 26, 2019</time>
   
-
-<p>page relative(Physical)Margin 属性（页相对外边距属性）</p>
-
-<table>
-<thead>
-<tr>
-<th>margin</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>margin-top(margin-right、margin-bottom、margin-left)</td>
-<td></td>
-</tr>
-
-<tr>
-<td>值</td>
-<td>&lt;length-percentage&gt; | auto</td>
-</tr>
-
-<tr>
-<td>应用于</td>
-<td>所有元素除了internal table elements(table-row-group, table-header-group, table-footer-group, table-row, table-cell, table-column-group, table-column)</td>
-</tr>
-
-<tr>
-<td>默认值</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>百分比</td>
-<td>相对于containing block 的logical width</td>
-</tr>
-
-<tr>
-<td>继承性</td>
-<td>无</td>
-</tr>
-
-<tr>
-<td>动画性</td>
-<td>通过计算值</td>
-</tr>
-</tbody>
-</table>
-
-<p>Flow-relative Margin 属性（页相对外边距属性）</p>
-
-<table>
-<thead>
-<tr>
-<th>Flow-relative Margin</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>margin-block-start</td>
-<td></td>
-</tr>
-
-<tr>
-<td>margin-block-end</td>
-<td></td>
-</tr>
-
-<tr>
-<td>margin-inline-start</td>
-<td></td>
-</tr>
-
-<tr>
-<td>margin-inline-end</td>
-<td></td>
-</tr>
-
-<tr>
-<td>margin-block</td>
-<td></td>
-</tr>
-
-<tr>
-<td>margin-inline</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="垂直外边距合并">垂直外边距合并</h3>
-
-<h4 id="不会合并的情况">不会合并的情况</h4>
-
-<ol>
-<li>根元素的margin不会合并</li>
-<li>If the top and bottom margins of an element with clearance are adjoining, its margins collapse with the adjoining margins of following siblings but that resulting margin does not collapse with the bottom margin of the parent block.（暂不理解）</li>
-<li>FFC和GFC内部不会有margin合并</li>
-</ol>
-
-<h4 id="合并的条件">合并的条件</h4>
-
-<ol>
-<li>都属于in-flow block-level boxes且参与同一个BFC</li>
-<li>没有line boxes,没有clearance,没有padding,没有border分隔他们</li>
-<li>都属于垂直相邻box边缘,即形成以下一对
-a.box的margin-top与第一个in-flow子元素的margin-top
-b.box的margin-bottom与同级下一个in-flow元素的margin-top
-c.box（如果height计算为auto）的margin-bottom与最后一个in-flow子元素的margin-top
-d.box(如果不形成新的BFC)的margin-top和margin-bottom和min-height计算值为0或height计算为auto且没有In-flow子元素
-<br /></li>
-</ol>
-
-<h4 id="上述规则表明">上述规则表明</h4>
-
-<ol>
-<li>浮动的盒与任何其它盒之间的margin不会合并（甚至一个浮动盒与它的流内子级之间也不会）</li>
-<li>建立了新的块格式化上下文的元素（例如，浮动盒与&rsquo;overflow&rsquo;不为&rsquo;visible&rsquo;的元素）的margin不会与它们的流内孩子合并绝对定位的盒的margin不会合并（甚至与它们的流内子级也不会）</li>
-<li>inline-block盒的margin不会合并（甚至与它们的流内子级也不会）</li>
-<li>流内块级元素的bottom margin总会与它的下一个流内块级兄弟的top margin合并，除非该兄弟（元素）具有间隙</li>
-<li>流内块级元素的top margin会与它的第一个流内块级子级的top margin合并，条件是该元素没有上边框和上内边距，并且其孩子不具有间隙</li>
-<li>一个&rsquo;height&rsquo;为&rsquo;auto&rsquo;并且&rsquo;min-height&rsquo;为0的流内块级盒的bottom margin会与它的最后一个流内块级子级的bottom margin合并，条件是该盒没有下内边距和下边框，并且其孩子的下外边距没有与具有间隙的上外边距合并</li>
-<li>盒自身的外边距也会合并，条件是&rsquo;min-height&rsquo;属性为0，既没有上下边框，也没有上下内边距，&rsquo;height&rsquo;为0或&rsquo;auto&rsquo;，且不含行框的话，那么其所有流内孩子的外边距（如果存在的话）都会合并</li>
-</ol>
-
-<blockquote>
-<p>注：min-height设置值小于他现在的高度都可以视为0</p>
-</blockquote>
-
 </div>
 
 

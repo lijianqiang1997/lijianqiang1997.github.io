@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Svgs on 学习笔记</title>
+    <link>https://lijianqiang1997.github.io/svg/</link>
+    <description>Recent content in Svgs on 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Nov 2019 13:12:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://lijianqiang1997.github.io/svg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>stroke-dasharray</title>
+      <link>https://lijianqiang1997.github.io/svg/stroke-dasharray/</link>
+      <pubDate>Tue, 26 Nov 2019 13:12:28 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/svg/stroke-dasharray/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
