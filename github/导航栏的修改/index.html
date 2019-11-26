@@ -83,7 +83,6 @@
   .sidebar-nav-item.active a {
     color:  #2b6b84;
   }
-  
 </style>
 
 <aside class="sidebar">
@@ -145,21 +144,45 @@
 <div class="post">
   <h1>导航栏的修改</h1>
   <time datetime=2019-11-25T10:18:51&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
-  <pre><code class="language-css">    @media (max-width: 48em) {
+  <pre><code class="language-css">  @media (max-width: 48em) {
     .sidevbar-logo__img {
       max-width: 50%;
       margin: 0 auto;
     }
+    .sidebar-nav-item a img,.sidebar-nav-item a svg {
+      display: none;
+    }
   }
+  @media (min-width: 48em) {
+    .sidevbar-logo__img {
+      margin-left: -5%;
+    }
+    .sidebar-nav {
+      text-align: left;
+    }
+    .sidebar-nav-item a img,.sidebar-nav-item a svg {
+      display: inline-block;
+      margin: 0 .5em 0 0;
+      vertical-align: middle;
+      object-fit: contain;
+    }
+  }
+  
   .sidebar-nav-item {
     position: relative;
+    padding-left: 5%;
     border-right: 1.25rem solid transparent;
   }
-  .sidebar-nav-item.active {
+  .sidebar-nav-item.active{
     background: skyblue;
     background-clip: content-box;
     -webkit-filter: hue-rotate(45deg);
     filter: hue-rotate(45deg)
+  }
+  .sidebar-nav-item::before {
+    display: inline-block;
+    width: 5%;
+    content: '';
   }
   .sidebar-nav-item.active:after {
     position: absolute;
@@ -170,6 +193,9 @@
     border-bottom-color: transparent;
     background: inherit;
     content: '';
+  }
+  .sidebar-nav-item.active a {
+    color:  #2b6b84;
   }
 </code></pre>
 
