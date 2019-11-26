@@ -34,6 +34,9 @@
       max-width: 50%;
       margin: 0 auto;
     }
+    .sidebar-nav-item a img,.sidebar-nav-item a svg {
+      display: none;
+    }
   }
   @media (min-width: 48em) {
     .sidevbar-logo__img {
@@ -41,6 +44,12 @@
     }
     .sidebar-nav {
       text-align: left;
+    }
+    .sidebar-nav-item a img,.sidebar-nav-item a svg {
+      display: inline-block;
+      margin: 0 .5em 0 0;
+      vertical-align: middle;
+      object-fit: contain;
     }
   }
   
@@ -74,12 +83,7 @@
   .sidebar-nav-item.active a {
     color:  #2b6b84;
   }
-  .sidebar-nav-item a img,.sidebar-nav-item a svg {
-    display: inline-block;
-    margin: 0 .5em 0 0;
-    vertical-align: middle;
-    object-fit: contain;
-  }
+  
 </style>
 
 <aside class="sidebar">
