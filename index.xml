@@ -17,7 +17,7 @@
       <pubDate>Mon, 25 Nov 2019 14:27:54 +0800</pubDate>
       
       <guid>https://lijianqiang1997.github.io/vue/%E5%88%A4%E6%96%ADpc%E6%88%96%E8%80%85%E7%A7%BB%E5%8A%A8%E7%AB%AF/</guid>
-      <description></description>
+      <description>src/router/index.js // 判断PC or mobile router.beforeEach((to, from, next) =&amp;gt; { let browserRedirect = function() { var sUserAgent = navigator.userAgent.toLowerCase(); var bIsIpad = sUserAgent.match(/ipad/i) == &amp;quot;ipad&amp;quot;; var bIsIphoneOs = sUserAgent.match(/iphone os/i) == &amp;quot;iphone os&amp;quot;; var bIsMidp = sUserAgent.match(/midp/i) == &amp;quot;midp&amp;quot;; var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == &amp;quot;rv:1.2.3.4&amp;quot;; var bIsUc = sUserAgent.match(/ucweb/i) == &amp;quot;ucweb&amp;quot;; var bIsAndroid = sUserAgent.match(/android/i) == &amp;quot;android&amp;quot;; var bIsCE = sUserAgent.match(/windows ce/i) == &amp;quot;windows ce&amp;quot;; var bIsWM = sUserAgent.match(/windows mobile/i) == &amp;quot;windows mobile&amp;quot;; if ( bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM ) { return false; } else { return true; } }; let path = to.</description>
     </item>
     
     <item>
