@@ -1,0 +1,31 @@
+pre.prettyprint {
+    border-top-left-radius: 0;
+    margin-top: 0;
+}
+ol.linenums {
+    padding: 0;
+    margin-left: 0;
+}
+.code-pretty-container {
+    position: relative;
+    padding-top: 25px;
+    margin-bottom: 20px;
+}
+.code-pretty-toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ddd;
+}
+.code-pretty-toolbar__title {
+    display: inline-block;
+    padding: 4px 14px 2px;
+    border: 1px solid #0b0c0a;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    margin-right: 12px;
+    line-height: 1.75;
+    background-color: #1E1F1A;
+    box-shadow: inset 2px 3px 1px 0px #3c3d39, 0 -1px 12px rgba(0,0,0,0.5);
+    font-size: 12px;
+} 
