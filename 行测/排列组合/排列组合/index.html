@@ -30,12 +30,15 @@
   <body class=" ">
   <style>
   @media (max-width: 48em) {
-    .sidevbar-logo__img {
+    .sidevbar-logo {
       max-width: 50%;
       margin: 0 auto;
     }
     .sidebar-nav-item a img,.sidebar-nav-item a svg {
       display: none;
+    }
+    body .sidebar-nav-item  {
+      padding-left: 0;
     }
   }
   @media (min-width: 48em) {
@@ -217,7 +220,7 @@
   
 <nav>
     <ul>
-        <li><a href="#p1">分类计数原理(加法原理)</a></li>
+        <li><a href="#p1" class="combine-item__link">分类计数原理(加法原理)</a></li>
         <li><a href="#p2">分布计数原理(乘法原理)</a></li>
         <li><a href="#p3">特殊元素和特殊位置优先策略</a></li>
         <li><a href="#p4">相邻元素捆绑策略(捆绑法)</a></li>
@@ -239,6 +242,10 @@
         <li><a href="#p2">复杂分类问题表格策略</a></li>
     </ul>
 </nav>
+
+<script>
+var combineItemLinks = 
+</script>
 </div>
 
 
