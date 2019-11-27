@@ -6,10 +6,19 @@
     <description>Recent content on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Nov 2019 23:06:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2019 10:43:51 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>strategy</title>
+      <link>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8Fdemo/</link>
+      <pubDate>Wed, 27 Nov 2019 10:43:51 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8Fdemo/</guid>
+      <description>Document   .demo-container { display: flex; align-items: center; } .result { margin-left: 2%; } .result-error { color: red; }    请输入用户名：  请输入密码：  请输入手机号码： 提交     // 策略对象 var strategies = { notEmpty: function(value,errorMessage) { if(value === &#39;&#39;){ return errorMessage } }, betweenValue: function(value,min,max,errorMessage) { if(value max) { return errorMessage; } }, maxLength: function(value,max,errorMessage) { if(value.lengthmax) { return errorMessage } } }; // 环境类 var validator = function(strategies) { this.</description>
+    </item>
     
     <item>
       <title>策略模式</title>
@@ -19,7 +28,8 @@
       <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>策略模式将算法的使用与实现分离.
 一个基于策略模式的程序至少由两部分组成：一部分是策略类，封装了各种算法的实现，另外一部分是环境类Context，Context类接收客户的请求，将请求委托给一个策略类
- 利用策略模式实现表单验证 // 策略对象 var strategies = { notEmpty: function(value,errorMessage) { if(value === &#39;&#39;){ return errorMessage } }, betweenValue: function(value,min,max,errorMessage) { if(value &amp;lt; min || value &amp;gt; max) { return errorMessage; } }, maxLength: function(value,max,errorMessage) { if(value.length&amp;gt;max) { return errorMessage } } }; // 环境类 var validator = function(strategies) { this.cache = []; this.strategies = strategies; } validator.prototype.add = function(dom,rules,args,errorMessage) { var _this = this, rule; var addRule = function(dom,rule,args,errorMessage) { if(!</description>
+ 利用策略模式实现表单验证 demo
+// 策略对象 var strategies = { notEmpty: function(value,errorMessage) { if(value === &#39;&#39;){ return errorMessage } }, betweenValue: function(value,min,max,errorMessage) { if(value &amp;lt; min || value &amp;gt; max) { return errorMessage; } }, maxLength: function(value,max,errorMessage) { if(value.length&amp;gt;max) { return errorMessage } } }; // 环境类 var validator = function(strategies) { this.cache = []; this.strategies = strategies; } validator.prototype.add = function(dom,rules,args,errorMessage) { var _this = this, rule; var addRule = function(dom,rule,args,errorMessage) { if(!</description>
     </item>
     
     <item>
