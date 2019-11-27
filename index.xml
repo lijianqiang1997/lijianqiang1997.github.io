@@ -17,7 +17,7 @@
       <pubDate>Wed, 27 Nov 2019 10:43:51 +0800</pubDate>
       
       <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8Fdemo/</guid>
-      <description>Document   .demo-container { display: flex; align-items: center; } .result { margin-left: 2%; } .result-error { color: red; }    请输入用户名：  请输入密码：  请输入手机号码： 提交     // 策略对象 var strategies = { notEmpty: function(value,errorMessage) { if(value === &#39;&#39;){ return errorMessage } }, betweenValue: function(value,min,max,errorMessage) { if(value max) { return errorMessage; } }, maxLength: function(value,max,errorMessage) { if(value.lengthmax) { return errorMessage } } }; // 环境类 var validator = function(strategies) { this.</description>
+      <description>Document    请输入用户名：  请输入密码：  请输入手机号码： 提交     // 策略对象 var strategies = { notEmpty: function(value,errorMessage) { if(value === &#39;&#39;){ return errorMessage } }, betweenValue: function(value,min,max,errorMessage) { if(value max) { return errorMessage; } }, maxLength: function(value,max,errorMessage) { if(value.lengthmax) { return errorMessage } } }; // 环境类 var validator = function(strategies) { this.cache = []; this.strategies = strategies; } validator.prototype.add = function(dom,rules,args,errorMessage) { var _this = this, rule; var addRule = function(dom,rule,args,errorMessage) { if(!</description>
     </item>
     
     <item>
