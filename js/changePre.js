@@ -18,6 +18,9 @@ var createToolBar = function(codeClass) {
        if(langObj[lang]) {
            lang = langObj[lang];
        }
+       if(!lang) {
+           lang = "无"
+       }
     }
     title.textContent = lang;
     toolbar.appendChild(title);
