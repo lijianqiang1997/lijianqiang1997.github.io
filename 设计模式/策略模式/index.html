@@ -192,10 +192,109 @@
 <div class="post">
   <h1>策略模式</h1>
   <time datetime=2019-11-26T23:06:36&#43;0800 class="post-date">Tue, Nov 26, 2019</time>
-  <blockquote>
-<p>策略模式将算法的使用与实现分离
-一个基于策略模式的程序至少由两部分组成：一部分是策略类，封装了各种算法的实现，另外一部分是环境类Context，Context类接收客户的请求，将请求委托给一个策略类</p>
+  
+
+<blockquote>
+<p>策略模式将算法的使用与实现分离.</p>
+
+<p>一个基于策略模式的程序至少由两部分组成：一部分是策略类，封装了各种算法的实现，另外一部分是环境类Context，Context类接收客户的请求，将请求委托给一个策略类</p>
 </blockquote>
+
+<h3 id="利用策略模式实现表单验证">利用策略模式实现表单验证</h3>
+
+<pre><code class="language-js">
+    // 策略对象
+    var strategies = {
+        notEmpty: function(value,errorMessage) {
+            if(value === ''){
+                return errorMessage
+            }
+        },
+        betweenValue: function(value,min,max,errorMessage) {
+            if(value &lt; min || value &gt; max) {
+                return errorMessage;
+            }
+        },
+        maxLength: function(value,max,errorMessage) {
+            if(value.length&gt;max) {
+                return errorMessage
+            }
+        }
+    };
+
+    // 环境类
+    var validator = function(strategies) {
+        this.cache = [];
+        this.strategies = strategies;
+    }
+    validator.prototype.add = function(dom,rules,args,errorMessage) {
+        var _this = this,
+            rule;
+        var addRule = function(dom,rule,args,errorMessage) {
+            if(!Array.isArray(args)) {
+                errorMessage = args;
+                args = [];
+            }
+            _this.cache.push(function() {
+                var value = dom.value;
+                args.unshift(value);
+                args.push(errorMessage);
+                return _this.strategies[rule].apply(dom,args)
+            })
+        }
+        
+        if(Array.isArray(rules)) {
+            if(rules.length) {
+                rules.forEach(item=&gt;{
+                    var rule = item.rule;
+                    var args = item.args;
+                    var errorMessage = item.errorMessage;
+                    addRule(dom,rule,args,errorMessage)
+                })
+            }
+        }else {
+            rule = rules;
+            addRule(dom,rule,args,errorMessage)
+        }
+    };
+
+    validator.prototype.validate = function() {
+        var i = 0,
+        validateFn;
+        for(;validateFn=this.cache[i++];) {
+            var msg = validateFn();
+            if(msg) {
+                return msg;
+            }
+        }
+        return true;
+    };
+
+    var form = document.getElementById(&quot;registerForm&quot;);
+    form.onsubmit = function(event) {
+        var validateObj = new validator(strategies),
+            msg;
+        validateObj.add(form.userName,[
+            {
+                rule: 'notEmpty',
+                args: [],
+                errorMessage: '账号不能为空'
+            },
+            {
+                rule: 'maxLength',
+                args: [10],
+                errorMessage: '账号不能超过10个长度'
+            }
+            
+        ]);
+        validateObj.add(form.password,&quot;notEmpty&quot;,&quot;密码不能为空&quot;);
+        msg = validateObj.validate()
+        if(msg !== true) {
+            console.log(msg)
+            event.preventDefault();
+        }
+    }
+</code></pre>
 
 </div>
 
