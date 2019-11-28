@@ -3,7 +3,8 @@ var toArray = function(arrayLike) {
 }
 var langObj = {
     js: 'JavaScript',
-    html: 'HTML'
+    html: 'HTML',
+    vue: 'Vue'
 }
 var createToolBar = function(codeClass) {
     var container  =document.createElement("div"),
