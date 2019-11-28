@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>表单检验函数 &middot; 学习笔记</title>
+  <title>Js &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -24,6 +24,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
+  <link href="https://lijianqiang1997.github.io/js/index.xml" rel="alternate" type="application/rss+xml" title="学习笔记" />
   <script src="https://lijianqiang1997.github.io/js/custom-api.js"></script>
 </head>
 
@@ -183,108 +184,11 @@
 </aside>
 
     <main class="content container">
-    <style>
-  .main-return {
-    display: none;
-  }
-  
-  @media (min-width: 48em) {
-    .main-return {
-      position: fixed;
-      top: 0;
-      left: 14rem;
-      display: block;
-      width: 4rem;
-      border: 1px solid #2c96b2;  
-      border-radius: 5px;  
-      line-height: 2rem;
-      text-align: center;
-      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
-      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
-    }
-  }
-</style>
-<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify.css" />
-<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify-toolbar.css" />
-
-<script src="https://lijianqiang1997.github.io/js/jquery-1.10.1.min.js"></script>
-<script src="https://lijianqiang1997.github.io/js/prettify.js"></script>
-<script src="https://lijianqiang1997.github.io/js/prettify-addBash.js"></script>
-<script src="https://lijianqiang1997.github.io/js/changePre.js"></script>
-
-<a href="javascript:history.go(-1)" class="main-return">返回</a>
-<div class="post">
-  <h1>表单检验函数</h1>
-  <time datetime=2019-11-23T21:38:08&#43;0800 class="post-date">Sat, Nov 23, 2019</time>
-  <pre><code>src/utils/validate.js
-
-// 检查数值
-const checkNumber = (rule, value, callback) =&gt; {
-    value===''||/^-?\d+(\.\d+)?$/.test(value) ? callback() : callback(new Error('必须是数字值'))
-}
-
-// 检查正整数
-const positiveInt = (rule, value, callback) =&gt; {
-   value  = +value;
-   value&gt;0 &amp;&amp; Number.isInteger(value)?callback() : callback(new Error('必须为正整数'))
-}
-
-// 检查大于1
-const great1 = (rule, value, callback) =&gt; {
-    +value &gt;= 1 ? callback() : callback(new Error('充值金额不少于1元'))
-}
-
-// 检查大于0
-const great0 = (rule, value, callback) =&gt; {
-    +value &gt;= 0 ? callback() : callback(new Error('扣款金额不少于0元'))
-}
-
-// 检查长度
-const maxLength_200 = (rule, value, callback) =&gt; {
-    value.length&lt;=200 ? callback() : callback(new Error('长度不能超过200'))
-}
-
-// 检查区间
-const between = function(min,max) {
-    return (rule, value, callback) =&gt; {
-        value  = +value;
-        value&lt;=max &amp;&amp; value&gt;=min? callback() : callback(new Error('长度不能超过200'))
-    }
-}
-
-// 检查包含两种字符且不包括空格的密码
-const password = (rule, value, callback) =&gt; {
-    // let errorMessage = &quot;&quot;;
-    // let length = value.length;
-    // if(length&gt;16) {
-    //     errorMessage = &quot;密码不能超过16位&quot;;
-    // }else if(length &lt;6) {
-    //     errorMessage = &quot;密码不能少于6位&quot;;
-    // }else if(value.includes(' ')) {
-    //     errorMessage = &quot;密码不能包含空格&quot;;
-    // } else if(!/(?!^[0-9]{6,16}$)(?!^[a-zA-Z]{6,16}$)^.{6,16}$/.test(value)) {
-    //     errorMessage = &quot;密码不能只包含一种字符&quot;;
-    // }
-    // errorMessage!==''?callback(errorMessage):callback();
-    /(?!^[^0-9a-zA-Z]{6,16}$)(?!^[0-9]{6,16}$)(?!^[a-zA-Z]{6,16}$)^[^(\s)]{6,16}$/.test(value)?callback():callback(new Error(&quot;密码必须为6-16位，字母、数字、字符至少两种组合，不包含空格&quot;))   
-}
-
-export default {
-    checkNumber,
-    positiveInt,
-    great0,
-    great0_withdrawal,
-    great1,
-    maxLength_200,
-    between,
-    password
-}
-</code></pre>
-
-</div>
-
-
+    <ul class="posts">
+<li>
+    <span><a href="https://lijianqiang1997.github.io/js/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%8F%92%E4%BB%B6/">自动生成类插件</a> <time class="pull-right post-list" datetime="2019-11-27T16:38:25&#43;0800">Wed, Nov 27, 2019</time></span>
+  </li>
+</ul>
     </main>
 
     

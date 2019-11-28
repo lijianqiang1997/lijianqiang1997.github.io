@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  
+  <script src="https://lijianqiang1997.github.io/js/custom-api.js"></script>
 </head>
 
   <body class=" ">
@@ -219,7 +219,7 @@
   <time datetime=2019-11-25T10:45:24&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
   
 <nav>
-    <ul>
+    <ul class="combine">
         <li><a href="#p1" class="combine-item__link">分类计数原理(加法原理)</a></li>
         <li><a href="#p2">分布计数原理(乘法原理)</a></li>
         <li><a href="#p3">特殊元素和特殊位置优先策略</a></li>
@@ -243,9 +243,25 @@
     </ul>
 </nav>
 
-<script>
-var combineItemLinks = 
-</script>
+<section class="combine-list">
+    <div class="combine-item">
+        <h3 id="p1">分类计数原理(加法原理)</h3>
+        <p class="combine-item-content">
+            完成一件事有n类方法，第一类有m1种不同的方法，第二类有m2种不同的方法，以此类推。完成这一件事有N=m1+m2+...种方法
+        </p>
+    </div>
+    
+    <div class="combine-item">
+        <h3 id="p2">分布计数原理(乘法原理)</h3>
+        <p class="combine-item-content">
+            完成一件事需要分成n个步骤，第一步有m1种不同的方法，第二步有m2种不同的方法，以此类推。完成这一件事有N=m1*m2*...种方法
+        </p>
+    </div>
+</section>
+
+
+
+
 </div>
 
 
