@@ -1,7 +1,6 @@
 (function () {
-    var imgEls,
+    var imgEls = [],
         showImg = function () {
-            console.log(imgEls.length)
             var i = 0,
                 length = imgEls.length,
                 imgEl,
@@ -10,13 +9,15 @@
             if (imgEls.length > 0) {
                 for (; i < length; ++i) {
                     imgEl = imgEls[i];
-                    console.log(i,imgEl);
-                    elInfo = imgEl.getBoundingClientRect();
-                    if (elInfo.top <= window.innerHeight) {
-                        imgEl.src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random())
-                        // 数组splice操作会影响循环
-                        arrTemp.splice(i,1);
+                    if (imgEl) {
+                        elInfo = imgEl.getBoundingClientRect();
+                        if (elInfo.top <= window.innerHeight) {
+                            imgEl.src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random())
+                            // 数组splice操作会影响循环
+                            arrTemp.splice(i, 1);
+                        }
                     }
+
                 }
                 imgEls = arrTemp;
             }
