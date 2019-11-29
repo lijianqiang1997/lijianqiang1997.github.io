@@ -66,7 +66,7 @@ for (i=0;i<codeElsLength;++i) {
     codeContent = codeItem.textContent;
     textArr = codeContent.split("\n");
     firstLineStr = textArr[0];
-    matches = firstLineStr.match(/(?:\/\/)?((?:[^\/]+[\/\\])*[^\/]+\.[^\/,;]+)/) || [];
+    matches = firstLineStr.match(/(?:\/\/)?((?:[^\/]+[\/\\])*[^\/]+\.(?:js|vue|css|html|json|java|py)+)/) || [];
     preItem.textContent = Array.isArray(matches) && matches.length?textArr.slice(1).filter(function(item,index) {
         return item !== '' || index !== 0;
     }).join("\n"):codeContent;
