@@ -230,28 +230,98 @@
 
 <h3 id="如何使用newautoclass-js">如何使用newAutoClass.js</h3>
 
+<p><a href="javascript:void(0)">demo</a></p>
+
 <pre><code class="language-js">if(newAutoClass) {
-    // 添加width、height、margin、padding
     newAutoClass.addRules({
-        reg: widthReg,
-        solveFn: commonSolveFn
-    }, {
-        reg: heightReg,
-        solveFn: commonSolveFn
-    }, {
-        reg: marReg,
-        solveFn: marginSolveFn
-    }, {
-        reg: padReg,
-        solveFn: paddingSolveFn
-    });
-    newAutoClass.run({
-        unit: 'rem',
-        base: 750
+        reg: , // 匹配正则
+        solveFn: commonSolveFn // 处理函数
+    })
+
+    // 多参数
+    newAutoClass.addRules({
+        reg: , // 匹配正则
+        solveFn: commonSolveFn // 处理函数
+    },{
+        reg: , // 匹配正则
+        solveFn: commonSolveFn // 处理函数
+    })
+
+    // 链式操作
+    newAutoClass.addRules({
+        reg: , // 匹配正则
+        solveFn: commonSolveFn // 处理函数
+    }).addRules({
+       reg: , // 匹配正则
+       solveFn: commonSolveFn // 处理函数 
+    })
+
+    // 使用
+    var autoClass = new newAutoClass([&quot;width&quot;,&quot;height&quot;,&quot;margin&quot;,&quot;line-height&quot;,&quot;color&quot;,&quot;font-size&quot;]);
+    autoClass.run({
+        unit = 'px',
+        base = 1,
+        log = true
     });
 }
 
 </code></pre>
+
+<h3 id="默认配置支持项">默认配置支持项</h3>
+
+<table>
+<thead>
+<tr>
+<th>默认配置</th>
+<th>举例</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>width</td>
+<td>width-5 w-5.5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>height</td>
+<td>height-5 h-5.5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>padding</td>
+<td>pad-5 pad-t-5 pad-r-5  pad-b-5  pad-l-5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>margin</td>
+<td>mar-5 mar-t-5 mar-r-5  mar-b-5  mar-l-5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>font-size</td>
+<td>f-5 fz-5 font-size-5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>line-height</td>
+<td>lh-5 line-height-5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>color</td>
+<td>color-666666 color-333</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 

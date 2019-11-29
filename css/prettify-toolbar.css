@@ -6,6 +6,10 @@ ol.linenums {
     padding: 0;
     margin-left: 0;
 }
+ol.linenums li {
+    padding-left: 2em;
+    text-indent: -2em;
+}
 .code-pretty-container {
     position: relative;
     padding-top: 25px;

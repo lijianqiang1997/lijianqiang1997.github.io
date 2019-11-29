@@ -12,6 +12,7 @@
                     elInfo = imgEl.getBoundingClientRect();
                     if (elInfo.top <= window.innerHeight) {
                         imgEl.src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random())
+                        imgEl.className += " show"
                         // 数组splice操作会影响循环
                         arrTemp.splice(i, 1);
                     }
@@ -24,7 +25,8 @@
             }
         }
     window.addEventListener("DOMContentLoaded", function () {
-        imgEls = Array.prototype.slice.call(document.querySelectorAll(".post-img-container .post-img"));
+        imgEls = Array.prototype.slice.call(document.querySelectorAll(".post-img-container .post-img"),1);
+        showImg();
     })
     window.addEventListener("load", showImg)
     window.addEventListener("scroll", showImg)

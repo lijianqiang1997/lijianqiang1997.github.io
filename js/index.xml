@@ -17,10 +17,11 @@
       <pubDate>Wed, 27 Nov 2019 16:38:25 +0800</pubDate>
       
       <guid>https://lijianqiang1997.github.io/js/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%B1%BB%E6%8F%92%E4%BB%B6/</guid>
-      <description>  默认规则选项支持
+      <description>默认规则选项支持
 完全自定义的匹配规则
 一次性添加多条规则
- 如何使用newAutoClass.js if(newAutoClass) { // 添加width、height、margin、padding newAutoClass.addRules({ reg: widthReg, solveFn: commonSolveFn }, { reg: heightReg, solveFn: commonSolveFn }, { reg: marReg, solveFn: marginSolveFn }, { reg: padReg, solveFn: paddingSolveFn }); newAutoClass.run({ unit: &#39;rem&#39;, base: 750 }); }  </description>
+ 如何使用newAutoClass.js demo
+if(newAutoClass) { newAutoClass.addRules({ reg: , // 匹配正则 solveFn: commonSolveFn // 处理函数 }) // 多参数 newAutoClass.addRules({ reg: , // 匹配正则 solveFn: commonSolveFn // 处理函数 },{ reg: , // 匹配正则 solveFn: commonSolveFn // 处理函数 }) // 链式操作 newAutoClass.addRules({ reg: , // 匹配正则 solveFn: commonSolveFn // 处理函数 }).addRules({ reg: , // 匹配正则 solveFn: commonSolveFn // 处理函数 }) // 使用 var autoClass = new newAutoClass([&amp;quot;width&amp;quot;,&amp;quot;height&amp;quot;,&amp;quot;margin&amp;quot;,&amp;quot;line-height&amp;quot;,&amp;quot;color&amp;quot;,&amp;quot;font-size&amp;quot;]); autoClass.run({ unit = &#39;px&#39;, base = 1, log = true }); }  默认配置支持项    默认配置 举例 说明     width width-5 w-5.</description>
     </item>
     
   </channel>

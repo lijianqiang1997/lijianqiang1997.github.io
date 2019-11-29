@@ -228,7 +228,7 @@
 
 <p>2.在本地生成SSH key</p>
 
-<pre><code>ssh-keygen -t rsa -C &quot;xiangshuo1992@gmail.com&quot; //账号
+<pre><code class="language-bsh">ssh-keygen -t rsa -C &quot;xiangshuo1992@gmail.com&quot; //账号
 
 </code></pre>
 
@@ -237,7 +237,7 @@
 
 <p>gitBash 操作</p>
 
-<pre><code>cat id_rsa.pub //拷贝秘钥 ssh-rsa开头
+<pre><code class="language-bsh">cat id_rsa.pub //拷贝秘钥 ssh-rsa开头
 </code></pre>
 
 <p><img src="/github/SSH/SSH-key.png" alt="SSH-key" /></p>
@@ -246,7 +246,7 @@
 
 <p>测试是否成功配置SSH Key</p>
 
-<pre><code>ssh -T git@github.com
+<pre><code class="language-bsh">ssh -T git@github.com
 //运行结果出现类似如下
 Hi xiangshuo1992! You've successfully authenticated, but GitHub does not provide shell access.
 
