@@ -66,10 +66,10 @@ for (i=0;i<codeElsLength;++i) {
     codeContent = codeItem.textContent;
     textArr = codeContent.split("\n");
     firstLineStr = textArr[0];
-    preItem.textContent = textArr.slice(1).filter(function(item,index) {
-        return item !== '' || index !== 0;
-    }).join("\n");
     matches = firstLineStr.match(/(?:\/\/)?((?:[^\/]+[\/\\])*[^\/]+\.[^\/,;]+)/) || [];
+    preItem.textContent = Array.isArray(matches) && matches.length?textArr.slice(1).filter(function(item,index) {
+        return item !== '' || index !== 0;
+    }).join("\n"):codeContent;
     container = createToolBar(codeClass,matches[1]);
     preItem.parentNode.replaceChild(container,preItem);
     container.appendChild(preItem);
