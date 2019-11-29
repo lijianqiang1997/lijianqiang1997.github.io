@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>从零vue源码s on 学习笔记</title>
+    <link>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/</link>
+    <description>Recent content in 从零vue源码s on 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Nov 2019 14:44:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>类数组转为数组</title>
+      <link>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/%E7%B1%BB%E6%95%B0%E7%BB%84%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Fri, 29 Nov 2019 14:44:50 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/%E7%B1%BB%E6%95%B0%E7%BB%84%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/</guid>
+      <description> 源码 function toArray (list, start) { start = start || 0; var i = list.length - start; var ret = new Array(i); while (i--) { ret[i] = list[i + start]; } return ret }  为什么类数组转为数组要用遍历 // 为什么不用这种方式转化arrayLike Array.prototype.slice.call(arrayLike,start);  </description>
+    </item>
+    
+    <item>
+      <title>创建空对象使用Object.create(null)</title>
+      <link>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%AF%B9%E8%B1%A1%E4%BD%BF%E7%94%A8object.create/</link>
+      <pubDate>Fri, 29 Nov 2019 14:38:12 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%AF%B9%E8%B1%A1%E4%BD%BF%E7%94%A8object.create/</guid>
+      <description> 当你想用javascript对象作为一个hash映射（完全用来储存数据），你应该按如下方式来创建它。
+当创建一个映射使用对象字面量时（const map = {}）,默认情况下，这个映射从这个对象继承属性。这和 Object.creatd(Object.prototype)创建时相等的。 但是通过 Object.create(null),我们明确指定 null 作为它的属性。因此它相当于没有属相，甚至没有constructor, toString, hasOwnProperty等方法。因此你可以随意使用这些键值在你的数据结构中，只要你需要。
+ const dirtyMap = {}; const cleanMap = Object.create(null); dirtyMap.constructor // function Object() { [native code] } cleanMap.constructor // undefined cleanMap.__proto__ // undefined // Iterating maps const key; for(key in dirtyMap){ if (dirtyMap.hasOwnProperty(key)) { // Check to avoid iterating over inherited properties. console.log(key + &amp;quot; -&amp;gt; &amp;quot; + dirtyMap[key]); } } for(key in cleanMap){ console.log(key + &amp;quot; -&amp;gt; &amp;quot; + cleanMap[key]); // No need to add extra checks, as the object will always be clean }  </description>
+    </item>
+    
+    <item>
+      <title>记忆</title>
+      <link>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/%E8%AE%B0%E5%BF%86/</link>
+      <pubDate>Fri, 29 Nov 2019 14:23:08 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E4%BB%8E%E9%9B%B6vue%E6%BA%90%E7%A0%81/%E8%AE%B0%E5%BF%86/</guid>
+      <description>源码 //在vue中使用了一个cached存储站来实现记忆 /** * Create a cached version of a pure function. */ function cached (fn) { var cache = Object.create(null); return (function cachedFn (str) { var hit = cache[str]; return hit || (cache[str] = fn(str)) }) } /** * Camelize a hyphen-delimited string. */ var camelizeRE = /-(\w)/g; var camelize = cached(function (str) { return str.replace(camelizeRE, function (_, c) { return c ? c.toUpperCase() : &#39;&#39;; }) }); /** * Capitalize a string.</description>
+    </item>
+    
+  </channel>
+</rss>
