@@ -6,13 +6,17 @@ var langObj = {
     html: 'HTML',
     vue: 'Vue'
 }
-var createToolBar = function(codeClass) {
+var createToolBar = function(codeClass,filePath) {
     var container  =document.createElement("div"),
         toolbar = container.cloneNode(),
+        fileEl = document.createElement("code"),
         title = document.createElement("header"),
-        lang;
+        lang,
+        fileStr,
+        matches = [];
     container.className = "code-pretty-container";
     toolbar.className = "code-pretty-toolbar";
+    fileEl.className = "code-pretty-toolbar__file";
     title.className = "code-pretty-toolbar__title";
     if(codeClass) {
        lang = codeClass.split("-").pop();
@@ -22,8 +26,15 @@ var createToolBar = function(codeClass) {
     }else {
         lang = "无"
     }
+    fileStr = filePath || "未知";
+
     title.textContent = lang;
+    fileEl.textContent = fileStr;
+    if(filePath) {
+        fileEl.textContent = filePath.trim();
+    }
     toolbar.appendChild(title);
+    toolbar.appendChild(fileEl);
     container.appendChild(toolbar);
     return container;
 }
@@ -32,12 +43,14 @@ var preEls = toArray(document.querySelectorAll("pre")),
     codeEls = toArray(document.querySelectorAll("pre code")),
     codeItem = null,
     preItem = null,
+    codeContent = "",
     i= 0,
     preElsLength = preEls.length,
     codeElsLength = codeEls.length,
     preElsCopy = [],
     conatiner = null,
-    codeClass;
+    codeClass,
+    filePath;
 for(;i<preElsLength;++i) {
     preItem = preEls[i];
     if(preItem.childElementCount) {
@@ -50,8 +63,14 @@ for (i=0;i<codeElsLength;++i) {
     codeItem =codeEls[i];
     codeClass = codeItem.className;
     preItem.className = "prettyprint linenums "+codeClass;
-    preItem.textContent = codeItem.textContent;
-    container = createToolBar(codeClass);
+    codeContent = codeItem.textContent;
+    textArr = codeContent.split("\n");
+    firstLineStr = textArr[0];
+    preItem.textContent = textArr.slice(1).filter(function(item,index) {
+        return item !== '' || index !== 0;
+    }).join("\n");
+    matches = firstLineStr.match(/(?:\/\/)?((?:[^\/]+[\/\\])*[^\/]+\.[^\/,;]+)/) || [];
+    container = createToolBar(codeClass,matches[1]);
     preItem.parentNode.replaceChild(container,preItem);
     container.appendChild(preItem);
 }

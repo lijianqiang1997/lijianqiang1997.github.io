@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>创建空对象使用Object.create(null) &middot; 学习笔记</title>
+  <title>为什么创建空对象要使用Object.create(null) &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -216,7 +216,7 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>创建空对象使用Object.create(null)</h1>
+  <h1>为什么创建空对象要使用Object.create(null)</h1>
   <time datetime=2019-11-29T14:38:12&#43;0800 class="post-date">Fri, Nov 29, 2019</time>
   <blockquote>
 <p>当你想用javascript对象作为一个hash映射（完全用来储存数据），你应该按如下方式来创建它。</p>
@@ -225,7 +225,9 @@
 但是通过 Object.create(null),我们明确指定 null 作为它的属性。因此它相当于没有属相，甚至没有constructor, toString, hasOwnProperty等方法。因此你可以随意使用这些键值在你的数据结构中，只要你需要。</p>
 </blockquote>
 
-<pre><code>const dirtyMap = {};
+<pre><code class="language-js">// vue.js
+
+const dirtyMap = {};
 const cleanMap = Object.create(null);
 
 dirtyMap.constructor    // function Object() { [native code] }
