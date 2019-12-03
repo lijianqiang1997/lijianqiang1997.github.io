@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WebWorkers on 学习笔记</title>
+    <link>https://lijianqiang1997.github.io/webworker/</link>
+    <description>Recent content in WebWorkers on 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Dec 2019 10:25:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://lijianqiang1997.github.io/webworker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DedicatedWorkerGlobalScope</title>
+      <link>https://lijianqiang1997.github.io/webworker/dedicatedworkerglobalscope/</link>
+      <pubDate>Tue, 03 Dec 2019 10:25:10 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/webworker/dedicatedworkerglobalscope/</guid>
+      <description>   DedicatedWorkerGlobalScope  说明      location     atob     btoa     indexedDB     navigator     定时器     fetch     cacheStorage     Canvas操作     编码操作     XMLHttpRequest     File     Event      </description>
+    </item>
+    
+    <item>
+      <title>Worker Demo</title>
+      <link>https://lijianqiang1997.github.io/webworker/worker-demo/</link>
+      <pubDate>Mon, 02 Dec 2019 16:01:53 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/webworker/worker-demo/</guid>
+      <description>Document    发送message    (function() { var str = ` var i = 0; onmessage = function(e) { postMessage(&#34;收到消息&#34;) } `; var textarea = document.querySelector(&#34;.demo-textarea&#34;), box = document.querySelector(&#34;.demo-box&#34;), btn = document.querySelector(&#34;.demo-btn&#34;); textarea.value = str; var createWorker = function(str) { return (src = URL.createObjectURL(new Blob([str]))); }, worker = null, mainWorker = function() { var text = &#39;&#39;; try { worker = new Worker(createWorker(textarea.value)); btn.onclick = function() { worker.</description>
+    </item>
+    
+    <item>
+      <title>Worker</title>
+      <link>https://lijianqiang1997.github.io/webworker/worker/</link>
+      <pubDate>Mon, 02 Dec 2019 16:01:47 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/webworker/worker/</guid>
+      <description>属性 说明     onerror AbstractWorker接口的onerror特性是一个事件句柄，在 Worker的error事件触发并冒泡时执行。   onmessage Worker 接口的onmessage属性表示一个EventHandler事件处理函数，当message 事件发生时，该函数被调用。这些事件所属MessageEvent类型，且当Worker子线程返回一条消息时被调用（比如：从DedicatedWorkerGlobalScope.postMessage函数发出的信息）   onmessageerror Worker 的 onmessageerror 事件处理器接口是一个EventListener, 在 MessageEvent 类型的事件 messageerror 触发时调用 — 也就是说, 它收到的消息是不能进行序列化的 deserialized.       方法 说明     postMessage(aMessage, transferList)    terminate Worker 接口中的 terminate() 方法用于立即终止 Worker 的行为. 本方法并不会等待 worker 去完成它剩余的操作；worker 将会被立刻停止       事件 说明     message 当 worker 的父级接收到来自其 worker 的消息时，会在 Worker 对象上触发 message 事件。例如：当 worker 通过 DedicatedWorkerGlobalScope.</description>
+    </item>
+    
+  </channel>
+</rss>

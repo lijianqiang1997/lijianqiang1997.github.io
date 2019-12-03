@@ -6,10 +6,46 @@
     <description>Recent content on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Nov 2019 14:44:50 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 15:32:44 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>常用函数</title>
+      <link>https://lijianqiang1997.github.io/excel/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 03 Dec 2019 15:32:44 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/excel/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
+      <description>   函数 说明 地址     SUM(number1,[number2],&amp;hellip;)     MAX(number1, [number2], &amp;hellip;) Number1 是必需的，后续数字是可选的。 要从中查找最大值的 1 到 255 个数字。    MIN(number1, [number2], &amp;hellip;) number1 是可选的，后续数字是可选的。 要从中查找最小值的 1 到 255 个数字。    ROUND(number, num_digits) 四舍五入并指定位数    IFERROR(value, value_if_error) 捕获和处理公式中的错误。 如果公式的计算结果为错误值, 则 IFERROR 返回您指定的值;否则, 它将返回公式的结果。    IF(逻辑表达式,为TRUE时显示的内容,为 FALSE时的显示内容) 可以嵌套    SUMIF(区域, 求和条件[,求和区域] 求和区域省略时对区域进行求和 四舍五入并指定位数   SUMIFS(求和区域,条件区域1,条件1,条件区域2,条件2,条件区域3,条件3,&amp;hellip;) 用于计算其满足多个条件的全部参数的总量    COUNTIF(区域,条件) 对满足特定条件的单元格进行计数    COUNTIFS(计数条件区域1,计数条件1,计数条件区域2,计数条件2,&amp;hellip;) 对满足多个条件的单元格进行计数    VLOOKUP(要查找的值，区域，列编号，FALSE) 表查找    EOMONTH(开始日期,月数)      </description>
+    </item>
+    
+    <item>
+      <title>DedicatedWorkerGlobalScope</title>
+      <link>https://lijianqiang1997.github.io/webworker/dedicatedworkerglobalscope/</link>
+      <pubDate>Tue, 03 Dec 2019 10:25:10 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/webworker/dedicatedworkerglobalscope/</guid>
+      <description>   DedicatedWorkerGlobalScope  说明      location     atob     btoa     indexedDB     navigator     定时器     fetch     cacheStorage     Canvas操作     编码操作     XMLHttpRequest     File     Event      </description>
+    </item>
+    
+    <item>
+      <title>Worker Demo</title>
+      <link>https://lijianqiang1997.github.io/webworker/worker-demo/</link>
+      <pubDate>Mon, 02 Dec 2019 16:01:53 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/webworker/worker-demo/</guid>
+      <description>Document    发送message    (function() { var str = ` var i = 0; onmessage = function(e) { postMessage(&#34;收到消息&#34;) } `; var textarea = document.querySelector(&#34;.demo-textarea&#34;), box = document.querySelector(&#34;.demo-box&#34;), btn = document.querySelector(&#34;.demo-btn&#34;); textarea.value = str; var createWorker = function(str) { return (src = URL.createObjectURL(new Blob([str]))); }, worker = null, mainWorker = function() { var text = &#39;&#39;; try { worker = new Worker(createWorker(textarea.value)); btn.onclick = function() { worker.</description>
+    </item>
+    
+    <item>
+      <title>Worker</title>
+      <link>https://lijianqiang1997.github.io/webworker/worker/</link>
+      <pubDate>Mon, 02 Dec 2019 16:01:47 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/webworker/worker/</guid>
+      <description>属性 说明     onerror AbstractWorker接口的onerror特性是一个事件句柄，在 Worker的error事件触发并冒泡时执行。   onmessage Worker 接口的onmessage属性表示一个EventHandler事件处理函数，当message 事件发生时，该函数被调用。这些事件所属MessageEvent类型，且当Worker子线程返回一条消息时被调用（比如：从DedicatedWorkerGlobalScope.postMessage函数发出的信息）   onmessageerror Worker 的 onmessageerror 事件处理器接口是一个EventListener, 在 MessageEvent 类型的事件 messageerror 触发时调用 — 也就是说, 它收到的消息是不能进行序列化的 deserialized.       方法 说明     postMessage(aMessage, transferList)    terminate Worker 接口中的 terminate() 方法用于立即终止 Worker 的行为. 本方法并不会等待 worker 去完成它剩余的操作；worker 将会被立刻停止       事件 说明     message 当 worker 的父级接收到来自其 worker 的消息时，会在 Worker 对象上触发 message 事件。例如：当 worker 通过 DedicatedWorkerGlobalScope.</description>
+    </item>
     
     <item>
       <title>类数组转为数组</title>

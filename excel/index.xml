@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excels on 学习笔记</title>
+    <link>https://lijianqiang1997.github.io/excel/</link>
+    <description>Recent content in Excels on 学习笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Dec 2019 15:32:44 +0800</lastBuildDate>
+    
+	<atom:link href="https://lijianqiang1997.github.io/excel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>常用函数</title>
+      <link>https://lijianqiang1997.github.io/excel/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 03 Dec 2019 15:32:44 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/excel/%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</guid>
+      <description>   函数 说明 地址     SUM(number1,[number2],&amp;hellip;)     MAX(number1, [number2], &amp;hellip;) Number1 是必需的，后续数字是可选的。 要从中查找最大值的 1 到 255 个数字。    MIN(number1, [number2], &amp;hellip;) number1 是可选的，后续数字是可选的。 要从中查找最小值的 1 到 255 个数字。    ROUND(number, num_digits) 四舍五入并指定位数    IFERROR(value, value_if_error) 捕获和处理公式中的错误。 如果公式的计算结果为错误值, 则 IFERROR 返回您指定的值;否则, 它将返回公式的结果。    IF(逻辑表达式,为TRUE时显示的内容,为 FALSE时的显示内容) 可以嵌套    SUMIF(区域, 求和条件[,求和区域] 求和区域省略时对区域进行求和 四舍五入并指定位数   SUMIFS(求和区域,条件区域1,条件1,条件区域2,条件2,条件区域3,条件3,&amp;hellip;) 用于计算其满足多个条件的全部参数的总量    COUNTIF(区域,条件) 对满足特定条件的单元格进行计数    COUNTIFS(计数条件区域1,计数条件1,计数条件区域2,计数条件2,&amp;hellip;) 对满足多个条件的单元格进行计数    VLOOKUP(要查找的值，区域，列编号，FALSE) 表查找    EOMONTH(开始日期,月数)      </description>
+    </item>
+    
+  </channel>
+</rss>

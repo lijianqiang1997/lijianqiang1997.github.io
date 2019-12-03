@@ -48,3 +48,7 @@ var strToReg = function (str) {
     flag = arr[2];
     return new RegExp(reg,flag);
 }
+
+var createWorker =function(str) {
+    return src  = URL.createObjectURL(new Blob([str]));
+}
