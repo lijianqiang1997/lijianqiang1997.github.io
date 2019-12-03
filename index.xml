@@ -6,10 +6,19 @@
     <description>Recent content on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Dec 2019 15:32:44 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 17:02:13 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>.Site变量</title>
+      <link>https://lijianqiang1997.github.io/github/site%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Tue, 03 Dec 2019 17:02:13 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/github/site%E5%8F%98%E9%87%8F/</guid>
+      <description>.Site 类型 说明     .Aliases     .Content     .Data     .Date     .Description     .Dir     .Draft     .ExpiryDate     .File     .FuzzyWordCount     .Hugo     .IsHome     .</description>
+    </item>
     
     <item>
       <title>常用函数</title>
