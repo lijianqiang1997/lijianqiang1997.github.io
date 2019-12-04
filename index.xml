@@ -6,10 +6,19 @@
     <description>Recent content on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Dec 2019 14:27:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Dec 2019 16:32:34 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue Cli2配置scss</title>
+      <link>https://lijianqiang1997.github.io/vue/vue-cli2%E9%85%8D%E7%BD%AEscss/</link>
+      <pubDate>Wed, 04 Dec 2019 16:32:34 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/vue/vue-cli2%E9%85%8D%E7%BD%AEscss/</guid>
+      <description>npm install sass-loader node-sass --save-dev  // webpack.base.conf.js module:{ rules: [{ test: /\.css|scss/, loader: [&#39;style&#39;,&#39;css&#39;,&#39;scss&#39;] }] }  </description>
+    </item>
     
     <item>
       <title>Article</title>
