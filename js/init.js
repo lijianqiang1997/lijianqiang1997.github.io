@@ -5,14 +5,17 @@
                 length = imgEls.length,
                 imgEl,
                 elInfo,
-                arrTemp = imgEls.slice(0);
+                arrTemp = imgEls.slice(0),
+                src ="";
             if (imgEls.length > 0) {
                 for (; i < length; ++i) {
                     imgEl = imgEls[i];
                     elInfo = imgEl.getBoundingClientRect();
                     if (elInfo.top <= window.innerHeight) {
-                        imgEl.src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random())
-                        imgEl.className += " show"
+                        src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random())
+                        imgEl.src = src;
+                        imgEl.className += " show";
+                        imgEl.parentElement.cite = src;
                         // 数组splice操作会影响循环
                         arrTemp.splice(i, 1);
                     }

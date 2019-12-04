@@ -6,10 +6,56 @@
     <description>Recent content in Htmls on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 15:39:05 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Dec 2019 14:27:00 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/html/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Article</title>
+      <link>https://lijianqiang1997.github.io/html/article/</link>
+      <pubDate>Wed, 04 Dec 2019 14:27:00 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/article/</guid>
+      <description>&amp;lt;article&amp;gt;元素表示文档，页面，应用程序或站点中的完整或独立的组成，并且原则上独立地可分发或可重用，例如 在联合组织中。 这可能是论坛帖子，杂志或报纸文章，博客条目，用户提交的评论，交互式小部件或小工具，或任何其他独立的内容。 嵌套&amp;lt;article&amp;gt;元素时，内部&amp;lt;article&amp;gt;元素表示原则上与外部文章内容相关的文章。 例如，接受用户提交的评论的网站上的博客条目可以将评论表示为嵌套在博客条目的article元素内的article元素。 与&amp;lt;article&amp;gt;元素（q.v.地址元素）关联的作者信息不适用于嵌套的&amp;lt;article&amp;gt;元素。  </description>
+    </item>
+    
+    <item>
+      <title>Cite</title>
+      <link>https://lijianqiang1997.github.io/html/cite/</link>
+      <pubDate>Wed, 04 Dec 2019 14:16:39 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/cite/</guid>
+      <description>&amp;lt;cite&amp;gt;:HTMLElement cite元素代表作品的标题（例如，书，论文，论文，诗歌，乐谱，歌曲，剧本，电影，电视节目，游戏，雕塑，绘画，剧院 制作，戏剧，歌剧，音乐剧，展览，法律案例报告，计算机程序等）。 这可以是被详细引用或引用（即引用）的作品，也可以只是顺带提及的作品。 人的名字不是作品的标题，即使人们称其为一件作品，因此也不得使用该元素来标记人的名字。 （在某些情况下，b元素可能适合于名称；例如，在八卦文章中，名人的名字是用不同样式呈现的关键字来引起人们注意的。在其他情况下，如果确实需要该元素，则 可以使用span元素。）  例子 下一个示例显示cite元素的典型用法： &amp;lt;p&amp;gt;My favorite book is &amp;lt;cite&amp;gt;The Reality Dysfunction&amp;lt;/cite&amp;gt; by Peter F. Hamilton. My favorite comic is &amp;lt;cite&amp;gt;Pearls Before Swine&amp;lt;/cite&amp;gt; by Stephan Pastis. My favorite track is &amp;lt;cite&amp;gt;Jive Samba&amp;lt;/cite&amp;gt; by the Cannonball Adderley Sextet.&amp;lt;/p&amp;gt;  这是正确的用法： &amp;lt;p&amp;gt;According to the Wikipedia article &amp;lt;cite&amp;gt;HTML&amp;lt;/cite&amp;gt;, as it stood in mid-February 2008, leaving attribute values unquoted is unsafe. This is obviously an over-simplification.&amp;lt;/p&amp;gt;  以下内容使用不正确，因为此处的cite元素包含的内容远远超出作品的标题： &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>blockquote</title>
+      <link>https://lijianqiang1997.github.io/html/blockquote/</link>
+      <pubDate>Wed, 04 Dec 2019 14:03:09 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/blockquote/</guid>
+      <description>&amp;lt;blockquote&amp;gt;:HTMLElement    全局属性 说明     cite 是一个标注引用的信息的来源文档或者相关信息的URL。通常用来描述能够解释引文的上下文或者引用的信息。    [Exposed=Window] interface HTMLQuoteElement : HTMLElement { [HTMLConstructor] constructor(); [CEReactions] attribute USVString cite; };  blockquote元素表示从另一个来源引用的部分。 blockquote中的内容必须从另一个来源引用，如果引用的地址中有内容，则可以在cite属性中引用它。 如果存在cite属性，则它必须是一个有效的URL，可能会被空格包围。 为了获得相应的引用链接，必须相对于元素的节点文档来解析属性的值。 用户代理可以允许用户跟踪此类引用链接，但它们主要供私人使用（例如，通过服务器端脚本收集有关站点使用报价的统计信息），而不是读者。 blockquote的内容可以缩写，也可以以常规方式为文本的语言添加上下文。  例子 例如，英语通常使用方括号来完成此操作。 考虑一页上写着“Jane ate the cracker. She then said she liked apples and fish.”的页面。 它可以引用如下： &amp;lt;blockquote&amp;gt; &amp;lt;p&amp;gt;[Jane] then said she liked [...] fish.&amp;lt;/p&amp;gt; &amp;lt;/blockquote&amp;gt;   quotation的属性（如果有的话）必须放在blockquote元素之外。
+例如，此处的属性在引号后的段落中给出 &amp;lt;blockquote&amp;gt; &amp;lt;p&amp;gt;I contend that we are both atheists.</description>
+    </item>
+    
+    <item>
+      <title>figcaption</title>
+      <link>https://lijianqiang1997.github.io/html/figcaption/</link>
+      <pubDate>Wed, 04 Dec 2019 13:47:01 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/figcaption/</guid>
+      <description> &amp;lt;figcaption&amp;gt;:HTMLElement figcaption元素表示figcaption元素的父图元素（如果有）的其余内容的标题或图例。  举例 元素可以包含有关源的其他信息： &amp;lt;figcaption&amp;gt; &amp;lt;p&amp;gt;A duck.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&amp;lt;small&amp;gt;Photograph courtesy of 🌟 News.&amp;lt;/small&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;/figcaption&amp;gt; &amp;lt;figcaption&amp;gt; &amp;lt;p&amp;gt;Average rent for 3-room apartments, excluding non-profit apartments&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Zürich’s Statistics Office — &amp;lt;time datetime=2017-11-14&amp;gt;14 November 2017&amp;lt;/time&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;/figcaption&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>figure</title>
+      <link>https://lijianqiang1997.github.io/html/figure/</link>
+      <pubDate>Wed, 04 Dec 2019 13:21:36 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/html/figure/</guid>
+      <description>&amp;lt;figure&amp;gt;:HTMLElement &amp;lt;figure&amp;gt;元素代表一些流内容，可选的包含一个标题，这些是独立的（self-contained）（如一个完整的句子）,典型地从document的main flow中引入作为单元格 在本文中，“自包含”不一定意味着独立。 例如，段落中的每个句子都是独立的； 作为句子一部分的图像不适合用于图形，但由图像构成的整个句子将很合适。 在本文中,self-contained并不一定意味着独立，例如，段落中的每个句子都是独立的； 作为句子一部分的图像不适合用于&amp;lt;figure&amp;gt;，但由images构成的整个句子将很合适。 因此，该元素可用于注释插图，图标，照片，代码清单等 当一个figure时通过标题（例如，图号）标识图形来从文档的主要内容中引用时，它使此类内容可以轻松地从该主要内容移开，例如移至页面的一侧， 专用页面或附录，而不会影响文档的流程。 如果&amp;lt;figure&amp;gt;元素通过其相对位置（例如“在上一张照片中”或“如下图所示”）引用，则移动图形会破坏页面的含义。 鼓励作者考虑使用标签来引用图形，而不是使用此类相对引用，以便可以轻松地重新设置页面样式，而不会影响页面的含义。  例子 本示例显示了用于标记代码清单的figure元素。 &amp;lt;p&amp;gt;In &amp;lt;a href=&amp;quot;#l4&amp;quot;&amp;gt;listing 4&amp;lt;/a&amp;gt; we see the primary core interface API declaration.&amp;lt;/p&amp;gt; &amp;lt;figure id=&amp;quot;l4&amp;quot;&amp;gt; &amp;lt;figcaption&amp;gt;Listing 4. The primary core interface API declaration.&amp;lt;/figcaption&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;interface PrimaryCore { boolean verifyDataLine(); void sendData(in sequence&amp;amp;lt;byte&amp;gt; data); void initSelfDestruct(); }&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt; &amp;lt;/figure&amp;gt; &amp;lt;p&amp;gt;The API is designed to use UTF-8.&amp;lt;/p&amp;gt;  在这里，我们看到一个图形元素来标记照片，该照片是页面的主要内容（例如在画廊中）。 &amp;lt;!DOCTYPE HTML&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Bubbles at work — My Gallery™&amp;lt;/title&amp;gt; &amp;lt;figure&amp;gt; &amp;lt;img src=&amp;quot;bubbles-work.</description>
+    </item>
     
     <item>
       <title>Code</title>

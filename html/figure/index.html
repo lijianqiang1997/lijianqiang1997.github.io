@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hugo Menu参数 &middot; 学习笔记</title>
+  <title>figure &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -153,156 +153,142 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>Hugo Menu参数</h1>
-  <time datetime=2019-11-25T13:29:04&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
-  <table>
-<thead>
-<tr>
-<th>Menu Entry Variables</th>
-<th>类型</th>
-<th>默认值</th>
-<th>说明</th>
-</tr>
-</thead>
+  <h1>figure</h1>
+  <time datetime=2019-12-04T13:21:36&#43;0800 class="post-date">Wed, Dec 4, 2019</time>
+  
 
-<tbody>
-<tr>
-<td>.Menu</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
+<h2 id="lt-figure-gt-htmlelement">&lt;figure&gt;:HTMLElement</h2>
 
-<tr>
-<td>.URL</td>
-<td>string</td>
-<td>page’s .RelPermalink</td>
-<td></td>
-</tr>
+<pre><code class="language-html">&lt;figure&gt;元素代表一些流内容，可选的包含一个标题，这些是独立的（self-contained）（如一个完整的句子）,典型地从document的main flow中引入作为单元格
 
-<tr>
-<td>.Page</td>
-<td></td>
-<td>指向关联menu entry的page object,如果menu entry是通过首页而非配置文件设置时，为非0</td>
-<td></td>
-</tr>
+在本文中，“自包含”不一定意味着独立。 例如，段落中的每个句子都是独立的； 作为句子一部分的图像不适合用于图形，但由图像构成的整个句子将很合适。
 
-<tr>
-<td>.Name</td>
-<td>string</td>
-<td>.LinkTitle</td>
-<td>menu entry的名字</td>
-</tr>
+在本文中,self-contained并不一定意味着独立，例如，段落中的每个句子都是独立的； 作为句子一部分的图像不适合用于&lt;figure&gt;，但由images构成的整个句子将很合适。
 
-<tr>
-<td>.Identifier</td>
-<td>string</td>
-<td></td>
-<td>menu  entry的识别码,如果超过一个menu erntries有同样的.Name时必须设置</td>
-</tr>
+因此，该元素可用于注释插图，图标，照片，代码清单等
 
-<tr>
-<td>.Pre</td>
-<td>HTML</td>
-<td></td>
-<td>一般为图标</td>
-</tr>
+当一个figure时通过标题（例如，图号）标识图形来从文档的主要内容中引用时，它使此类内容可以轻松地从该主要内容移开，例如移至页面的一侧， 专用页面或附录，而不会影响文档的流程。
 
-<tr>
-<td>.Post</td>
-<td>HTML</td>
-<td></td>
-<td>一般为事件按钮</td>
-</tr>
+如果&lt;figure&gt;元素通过其相对位置（例如“在上一张照片中”或“如下图所示”）引用，则移动图形会破坏页面的含义。 鼓励作者考虑使用标签来引用图形，而不是使用此类相对引用，以便可以轻松地重新设置页面样式，而不会影响页面的含义。
+</code></pre>
 
-<tr>
-<td>.Weight</td>
-<td>int</td>
-<td>page&rsquo;s .Weight</td>
-<td>menu entry的权重，也即导航栏的排列顺序</td>
-</tr>
+<h3 id="例子">例子</h3>
 
-<tr>
-<td>.Parent</td>
-<td>string</td>
-<td></td>
-<td>为parent menu entry的Name(或Identifier如果指定的话)，如果设置了这个menu entry设置在父导航下，否则设置在总导航下</td>
-</tr>
+<h4 id="本示例显示了用于标记代码清单的figure元素">本示例显示了用于标记代码清单的figure元素。</h4>
 
-<tr>
-<td>.Children</td>
-<td>Menu</td>
-<td></td>
-<td>当前菜单的子菜单集合</td>
-</tr>
-</tbody>
-</table>
+<pre><code class="language-html">&lt;p&gt;In &lt;a href=&quot;#l4&quot;&gt;listing 4&lt;/a&gt; we see the primary core interface
+API declaration.&lt;/p&gt;
+&lt;figure id=&quot;l4&quot;&gt;
+ &lt;figcaption&gt;Listing 4. The primary core interface API declaration.&lt;/figcaption&gt;
+ &lt;pre&gt;&lt;code&gt;interface PrimaryCore {
+ boolean verifyDataLine();
+ void sendData(in sequence&amp;lt;byte&gt; data);
+ void initSelfDestruct();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The API is designed to use UTF-8.&lt;/p&gt;
+</code></pre>
 
-<table>
-<thead>
-<tr>
-<th>Menu Entry Functions</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
+<h4 id="在这里-我们看到一个图形元素来标记照片-该照片是页面的主要内容-例如在画廊中">在这里，我们看到一个图形元素来标记照片，该照片是页面的主要内容（例如在画廊中）。</h4>
 
-<tbody>
-<tr>
-<td>.HasChildren</td>
-<td>boolean</td>
-<td>如果.Children不为0返回true</td>
-</tr>
+<pre><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;title&gt;Bubbles at work — My Gallery™&lt;/title&gt;
+&lt;figure&gt;
+ &lt;img src=&quot;bubbles-work.jpeg&quot;
+      alt=&quot;Bubbles, sitting in his office chair, works on his
+           latest project intently.&quot;&gt;
+ &lt;figcaption&gt;Bubbles at work&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;nav&gt;&lt;a href=&quot;19414.html&quot;&gt;Prev&lt;/a&gt; — &lt;a href=&quot;19416.html&quot;&gt;Next&lt;/a&gt;&lt;/nav&gt;
+</code></pre>
 
-<tr>
-<td>.keyName</td>
-<td>string</td>
-<td>如果存在.Indentifier返回.Indentifier，否则返回.Name</td>
-</tr>
+<h4 id="在此示例中-我们看到的不是图像-而是图像和视频-第一张图片从字面上看是示例第二句话的一部分-因此它不是一个独立的单元-因此-figure是不合适的">在此示例中，我们看到的不是图像，而是图像和视频。 第一张图片从字面上看是示例第二句话的一部分，因此它不是一个独立的单元，因此，figure是不合适的。</h4>
 
-<tr>
-<td>.IsEqual</td>
-<td>boolean</td>
-<td>如果两个menu entries为同一个menu entry返回true</td>
-</tr>
+<pre><code class="language-html">&lt;h2&gt;Malinko's comics&lt;/h2&gt;
 
-<tr>
-<td>.IsSameResource</td>
-<td>boolean</td>
-<td>两个menu entries是否有同样的.URL</td>
-</tr>
+&lt;p&gt;This case centered on some sort of &quot;intellectual property&quot;
+infringement related to a comic (see Exhibit A). The suit started
+after a trailer ending with these words:
 
-<tr>
-<td>.Title</td>
-<td>string</td>
-<td>链接标题，用于menu entries下a标签的title属性，如果menu entry是由首页产生的，返回页面的.LinkTitle,否则返回设置的title或空字符串</td>
-</tr>
-</tbody>
-</table>
+&lt;blockquote&gt;
+ &lt;img src=&quot;promblem-packed-action.png&quot; alt=&quot;ROUGH COPY! Promblem-Packed Action!&quot;&gt;
+&lt;/blockquote&gt;
 
-<table>
-<thead>
-<tr>
-<th>Other Menu-related Functions</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
+&lt;p&gt;...was aired. A lawyer, armed with a Bigger Notebook, launched a
+preemptive strike using snowballs. A complete copy of the trailer is
+included with Exhibit B.
 
-<tbody>
-<tr>
-<td>.IsMenuCurrent</td>
-<td>(menu string, menuEntry *MenuEntry ) boolean</td>
-<td>如果Page与给定MenuEntry的.Page是同一个对象，返回true</td>
-</tr>
+&lt;figure&gt;
+ &lt;img src=&quot;ex-a.png&quot; alt=&quot;Two squiggles on a dirty piece of paper.&quot;&gt;
+ &lt;figcaption&gt;Exhibit A. The alleged &lt;cite&gt;rough copy&lt;/cite&gt; comic.&lt;/figcaption&gt;
+&lt;/figure&gt;
 
-<tr>
-<td>.HasMenuCurrent</td>
-<td>(menu string, menuEntry *MenuEntry) boolean</td>
-<td>如果Page与给定Menu中Menu Entry的子菜单项之一中的.Page相同返回true</td>
-</tr>
-</tbody>
-</table>
+&lt;figure&gt;
+ &lt;video src=&quot;ex-b.mov&quot;&gt;&lt;/video&gt;
+ &lt;figcaption&gt;Exhibit B. The &lt;cite&gt;Rough Copy&lt;/cite&gt; trailer.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The case was resolved out of court.
+</code></pre>
+
+<h4 id="在这里-一首诗的一部分用figure标出">在这里，一首诗的一部分用figure标出</h4>
+
+<pre><code class="language-html">&lt;figure&gt;
+ &lt;p&gt;'Twas brillig, and the slithy toves&lt;br&gt;
+ Did gyre and gimble in the wabe;&lt;br&gt;
+ All mimsy were the borogoves,&lt;br&gt;
+ And the mome raths outgrabe.&lt;/p&gt;
+ &lt;figcaption&gt;&lt;cite&gt;Jabberwocky&lt;/cite&gt; (first verse). Lewis Carroll, 1832-98&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<h4 id="在此示例中-这可能是讨论城堡的更大工作的一部分-嵌套的figure元素用于为组中的每个图提供组标题和单个标题">在此示例中，这可能是讨论城堡的更大工作的一部分，嵌套的figure元素用于为组中的每个图提供组标题和单个标题：</h4>
+
+<pre><code class="language-html">&lt;figure&gt;
+ &lt;figcaption&gt;The castle through the ages: 1423, 1858, and 1999 respectively.&lt;/figcaption&gt;
+ &lt;figure&gt;
+  &lt;figcaption&gt;Etching. Anonymous, ca. 1423.&lt;/figcaption&gt;
+  &lt;img src=&quot;castle1423.jpeg&quot; alt=&quot;The castle has one tower, and a tall wall around it.&quot;&gt;
+ &lt;/figure&gt;
+ &lt;figure&gt;
+  &lt;figcaption&gt;Oil-based paint on canvas. Maria Towle, 1858.&lt;/figcaption&gt;
+  &lt;img src=&quot;castle1858.jpeg&quot; alt=&quot;The castle now has two towers and two walls.&quot;&gt;
+ &lt;/figure&gt;
+ &lt;figure&gt;
+  &lt;figcaption&gt;Film photograph. Peter Jankle, 1999.&lt;/figcaption&gt;
+  &lt;img src=&quot;castle1999.jpeg&quot; alt=&quot;The castle lies in ruins, the original tower all that remains in one piece.&quot;&gt;
+ &lt;/figure&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<h4 id="前面的示例也可以更简洁地编写如下-使用title属性代替嵌套的figure-figcation对">前面的示例也可以更简洁地编写如下（使用title属性代替嵌套的figure/figcation对）：</h4>
+
+<pre><code>&lt;figure&gt;
+ &lt;img src=&quot;castle1423.jpeg&quot; title=&quot;Etching. Anonymous, ca. 1423.&quot;
+      alt=&quot;The castle has one tower, and a tall wall around it.&quot;&gt;
+ &lt;img src=&quot;castle1858.jpeg&quot; title=&quot;Oil-based paint on canvas. Maria Towle, 1858.&quot;
+      alt=&quot;The castle now has two towers and two walls.&quot;&gt;
+ &lt;img src=&quot;castle1999.jpeg&quot; title=&quot;Film photograph. Peter Jankle, 1999.&quot;
+      alt=&quot;The castle lies in ruins, the original tower all that remains in one piece.&quot;&gt;
+ &lt;figcaption&gt;The castle through the ages: 1423, 1858, and 1999 respectively.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<h4 id="该图有时仅从内容中隐式引用">该图有时仅从内容中隐式引用：</h4>
+
+<pre><code class="language-html">&lt;article&gt;
+ &lt;h1&gt;Fiscal negotiations stumble in Congress as deadline nears&lt;/h1&gt;
+ &lt;figure&gt;
+  &lt;img src=&quot;obama-reid.jpeg&quot; alt=&quot;Obama and Reid sit together smiling in the Oval Office.&quot;&gt;
+  &lt;figcaption&gt;Barack Obama and Harry Reid. White House press photograph.&lt;/figcaption&gt;
+ &lt;/figure&gt;
+ &lt;p&gt;Negotiations in Congress to end the fiscal impasse sputtered on Tuesday, leaving both chambers
+ grasping for a way to reopen the government and raise the country's borrowing authority with a
+ Thursday deadline drawing near.&lt;/p&gt;
+ ...
+&lt;/article&gt;
+</code></pre>
 
 </div>
 

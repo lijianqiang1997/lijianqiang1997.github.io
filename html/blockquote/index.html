@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hugo Menu参数 &middot; 学习笔记</title>
+  <title>blockquote &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -153,156 +153,153 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>Hugo Menu参数</h1>
-  <time datetime=2019-11-25T13:29:04&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
-  <table>
-<thead>
-<tr>
-<th>Menu Entry Variables</th>
-<th>类型</th>
-<th>默认值</th>
-<th>说明</th>
-</tr>
-</thead>
+  <h1>blockquote</h1>
+  <time datetime=2019-12-04T14:03:09&#43;0800 class="post-date">Wed, Dec 4, 2019</time>
+  
 
-<tbody>
-<tr>
-<td>.Menu</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td>.URL</td>
-<td>string</td>
-<td>page’s .RelPermalink</td>
-<td></td>
-</tr>
-
-<tr>
-<td>.Page</td>
-<td></td>
-<td>指向关联menu entry的page object,如果menu entry是通过首页而非配置文件设置时，为非0</td>
-<td></td>
-</tr>
-
-<tr>
-<td>.Name</td>
-<td>string</td>
-<td>.LinkTitle</td>
-<td>menu entry的名字</td>
-</tr>
-
-<tr>
-<td>.Identifier</td>
-<td>string</td>
-<td></td>
-<td>menu  entry的识别码,如果超过一个menu erntries有同样的.Name时必须设置</td>
-</tr>
-
-<tr>
-<td>.Pre</td>
-<td>HTML</td>
-<td></td>
-<td>一般为图标</td>
-</tr>
-
-<tr>
-<td>.Post</td>
-<td>HTML</td>
-<td></td>
-<td>一般为事件按钮</td>
-</tr>
-
-<tr>
-<td>.Weight</td>
-<td>int</td>
-<td>page&rsquo;s .Weight</td>
-<td>menu entry的权重，也即导航栏的排列顺序</td>
-</tr>
-
-<tr>
-<td>.Parent</td>
-<td>string</td>
-<td></td>
-<td>为parent menu entry的Name(或Identifier如果指定的话)，如果设置了这个menu entry设置在父导航下，否则设置在总导航下</td>
-</tr>
-
-<tr>
-<td>.Children</td>
-<td>Menu</td>
-<td></td>
-<td>当前菜单的子菜单集合</td>
-</tr>
-</tbody>
-</table>
+<h2 id="lt-blockquote-gt-htmlelement">&lt;blockquote&gt;:HTMLElement</h2>
 
 <table>
 <thead>
 <tr>
-<th>Menu Entry Functions</th>
-<th>类型</th>
+<th>全局属性</th>
 <th>说明</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>.HasChildren</td>
-<td>boolean</td>
-<td>如果.Children不为0返回true</td>
-</tr>
-
-<tr>
-<td>.keyName</td>
-<td>string</td>
-<td>如果存在.Indentifier返回.Indentifier，否则返回.Name</td>
-</tr>
-
-<tr>
-<td>.IsEqual</td>
-<td>boolean</td>
-<td>如果两个menu entries为同一个menu entry返回true</td>
-</tr>
-
-<tr>
-<td>.IsSameResource</td>
-<td>boolean</td>
-<td>两个menu entries是否有同样的.URL</td>
-</tr>
-
-<tr>
-<td>.Title</td>
-<td>string</td>
-<td>链接标题，用于menu entries下a标签的title属性，如果menu entry是由首页产生的，返回页面的.LinkTitle,否则返回设置的title或空字符串</td>
+<td>cite</td>
+<td>是一个标注引用的信息的来源文档或者相关信息的URL。通常用来描述能够解释引文的上下文或者引用的信息。</td>
 </tr>
 </tbody>
 </table>
 
-<table>
-<thead>
-<tr>
-<th>Other Menu-related Functions</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
+<pre><code>[Exposed=Window]
+interface HTMLQuoteElement : HTMLElement {
+  [HTMLConstructor] constructor();
 
-<tbody>
-<tr>
-<td>.IsMenuCurrent</td>
-<td>(menu string, menuEntry *MenuEntry ) boolean</td>
-<td>如果Page与给定MenuEntry的.Page是同一个对象，返回true</td>
-</tr>
+  [CEReactions] attribute USVString cite;
+};
+</code></pre>
 
-<tr>
-<td>.HasMenuCurrent</td>
-<td>(menu string, menuEntry *MenuEntry) boolean</td>
-<td>如果Page与给定Menu中Menu Entry的子菜单项之一中的.Page相同返回true</td>
-</tr>
-</tbody>
-</table>
+<pre><code class="language-html">blockquote元素表示从另一个来源引用的部分。
+
+blockquote中的内容必须从另一个来源引用，如果引用的地址中有内容，则可以在cite属性中引用它。
+
+如果存在cite属性，则它必须是一个有效的URL，可能会被空格包围。 为了获得相应的引用链接，必须相对于元素的节点文档来解析属性的值。 用户代理可以允许用户跟踪此类引用链接，但它们主要供私人使用（例如，通过服务器端脚本收集有关站点使用报价的统计信息），而不是读者。
+
+blockquote的内容可以缩写，也可以以常规方式为文本的语言添加上下文。
+</code></pre>
+
+<h3 id="例子">例子</h3>
+
+<h4 id="例如-英语通常使用方括号来完成此操作-考虑一页上写着-jane-ate-the-cracker-she-then-said-she-liked-apples-and-fish-的页面-它可以引用如下">例如，英语通常使用方括号来完成此操作。 考虑一页上写着“Jane ate the cracker. She then said she liked apples and fish.”的页面。 它可以引用如下：</h4>
+
+<pre><code class="language-html">&lt;blockquote&gt;
+ &lt;p&gt;[Jane] then said she liked [...] fish.&lt;/p&gt;
+&lt;/blockquote&gt;
+</code></pre>
+
+<blockquote>
+<p>quotation的属性（如果有的话）必须放在blockquote元素之外。</p>
+
+<h4 id="例如-此处的属性在引号后的段落中给出">例如，此处的属性在引号后的段落中给出</h4>
+
+<pre><code class="language-html">&lt;blockquote&gt;
+ &lt;p&gt;I contend that we are both atheists. I just believe in one fewer
+ god than you do. When you understand why you dismiss all the other
+ possible gods, you will understand why I dismiss yours.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;— Stephen Roberts&lt;/p&gt;
+
+下面的其他示例显示了其他显示归因的方式。
+</code></pre>
+
+<p>cite IDL属性必须反映元素的引用内容属性。</p>
+
+<h4 id="这里-blockquote元素与figure元素及其figcaption结合使用-以清楚地将引号与其属性联系起来-这不是引号的一部分-因此不属于blockquote本身">这里，blockquote元素与figure元素及其figcaption结合使用，以清楚地将引号与其属性联系起来（这不是引号的一部分，因此不属于blockquote本身）：</h4>
+</blockquote>
+
+<pre><code class="language-html">&lt;figure&gt;
+ &lt;blockquote&gt;
+  &lt;p&gt;The truth may be puzzling. It may take some work to grapple with.
+  It may be counterintuitive. It may contradict deeply held
+  prejudices. It may not be consonant with what we desperately want to
+  be true. But our preferences do not determine what's true. We have a
+  method, and that method helps us to reach not absolute truth, only
+  asymptotic approaches to the truth — never there, just closer
+  and closer, always finding vast new oceans of undiscovered
+  possibilities. Cleverly designed experiments are the key.&lt;/p&gt;
+ &lt;/blockquote&gt;
+ &lt;figcaption&gt;Carl Sagan, in &quot;&lt;cite&gt;Wonder and Skepticism&lt;/cite&gt;&quot;, from
+ the &lt;cite&gt;Skeptical Inquirer&lt;/cite&gt; Volume 19, Issue 1 (January-February
+ 1995)&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<h4 id="下一个示例显示在引用和块引用之间的用法">下一个示例显示在引用和块引用之间的用法：</h4>
+
+<pre><code class="language-html">&lt;p&gt;His next piece was the aptly named &lt;cite&gt;Sonnet 130&lt;/cite&gt;:&lt;/p&gt;
+&lt;blockquote cite=&quot;https://quotes.example.org/s/sonnet130.html&quot;&gt;
+  &lt;p&gt;My mistress' eyes are nothing like the sun,&lt;br&gt;
+  Coral is far more red, than her lips red,&lt;br&gt;
+  ...
+</code></pre>
+
+<h4 id="此示例显示论坛帖子如何使用blockquote显示用户正在回复的帖子-每个帖子都使用article元素-以标记主题">此示例显示论坛帖子如何使用blockquote显示用户正在回复的帖子。 每个帖子都使用article元素，以标记主题。</h4>
+
+<pre><code>&lt;article&gt;
+ &lt;h1&gt;&lt;a href=&quot;https://bacon.example.com/?blog=109431&quot;&gt;Bacon on a crowbar&lt;/a&gt;&lt;/h1&gt;
+ &lt;article&gt;
+  &lt;header&gt;&lt;strong&gt;t3yw&lt;/strong&gt; 12 points 1 hour ago&lt;/header&gt;
+  &lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;
+  &lt;footer&gt;&lt;a href=&quot;?pid=29578&quot;&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+  &lt;article&gt;
+   &lt;header&gt;&lt;strong&gt;greg&lt;/strong&gt; 8 points 1 hour ago&lt;/header&gt;
+   &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
+   &lt;p&gt;Dude narwhals don't eat bacon.&lt;/p&gt;
+   &lt;footer&gt;&lt;a href=&quot;?pid=29579&quot;&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+   &lt;article&gt;
+    &lt;header&gt;&lt;strong&gt;t3yw&lt;/strong&gt; 15 points 1 hour ago&lt;/header&gt;
+    &lt;blockquote&gt;
+     &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
+     &lt;p&gt;Dude narwhals don't eat bacon.&lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;p&gt;Next thing you'll be saying they don't get capes and wizard
+    hats either!&lt;/p&gt;
+    &lt;footer&gt;&lt;a href=&quot;?pid=29580&quot;&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+    &lt;article&gt;
+     &lt;article&gt;
+      &lt;header&gt;&lt;strong&gt;boing&lt;/strong&gt; -5 points 1 hour ago&lt;/header&gt;
+      &lt;p&gt;narwhals are worse than ceiling cat&lt;/p&gt;
+      &lt;footer&gt;&lt;a href=&quot;?pid=29581&quot;&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+     &lt;/article&gt;
+    &lt;/article&gt;
+   &lt;/article&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+   &lt;header&gt;&lt;strong&gt;fred&lt;/strong&gt; 1 points 23 minutes ago&lt;/header&gt;
+   &lt;blockquote&gt;&lt;p&gt;I bet a narwhal would love that.&lt;/p&gt;&lt;/blockquote&gt;
+   &lt;p&gt;I bet they'd love to peel a banana too.&lt;/p&gt;
+   &lt;footer&gt;&lt;a href=&quot;?pid=29582&quot;&gt;permalink&lt;/a&gt;&lt;/footer&gt;
+  &lt;/article&gt;
+ &lt;/article&gt;
+&lt;/article&gt;
+</code></pre>
+
+<h4 id="此示例显示了对短代码段使用blockquote的情况-表明在blockquote元素内不必使用p元素">此示例显示了对短代码段使用blockquote的情况，表明在blockquote元素内不必使用p元素：</h4>
+
+<pre><code class="language-html">&lt;p&gt;He began his list of &quot;lessons&quot; with the following:&lt;/p&gt;
+&lt;blockquote&gt;One should never assume that his side of
+the issue will be recognized, let alone that it will
+be conceded to have merits.&lt;/blockquote&gt;
+&lt;p&gt;He continued with a number of similar points, ending with:&lt;/p&gt;
+&lt;blockquote&gt;Finally, one should be prepared for the threat
+of breakdown in negotiations at any given moment and not
+be cowed by the possibility.&lt;/blockquote&gt;
+&lt;p&gt;We shall now discuss these points...
+</code></pre>
 
 </div>
 

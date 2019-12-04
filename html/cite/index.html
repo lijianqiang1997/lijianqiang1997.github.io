@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hugo Menu参数 &middot; 学习笔记</title>
+  <title>Cite &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -153,156 +153,60 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>Hugo Menu参数</h1>
-  <time datetime=2019-11-25T13:29:04&#43;0800 class="post-date">Mon, Nov 25, 2019</time>
-  <table>
-<thead>
-<tr>
-<th>Menu Entry Variables</th>
-<th>类型</th>
-<th>默认值</th>
-<th>说明</th>
-</tr>
-</thead>
+  <h1>Cite</h1>
+  <time datetime=2019-12-04T14:16:39&#43;0800 class="post-date">Wed, Dec 4, 2019</time>
+  
 
-<tbody>
-<tr>
-<td>.Menu</td>
-<td>string</td>
-<td></td>
-<td></td>
-</tr>
+<h2 id="lt-cite-gt-htmlelement">&lt;cite&gt;:HTMLElement</h2>
 
-<tr>
-<td>.URL</td>
-<td>string</td>
-<td>page’s .RelPermalink</td>
-<td></td>
-</tr>
+<pre><code class="language-html">cite元素代表作品的标题（例如，书，论文，论文，诗歌，乐谱，歌曲，剧本，电影，电视节目，游戏，雕塑，绘画，剧院 制作，戏剧，歌剧，音乐剧，展览，法律案例报告，计算机程序等）。 这可以是被详细引用或引用（即引用）的作品，也可以只是顺带提及的作品。
 
-<tr>
-<td>.Page</td>
-<td></td>
-<td>指向关联menu entry的page object,如果menu entry是通过首页而非配置文件设置时，为非0</td>
-<td></td>
-</tr>
+人的名字不是作品的标题，即使人们称其为一件作品，因此也不得使用该元素来标记人的名字。 （在某些情况下，b元素可能适合于名称；例如，在八卦文章中，名人的名字是用不同样式呈现的关键字来引起人们注意的。在其他情况下，如果确实需要该元素，则 可以使用span元素。）
+</code></pre>
 
-<tr>
-<td>.Name</td>
-<td>string</td>
-<td>.LinkTitle</td>
-<td>menu entry的名字</td>
-</tr>
+<h3 id="例子">例子</h3>
 
-<tr>
-<td>.Identifier</td>
-<td>string</td>
-<td></td>
-<td>menu  entry的识别码,如果超过一个menu erntries有同样的.Name时必须设置</td>
-</tr>
+<h4 id="下一个示例显示cite元素的典型用法">下一个示例显示cite元素的典型用法：</h4>
 
-<tr>
-<td>.Pre</td>
-<td>HTML</td>
-<td></td>
-<td>一般为图标</td>
-</tr>
+<pre><code class="language-html">&lt;p&gt;My favorite book is &lt;cite&gt;The Reality Dysfunction&lt;/cite&gt; by
+Peter F. Hamilton. My favorite comic is &lt;cite&gt;Pearls Before
+Swine&lt;/cite&gt; by Stephan Pastis. My favorite track is &lt;cite&gt;Jive
+Samba&lt;/cite&gt; by the Cannonball Adderley Sextet.&lt;/p&gt;
+</code></pre>
 
-<tr>
-<td>.Post</td>
-<td>HTML</td>
-<td></td>
-<td>一般为事件按钮</td>
-</tr>
+<h4 id="这是正确的用法">这是正确的用法：</h4>
 
-<tr>
-<td>.Weight</td>
-<td>int</td>
-<td>page&rsquo;s .Weight</td>
-<td>menu entry的权重，也即导航栏的排列顺序</td>
-</tr>
+<pre><code class="language-html">&lt;p&gt;According to the Wikipedia article &lt;cite&gt;HTML&lt;/cite&gt;, as it
+stood in mid-February 2008, leaving attribute values unquoted is
+unsafe. This is obviously an over-simplification.&lt;/p&gt;
+</code></pre>
 
-<tr>
-<td>.Parent</td>
-<td>string</td>
-<td></td>
-<td>为parent menu entry的Name(或Identifier如果指定的话)，如果设置了这个menu entry设置在父导航下，否则设置在总导航下</td>
-</tr>
+<h4 id="以下内容使用不正确-因为此处的cite元素包含的内容远远超出作品的标题">以下内容使用不正确，因为此处的cite元素包含的内容远远超出作品的标题：</h4>
 
-<tr>
-<td>.Children</td>
-<td>Menu</td>
-<td></td>
-<td>当前菜单的子菜单集合</td>
-</tr>
-</tbody>
-</table>
+<pre><code class="language-html">&lt;!-- do not copy this example, it is an example of bad usage! --&gt;
+&lt;p&gt;According to &lt;cite&gt;the Wikipedia article on HTML&lt;/cite&gt;, as it
+stood in mid-February 2008, leaving attribute values unquoted is
+unsafe. This is obviously an over-simplification.&lt;/p&gt;
+</code></pre>
 
-<table>
-<thead>
-<tr>
-<th>Menu Entry Functions</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
+<blockquote>
+<p>cite不是引号（引号适合q元素）</p>
+</blockquote>
 
-<tbody>
-<tr>
-<td>.HasChildren</td>
-<td>boolean</td>
-<td>如果.Children不为0返回true</td>
-</tr>
+<pre><code class="language-html">这是不正确的用法，因为cite不是引号：
 
-<tr>
-<td>.keyName</td>
-<td>string</td>
-<td>如果存在.Indentifier返回.Indentifier，否则返回.Name</td>
-</tr>
+&lt;p&gt;&lt;cite&gt;This is wrong!&lt;/cite&gt;, said Ian.&lt;/p&gt;
+这也是不正确的用法，因为一个人不是工作：
 
-<tr>
-<td>.IsEqual</td>
-<td>boolean</td>
-<td>如果两个menu entries为同一个menu entry返回true</td>
-</tr>
+&lt;p&gt;&lt;q&gt;This is still wrong!&lt;/q&gt;, said &lt;cite&gt;Ian&lt;/cite&gt;.&lt;/p&gt;
+正确用法不使用cite元素：
 
-<tr>
-<td>.IsSameResource</td>
-<td>boolean</td>
-<td>两个menu entries是否有同样的.URL</td>
-</tr>
+&lt;p&gt;&lt;q&gt;This is correct&lt;/q&gt;, said Ian.&lt;/p&gt;
+如上所述，b元素可能与在某些类型的文档中将名称标记为关键字有关：
 
-<tr>
-<td>.Title</td>
-<td>string</td>
-<td>链接标题，用于menu entries下a标签的title属性，如果menu entry是由首页产生的，返回页面的.LinkTitle,否则返回设置的title或空字符串</td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<thead>
-<tr>
-<th>Other Menu-related Functions</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>.IsMenuCurrent</td>
-<td>(menu string, menuEntry *MenuEntry ) boolean</td>
-<td>如果Page与给定MenuEntry的.Page是同一个对象，返回true</td>
-</tr>
-
-<tr>
-<td>.HasMenuCurrent</td>
-<td>(menu string, menuEntry *MenuEntry) boolean</td>
-<td>如果Page与给定Menu中Menu Entry的子菜单项之一中的.Page相同返回true</td>
-</tr>
-</tbody>
-</table>
+&lt;p&gt;And then &lt;b&gt;Ian&lt;/b&gt; said &lt;q&gt;this might be right, in a
+gossip column, maybe!&lt;/q&gt;.&lt;/p&gt;
+</code></pre>
 
 </div>
 
