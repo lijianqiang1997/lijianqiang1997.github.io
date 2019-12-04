@@ -1,4 +1,30 @@
 (function () {
+    var createImg = (function(){
+        //在页面上创建img元素
+        var img = null;
+        return {
+            setImg:function(src,imgEl){ 
+                imgEl = imgEl || img instanceof HTMLImageElement?document.createElement("img"):img.cloneNode();   
+                imgEl.src = src;
+                imgEl.className += "show";
+                imgEl.parentElement && (imgEl.parentElement.cite = src);
+            }
+        }
+    })() 
+
+    var proxyImg = (function(){
+        //img对象  提前加载一张图片如果给这个图片加了一个src属性后就相当于在浏览器中缓存了一张图片
+        var image = new Image();
+        image.onload = function(){
+            createImg.setImg(this.src,this.el );
+        }
+        return {
+            setSrc:function(src,imgEL){
+                image.src = src;
+               image.el = imgEL;
+            }
+        }
+    })()
     var imgEls = [],
         showImg = function () {
             var i = 0,
@@ -12,10 +38,8 @@
                     imgEl = imgEls[i];
                     elInfo = imgEl.getBoundingClientRect();
                     if (elInfo.top <= window.innerHeight) {
-                        src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random())
-                        imgEl.src = src;
-                        imgEl.className += " show";
-                        imgEl.parentElement.cite = src;
+                        src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random()*10)
+                        proxyImg.setSrc(src,imgEl);
                         // 数组splice操作会影响循环
                         arrTemp.splice(i, 1);
                     }
