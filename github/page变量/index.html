@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Tags &middot; 学习笔记</title>
+  <title>.Page变量 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -25,7 +25,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://lijianqiang1997.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="学习笔记" />
   <script src="https://lijianqiang1997.github.io/js/init.js"></script>
 <script src="https://lijianqiang1997.github.io/js/custom-api.js"></script>
 </head>
@@ -113,9 +112,355 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
+    <style>
+  .main-return {
+    display: none;
+  }
+  
+  @media (min-width: 48em) {
+    .main-return {
+      position: fixed;
+      top: 0;
+      left: 14rem;
+      display: block;
+      width: 4rem;
+      border: 1px solid #2c96b2;  
+      border-radius: 5px;  
+      line-height: 2rem;
+      text-align: center;
+      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
+      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify.css" />
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify-toolbar.css" />
 
-</ul>
+<script src="https://lijianqiang1997.github.io/js/jquery-1.10.1.min.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify-addBash.js"></script>
+<script src="https://lijianqiang1997.github.io/js/changePre.js"></script>
+
+<a href="javascript:history.go(-1)" class="main-return">返回</a>
+<div class="post">
+  <h1>.Page变量</h1>
+  <time datetime=2019-12-03T17:02:13&#43;0800 class="post-date">Tue, Dec 3, 2019</time>
+  <table>
+<thead>
+<tr>
+<th>.Page</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>.AlternativeOutputFormats</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>.Aliases</td>
+<td></td>
+<td>page的别名</td>
+</tr>
+
+<tr>
+<td>.Content</td>
+<td></td>
+<td>page的内容</td>
+</tr>
+
+<tr>
+<td>.Data</td>
+<td>object</td>
+<td>对此页面特定的数据</td>
+</tr>
+
+<tr>
+<td>.Date</td>
+<td></td>
+<td>日期</td>
+</tr>
+
+<tr>
+<td>.Description</td>
+<td></td>
+<td>描述</td>
+</tr>
+
+<tr>
+<td>.Dir</td>
+<td></td>
+<td>相对于Content文件的路径</td>
+</tr>
+
+<tr>
+<td>.Draft</td>
+<td>boolean</td>
+<td>是否被标记为草稿</td>
+</tr>
+
+<tr>
+<td>.ExpiryDate</td>
+<td></td>
+<td>内容计划过期的时间</td>
+</tr>
+
+<tr>
+<td>.File</td>
+<td></td>
+<td>此内容文件的文件相关数据</td>
+</tr>
+
+<tr>
+<td>.FuzzyWordCount</td>
+<td></td>
+<td>内容的大概字数</td>
+</tr>
+
+<tr>
+<td>.Hugo</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>.IsHome</td>
+<td></td>
+<td>是否为首页</td>
+</tr>
+
+<tr>
+<td>.IsNode</td>
+<td>boolean</td>
+<td>常规页面始终为false</td>
+</tr>
+
+<tr>
+<td>.IsPage</td>
+<td>boolean</td>
+<td>常规页面始终为true</td>
+</tr>
+
+<tr>
+<td>.IsTranslated</td>
+<td></td>
+<td>是否有翻译要显示</td>
+</tr>
+
+<tr>
+<td>.keywords</td>
+<td></td>
+<td>内容的meta关键字</td>
+</tr>
+
+<tr>
+<td>.Kind</td>
+<td></td>
+<td>页面的种类</td>
+</tr>
+
+<tr>
+<td>.Language</td>
+<td></td>
+<td>site config. .Language.Lang中指定的语言</td>
+</tr>
+
+<tr>
+<td>.Lastmod</td>
+<td></td>
+<td>内容的最后修改时间</td>
+</tr>
+
+<tr>
+<td>.LinkTitle</td>
+<td></td>
+<td>在创建指向内容的链接时进行访问。如果设置，Hugo将使用linktitle前面的title。</td>
+</tr>
+
+<tr>
+<td>.Next</td>
+<td></td>
+<td>指向下一个常规页面（按Hugo的默认sort排序）。范例：{{with .Next}}{{.Permalink}}{{end}}。.Next从首页进行呼叫会返回nil。</td>
+</tr>
+
+<tr>
+<td>.NextInSection</td>
+<td></td>
+<td>指向同一顶级部分下方的下一个常规页面（例如/blog）。页面按Hugo的默认sort排序。范例：{{with .NextInSection}}{{.Permalink}}{{end}}。.NextInSection从首页进行呼叫会返回nil。</td>
+</tr>
+
+<tr>
+<td>.OutputFormats</td>
+<td></td>
+<td>包含给定页面的所有格式，包括当前格式。可以与with .Get函数结合使用以获取特定格式。</td>
+</tr>
+
+<tr>
+<td>.Pages</td>
+<td></td>
+<td>关联页面的集合。该值将nil在常规内容页面的上下文中</td>
+</tr>
+
+<tr>
+<td>.Permalink</td>
+<td></td>
+<td>此页面的永久链接</td>
+</tr>
+
+<tr>
+<td>.Plain</td>
+<td></td>
+<td>Page内容剥离HTML标签并以字符串作为呈现</td>
+</tr>
+
+<tr>
+<td>.PlainWords</td>
+<td></td>
+<td>[]string使用Go strings.Fields分割.Plain成片的HTML剥离的Page内容。</td>
+</tr>
+
+<tr>
+<td>.Prev</td>
+<td></td>
+<td>指向上一个常规页面（按Hugo的默认sort排序）。范例：{{if .PrevPage}}{{.PrevPage.Permalink}}{{end}}。.Prev从最后一页调用将返回nil</td>
+</tr>
+
+<tr>
+<td>.PrevInSection</td>
+<td></td>
+<td>指向同一顶级部分下方的上一个常规页面（例如/blog）。页面按Hugo的默认sort排序。范例：{{if .PrevInSection}}{{.PrevInSection.Permalink}}{{end}}。.PrevInSection从最后一页调用将返回nil。</td>
+</tr>
+
+<tr>
+<td>.PublishDate</td>
+<td></td>
+<td>内容发布或将发布的日期；.Publishdate从publishdate内容的最前沿领域拉出来。另见.ExpiryDate，.Date和.Lastmod。</td>
+</tr>
+
+<tr>
+<td>.RSSLink（不推荐使用）</td>
+<td></td>
+<td>链接到页面的RSS feed。不推荐使用。您应该改为执行以下操作：{{ with .OutputFormats.Get &ldquo;RSS&rdquo; }}{{ .RelPermalink }}{{ end }}。</td>
+</tr>
+
+<tr>
+<td>.RawContent</td>
+<td></td>
+<td>原始的降价内容没有前题。对remarkjs.com有用</td>
+</tr>
+
+<tr>
+<td>.ReadingTime</td>
+<td></td>
+<td>读取内容所需的估计时间（以分钟为单位）。</td>
+</tr>
+
+<tr>
+<td>.Resources</td>
+<td></td>
+<td>与该页面相关的资源，例如图像和CSS</td>
+</tr>
+
+<tr>
+<td>.Ref</td>
+<td></td>
+<td>返回给定引用（例如.Ref &ldquo;sample.md&rdquo;）的固定链接。.Ref并不能正确处理，页面片段</td>
+</tr>
+
+<tr>
+<td>.RelPermalink</td>
+<td></td>
+<td>此页面的相对永久链接。</td>
+</tr>
+
+<tr>
+<td>.RelRef</td>
+<td></td>
+<td>返回给定参考的相对固定链接（例如RelRef &ldquo;sample.md&rdquo;）。.RelRef并不能正确处理，页面片段。</td>
+</tr>
+
+<tr>
+<td>.Site</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>.Sites</td>
+<td></td>
+<td>返回所有站点（语言）。典型的用例是链接回主要语言：<a href="{{ .Sites.First.Home.RelPermalink }}">&hellip;</a>。</td>
+</tr>
+
+<tr>
+<td>.Sites.First</td>
+<td></td>
+<td>返回第一种语言的网站。如果这不是多语言设置，它将返回自己。</td>
+</tr>
+
+<tr>
+<td>.TableOfContents</td>
+<td></td>
+<td>生成的内容摘要，以便在摘要视图中轻松显示摘要。可以通过在内容页面的适当位置插入&lt;！-more-&gt;来手动设置断点，或者可以独立于页面文本编写摘要。有关更多详细信息，请参见内容摘要。</td>
+</tr>
+
+<tr>
+<td>.Title</td>
+<td></td>
+<td>此页面的标题。</td>
+</tr>
+
+<tr>
+<td>.Translations</td>
+<td></td>
+<td>当前页面的翻译版本列表</td>
+</tr>
+
+<tr>
+<td>.TranslationKey</td>
+<td></td>
+<td>用于映射当前页面的语言翻译的键。</td>
+</tr>
+
+<tr>
+<td>.Truncated</td>
+<td></td>
+<td>布尔值（true如果）.Summary被截断。仅在必要时才用于显示“阅读更多……”链接。</td>
+</tr>
+
+<tr>
+<td>.Type</td>
+<td></td>
+<td>该内容类型的内容（例如，posts）。</td>
+</tr>
+
+<tr>
+<td>.UniqueID</td>
+<td></td>
+<td>内容文件路径的MD5校验和。</td>
+</tr>
+
+<tr>
+<td>.Weight</td>
+<td></td>
+<td>分配此内容的权重（在最前面），用于排序。</td>
+</tr>
+
+<tr>
+<td>.WordCount</td>
+<td></td>
+<td>内容中的单词数。</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
     </main>
 
     

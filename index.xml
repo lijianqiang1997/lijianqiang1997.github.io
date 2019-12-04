@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>.Site变量</title>
-      <link>https://lijianqiang1997.github.io/github/site%E5%8F%98%E9%87%8F/</link>
+      <title>.Page变量</title>
+      <link>https://lijianqiang1997.github.io/github/page%E5%8F%98%E9%87%8F/</link>
       <pubDate>Tue, 03 Dec 2019 17:02:13 +0800</pubDate>
       
-      <guid>https://lijianqiang1997.github.io/github/site%E5%8F%98%E9%87%8F/</guid>
-      <description>.Site 类型 说明     .Aliases     .Content     .Data     .Date     .Description     .Dir     .Draft     .ExpiryDate     .File     .FuzzyWordCount     .Hugo     .IsHome     .</description>
+      <guid>https://lijianqiang1997.github.io/github/page%E5%8F%98%E9%87%8F/</guid>
+      <description>.Page 类型 说明     .AlternativeOutputFormats     .Aliases  page的别名   .Content  page的内容   .Data object 对此页面特定的数据   .Date  日期   .Description  描述   .Dir  相对于Content文件的路径   .Draft boolean 是否被标记为草稿   .ExpiryDate  内容计划过期的时间   .File  此内容文件的文件相关数据   .FuzzyWordCount  内容的大概字数   .Hugo     .</description>
     </item>
     
     <item>
@@ -315,7 +315,7 @@ if(newAutoClass) { newAutoClass.addRules({ reg: , // 匹配正则 solveFn: commo
       <pubDate>Sat, 09 Nov 2019 12:19:59 +0800</pubDate>
       
       <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
-      <description>var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;amp;&amp;amp; this.fnfn(..._args); if(result === true) { return this.successor &amp;amp;&amp;amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.</description>
+      <description>var Chain = function(fn) { this.fn = fn; this.successor = null; } Chain.prototype.run = function() { var result = this.fn &amp;amp;&amp;amp; this.fn(..._args); if(result === true) { return this.successor &amp;amp;&amp;amp; this.successor.run.apply(this.successor,arguments) } return result; } Chain.prototype.next = function(fn) { return this.successor = fn instanceof Chain?fn:new Chain(fn); } var fn1 = function() { console.log(1); return true; } var fn2 = function() { console.log(2); return true; } var fn3 = function() { console.log(3); return true; } let c = new Chain(fn1); let m = c.</description>
     </item>
     
     <item>

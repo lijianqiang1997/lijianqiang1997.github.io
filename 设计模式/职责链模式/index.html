@@ -16,6 +16,7 @@
   <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/poole.css">
   <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/syntax.css">
   <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="https://lijianqiang1997.github.io/css/sidebar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
@@ -29,86 +30,13 @@
 </head>
 
   <body class=" ">
-  <style>
-  @media (max-width: 48em) {
-    .sidevbar-logo {
-      max-width: 50%;
-      margin: 0 auto;
-    }
-    .sidebar-nav-item a img,.sidebar-nav-item a svg {
-      display: none;
-    }
-    body .sidebar-nav-item  {
-      padding-left: 0;
-    }
-  }
-  @media (min-width: 48em) {
-    .sidevbar-logo__img {
-      margin-left: -5%;
-    }
-    .sidebar-nav {
-      text-align: left;
-    }
-    .sidebar-nav img,.sidebar-nav svg {
-      display: inline-block;
-      margin: 0 .5em 0 0;
-      vertical-align: middle;
-      object-fit: contain;
-    }
-  }
-  .sidevbar-logo {
-    position: relative;
-  }
-  .sidevbar-logo:after {
-    display: block;
-    padding-bottom: 100%;
-    content: '';
-  }
-  .sidevbar-logo__img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .sidebar-nav-item {
-    position: relative;
-    padding-left: 5%;
-    border-right: 1.25rem solid transparent;
-  }
-  .sidebar-nav-item.active{
-    background: skyblue;
-    background-clip: content-box;
-    -webkit-filter: hue-rotate(45deg);
-    filter: hue-rotate(45deg)
-  }
-  .sidebar-nav-item::before {
-    display: inline-block;
-    width: 5%;
-    content: '';
-  }
-  .sidebar-nav-item.active:after {
-    position: absolute;
-    left: 100%;
-    border: 1.25rem solid skyblue;
-    border-top-color: transparent;
-    border-right: 0 none;
-    border-bottom-color: transparent;
-    background: inherit;
-    content: '';
-  }
-  .sidebar-nav-item.active a {
-    color:  #2b6b84;
-  }
-</style>
-
-<aside class="sidebar">
+  <aside class="sidebar">
   <div class="container sidebar-sticky">
-    <div class="sidevbar-logo">
+    <div class="sidebar-logo">
       <img
         src="https://lijianqiang1997.github.io/images/logo.png"
         alt="logo"
-        class="sidevbar-logo__img"
+        class="sidebar-logo__img"
       />
     </div>
     
@@ -218,216 +146,216 @@
 <div class="post">
   <h1>职责链模式</h1>
   <time datetime=2019-11-09T12:19:59&#43;0800 class="post-date">Sat, Nov 9, 2019</time>
-  <pre><code> var Chain = function(fn) {
-        this.fn = fn;
-        this.successor = null;
-      }
-      Chain.prototype.run = function() {
-        var result = this.fn &amp;&amp; this.fnfn(..._args);
-        if(result === true) {
-          return this.successor &amp;&amp; this.successor.run.apply(this.successor,arguments)
+  <pre><code class="language-js">var Chain = function(fn) {
+  this.fn = fn;
+  this.successor = null;
+}
+Chain.prototype.run = function() {
+  var result = this.fn &amp;&amp; this.fn(..._args);
+  if(result === true) {
+    return this.successor &amp;&amp; this.successor.run.apply(this.successor,arguments)
+  }
+  return result;
+}
+Chain.prototype.next = function(fn) {
+  return this.successor = fn instanceof Chain?fn:new Chain(fn);
+
+}
+
+var fn1 = function() {
+  console.log(1);
+  return true;
+}
+var fn2 = function() {
+  console.log(2);
+  return true;
+}
+var fn3 = function() {
+  console.log(3);
+  return true;
+}
+let c = new Chain(fn1);
+let m = c.next(fn2).next(fn3)+
+c.run();
+</code></pre>
+
+<pre><code class="language-js">var Chain = function() {
+  let _args = arguments;
+  return {
+    fnArr: [],
+    currentIndex: 0,
+    addNext: function(fn) {
+      return this.fnArr.push(fn), this;
+    },
+    run: function() {
+      let i = this.currentIndex;
+      let fnArr = this.fnArr;
+      let length = fnArr.length;
+      for (; i &lt; length; ++i) {
+        this.currentIndex = i;
+        let fn = fnArr[i];
+        let result = fn(..._args);
+        if (result !== true) {
+          break;
         }
-        return result;
       }
-      Chain.prototype.next = function(fn) {
-       return this.successor = fn instanceof Chain?fn:new Chain(fn);
-
+      if(i === length) {
+        this.init();
       }
-
-      var fn1 = function() {
-        console.log(1);
-        return true;
-      }
-      var fn2 = function() {
-        console.log(2);
-        return true;
-      }
-      var fn3 = function() {
-        console.log(3);
-        return true;
-      }
-      let c = new Chain(fn1);
-      let m = c.next(fn2).next(fn3)+
-      c.run();
+    },
+    init: function() {
+      this.currentIndex = 0;
+      this.fnArr = [];
+    },
+    next:function() {
+      this.currentIndex ++;
+      this.run();
+    }
+  };
+};
+let ca = Chain(&quot;m&quot;);
+var fn1 = function(prefix) {
+  console.log(prefix+'1');
+  return true;
+};
+var fn2 = function(prefix) {
+  console.log(prefix+'2');
+  setTimeout(()=&gt;{
+    ca.next();
+  },1000)
+};
+var fn3 = function(prefix) {
+  console.log(prefix+'3');
+  return false;
+};
+ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
 </code></pre>
 
-<pre><code>var Chain = function() {
-        let _args = arguments;
-        return {
-          fnArr: [],
-          currentIndex: 0,
-          addNext: function(fn) {
-            return this.fnArr.push(fn), this;
-          },
-          run: function() {
-            let i = this.currentIndex;
-            let fnArr = this.fnArr;
-            let length = fnArr.length;
-            for (; i &lt; length; ++i) {
-              this.currentIndex = i;
-              let fn = fnArr[i];
-              let result = fn(..._args);
-              if (result !== true) {
-                break;
-              }
-            }
-            if(i === length) {
-              this.init();
-            }
-          },
-          init: function() {
-            this.currentIndex = 0;
-            this.fnArr = [];
-          },
-          next:function() {
-            this.currentIndex ++;
-            this.run();
-          }
-        };
-      };
-      let ca = Chain(&quot;m&quot;);
-      var fn1 = function(prefix) {
-        console.log(prefix+'1');
-        return true;
-      };
-      var fn2 = function(prefix) {
-        console.log(prefix+'2');
-        setTimeout(()=&gt;{
-          ca.next();
-        },1000)
-      };
-      var fn3 = function(prefix) {
-        console.log(prefix+'3');
-        return false;
-      };
-      ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
-</code></pre>
-
-<pre><code>对象池改善职责链模式
+<pre><code class="language-js">// 对象池改善职责链模式
 var Chain = function() {
-        let _args = arguments;
-        let _ObjectPool = [];
-        return _ObjectPool.length?_ObjectPool.pop():{
-          expectResult: true, // 让它进入到下一环节的收到的预期结果
-          fnArr: [], // 所有环节
-          currentIndex: 0, // 进行到的环节
-          addNext: function(fn) {
-            return this.fnArr.push(fn), this;
-          } ,// 添加下一环节
-          run: function() { // 运行环节
-            let i = this.currentIndex;
-            let fnArr = this.fnArr;
-            let length = fnArr.length;
-            for (; i &lt; length; ++i) {
-              this.currentIndex = i;
-              let fn = fnArr[i];
-              let result = fn(..._args);
-              if (result !== this.expectResult) {
-                break;
-              }
-            }
-            if(i === length) {
-              this.init();
-            }
-          },
-          init: function() { // 恢复初始化
-            this.expectResult = true;
-            this.currentIndex = 0;
-            this.fnArr = [];
-            this.recover();
-          },
-          next:function() {
-            this.currentIndex ++;
-            this.run();
-          }, // 接着往下执行
-          recover: function() {
-            _ObjectPool.push(this)
-          } // 回收对象
-        };
-      };
-      let ca = Chain(&quot;m&quot;);
-      var fn1 = function(prefix) {
-        console.log(prefix+'1');
-        return true;
-      };
-      var fn2 = function(prefix) {
-        console.log(prefix+'2');
-        setTimeout(()=&gt;{
-          ca.next();
-        },1000)
-      };
-      var fn3 = function(prefix) {
-        console.log(prefix+'3');
-        return false;
-      };
-      ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
+  let _args = arguments;
+  let _ObjectPool = [];
+  return _ObjectPool.length?_ObjectPool.pop():{
+    expectResult: true, // 让它进入到下一环节的收到的预期结果
+    fnArr: [], // 所有环节
+    currentIndex: 0, // 进行到的环节
+    addNext: function(fn) {
+      return this.fnArr.push(fn), this;
+    } ,// 添加下一环节
+    run: function() { // 运行环节
+      let i = this.currentIndex;
+      let fnArr = this.fnArr;
+      let length = fnArr.length;
+      for (; i &lt; length; ++i) {
+        this.currentIndex = i;
+        let fn = fnArr[i];
+        let result = fn(..._args);
+        if (result !== this.expectResult) {
+          break;
+        }
+      }
+      if(i === length) {
+        this.init();
+      }
+    },
+    init: function() { // 恢复初始化
+      this.expectResult = true;
+      this.currentIndex = 0;
+      this.fnArr = [];
+      this.recover();
+    },
+    next:function() {
+      this.currentIndex ++;
+      this.run();
+    }, // 接着往下执行
+    recover: function() {
+      _ObjectPool.push(this)
+    } // 回收对象
+  };
+};
+let ca = Chain(&quot;m&quot;);
+var fn1 = function(prefix) {
+  console.log(prefix+'1');
+  return true;
+};
+var fn2 = function(prefix) {
+  console.log(prefix+'2');
+  setTimeout(()=&gt;{
+    ca.next();
+  },1000)
+};
+var fn3 = function(prefix) {
+  console.log(prefix+'3');
+  return false;
+};
+ca.addNext(fn1).addNext(fn2).addNext(fn3).run();
 </code></pre>
 
-<pre><code>// 添加回收变量
+<pre><code class="language-js">// 添加回收变量
 var Chain = function(obj) {
-        let _args = arguments;
-        let _ObjectPool = [];
-        return _ObjectPool.length?_ObjectPool.pop():{
-          expectResult: true, // 让它进入到下一环节的收到的预期结果
-          fnArr: [], // 所有环节
-          currentIndex: 0, // 进行到的环节
-          addNext: function(fn) {
-            return this.fnArr.push(fn), this;
-          } ,// 添加下一环节
-          run: function() { // 运行环节
-            let i = this.currentIndex;
-            let fnArr = this.fnArr;
-            let length = fnArr.length;
-            for (; i &lt; length; ++i) {
-              this.currentIndex = i;
-              let fn = fnArr[i];
-              let result = fn(..._args);
-              if (result !== this.expectResult) {
-                break;
-              }
-            }
-            if(i === length) {
-              this.init(obj);
-            }
-          },
-          init: function(obj) { // 恢复初始化
-            this.expectResult = true;
-            this.currentIndex = 0;
-            this.fnArr = [];
-            this.recover();
-            obj = null;
-          },
-          next:function() {
-            this.currentIndex ++;
-            this.run();
-          }, // 接着往下执行
-          recover: function() {
-            _ObjectPool.push(this)
-          } // 回收对象
-        };
-      };
-      let ca = Chain(&quot;m&quot;);
-      var fn1 = function(prefix) {
-        console.log(prefix+'1');
-        return true;
-      };
-      var fn2 = function(prefix) {
-        console.log(prefix+'2');
-        setTimeout(()=&gt;{
-          ca.next();
-        },1000)
-      };
-      var fn3 = function(prefix) {
-        console.log(prefix+'3');
-        return false;
-      };
-      ca.addNext(fn1).addNext(fn2).addNext(fn3).run(ca)
+  let _args = arguments;
+  let _ObjectPool = [];
+  return _ObjectPool.length?_ObjectPool.pop():{
+    expectResult: true, // 让它进入到下一环节的收到的预期结果
+    fnArr: [], // 所有环节
+    currentIndex: 0, // 进行到的环节
+    addNext: function(fn) {
+      return this.fnArr.push(fn), this;
+    } ,// 添加下一环节
+    run: function() { // 运行环节
+      let i = this.currentIndex;
+      let fnArr = this.fnArr;
+      let length = fnArr.length;
+      for (; i &lt; length; ++i) {
+        this.currentIndex = i;
+        let fn = fnArr[i];
+        let result = fn(..._args);
+        if (result !== this.expectResult) {
+          break;
+        }
+      }
+      if(i === length) {
+        this.init(obj);
+      }
+    },
+    init: function(obj) { // 恢复初始化
+      this.expectResult = true;
+      this.currentIndex = 0;
+      this.fnArr = [];
+      this.recover();
+      obj = null;
+    },
+    next:function() {
+      this.currentIndex ++;
+      this.run();
+    }, // 接着往下执行
+    recover: function() {
+      _ObjectPool.push(this)
+    } // 回收对象
+  };
+};
+let ca = Chain(&quot;m&quot;);
+var fn1 = function(prefix) {
+  console.log(prefix+'1');
+  return true;
+};
+var fn2 = function(prefix) {
+  console.log(prefix+'2');
+  setTimeout(()=&gt;{
+    ca.next();
+  },1000)
+};
+var fn3 = function(prefix) {
+  console.log(prefix+'3');
+  return false;
+};
+ca.addNext(fn1).addNext(fn2).addNext(fn3).run(ca)
 
-      var cb = Chain(&quot;k&quot;);
-       cb.addNext(fn1).addNext(fn2).addNext(fn3);
-       setTimeout(function() {
-        cb.run();
-      },100)
+var cb = Chain(&quot;k&quot;);
+  cb.addNext(fn1).addNext(fn2).addNext(fn3);
+  setTimeout(function() {
+  cb.run();
+},100)
 </code></pre>
 
 </div>
