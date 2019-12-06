@@ -6,10 +6,19 @@
     <description>Recent content on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Dec 2019 16:20:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 16:21:32 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Scss Can Not Get Resolve错误</title>
+      <link>https://lijianqiang1997.github.io/vue/scss-can-not-get-resolve%E9%94%99%E8%AF%AF/</link>
+      <pubDate>Fri, 06 Dec 2019 16:21:32 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/vue/scss-can-not-get-resolve%E9%94%99%E8%AF%AF/</guid>
+      <description>cnpm install sass-loader@7.3.1 将sass-loader安装成7.3.1版本  </description>
+    </item>
     
     <item>
       <title>Vue Cli Scss 注入全局变量配置</title>
