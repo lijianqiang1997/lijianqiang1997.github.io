@@ -155,40 +155,149 @@
 <div class="post">
   <h1>Form表单如何在提交时只显示一项错误项</h1>
   <time datetime=2019-11-14T20:28:54&#43;0800 class="post-date">Thu, Nov 14, 2019</time>
-  <pre><code>let form = this.$refs[&quot;ruleForm&quot;];
-form.validate(async (valid,fields) =&gt; {
-    try {
-        if(!this.validateConfirmPass()) {
-        throw new Error(&quot;两次密码输入不一致&quot;);
-        }
-        if (valid) {
-            // 调用接口
-            await myPurse.updateTransactionPassword(this.ruleForm);
-            // 调用成功后的相关操作
-            ...codes
-        } else {
-        // 清楚不要的检测字段
-        let fieldsArr = Object.keys(fields);
-        let props = fieldsArr.slice(1);
-        if(props.length) {
-            form.clearValidate(props)
-        }
-        let formEl = form.$el;
-        setTimeout(() =&gt; {
-            let FirstInputEl =  formEl
-            .querySelector(
-            &quot;.is-error input[type='text'],.is-error input[type='password'],.is-required input[type='text'],.is-required input[type='password']&quot;
-            );
-            // 使第一个input聚焦
-            FirstInputEl.focus();
-            FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView();
-        }, 0);
-        throw new Error(fields[fieldsArr[0]][0].message);
-        }
-    } catch (e) {
-        this.$errorMessage(e.message);
-    }
-});
+  <pre><code class="language-vue">&lt;el-form
+    class=&quot;form&quot;
+    :rules=&quot;rules&quot;
+    ref=&quot;ruleForm&quot;
+    :model=&quot;ruleForm&quot;
+    hide-required-asterisk
+&gt;
+    &lt;div class=&quot;myPurse-form&quot;&gt;
+        &lt;el-form-item class=&quot;myPurse-formGroup&quot; label=&quot;手机号码&quot;&gt;
+            &lt;div class=&quot;myPurse-formGroup-inputContainer&quot;&gt;
+            &lt;input
+                type=&quot;text&quot;
+                :value=&quot;tel&quot;
+                disabled
+                class=&quot;myPurse-formGroup-inputContainer__input&quot;
+            /&gt;
+            &lt;/div&gt;
+        &lt;/el-form-item&gt;
+        &lt;el-form-item class=&quot;myPurse-formGroup&quot; label=&quot;短信验证码&quot; prop=&quot;code&quot;&gt;
+            &lt;el-input
+            type=&quot;text&quot;
+            class=&quot;myPurse-formGroup-inputContainer__input&quot;
+            placeholder=&quot;请输入验证码&quot;
+            v-model=&quot;ruleForm.code&quot;
+            /&gt;
+            &lt;code-button
+            class=&quot;myPurse-formGroup_btn myPurse-formGroup_btn--button&quot;
+            templateId=&quot;14842311&quot;
+            @codeReturn=&quot;codeReturn&quot;
+            &gt;获取验证码&lt;/code-button
+            &gt;
+        &lt;/el-form-item&gt;
+
+        &lt;el-form-item
+            class=&quot;myPurse-formGroup&quot;
+            label=&quot;交易密码&quot;
+            prop=&quot;password&quot;
+        &gt;
+            &lt;el-input
+            type=&quot;password&quot;
+            class=&quot;myPurse-formGroup-inputContainer__input&quot;
+            placeholder=&quot;请输入交易密码&quot;
+            v-model=&quot;ruleForm.password&quot;
+            /&gt;
+            &lt;a
+            href=&quot;javascript:void(0)&quot;
+            class=&quot;myPurse-formGroup_btn myPurse-formGroup_btn--link&quot;
+            &gt;&lt;/a&gt;
+        &lt;/el-form-item&gt;
+
+        &lt;el-form-item
+            class=&quot;myPurse-formGroup&quot;
+            label=&quot;确认交易密码&quot;
+            prop=&quot;confirmPassword&quot;
+        &gt;
+            &lt;el-input
+            type=&quot;password&quot;
+            class=&quot;myPurse-formGroup-inputContainer__input&quot;
+            placeholder=&quot;请输入交易密码&quot;
+            v-model=&quot;ruleForm.confirmPassword&quot;
+            /&gt;
+            &lt;a
+            href=&quot;javascript:void(0)&quot;
+            class=&quot;myPurse-formGroup_btn myPurse-formGroup_btn--link&quot;
+            &gt;&lt;/a&gt;
+        &lt;/el-form-item&gt;
+
+        &lt;el-form-item class=&quot;myPurse-formGroup myPurse-btnLists&quot; label=&quot; &quot;&gt;
+            &lt;button
+            class=&quot;myPurse-btnLists__btn myPurse-btnLists__btn--skyblue&quot;
+            @click.prevent=&quot;resetTransactionPassword&quot;
+            &gt;
+            确定
+            &lt;/button&gt;
+        &lt;/el-form-item&gt;
+    &lt;/div&gt;
+&lt;/el-form&gt;
+</code></pre>
+
+<pre><code class="language-js">export default {
+  data() {
+    return {
+      tel: &quot;&quot;,
+      ruleForm: {
+        password: &quot;&quot;,
+        confirmPassword: &quot;&quot;,
+        code: &quot;&quot;,
+        nonce: &quot;&quot;,
+        curTime: &quot;&quot;,
+        checkSum: &quot;&quot;
+      },
+      rules: {
+        password: [
+          { required: true, message: &quot;请输入密码&quot;, trigger: &quot;blur&quot; },
+          { validator: validate.password, trigger: &quot;blur&quot; }
+        ],
+        code: [{ required: true, message: &quot;请输入交易密码&quot;, trigger: &quot;blur&quot; }],
+        confirmPassword: [
+          { required: true, message: &quot;请输入交易密码&quot;, trigger: &quot;blur&quot; },
+          { validator: validate.password, trigger: &quot;blur&quot; },
+        ]
+      }
+    };
+  },
+  methods: {
+      check() {
+        let form = this.$refs[&quot;ruleForm&quot;];
+        form.validate(async (valid,fields) =&gt; {
+            try {
+                if(!this.validateConfirmPass()) {
+                throw new Error(&quot;两次密码输入不一致&quot;);
+                }
+                if (valid) {
+                    // 调用接口
+                    await myPurse.updateTransactionPassword(this.ruleForm);
+                    // 调用成功后的相关操作
+                    ...codes
+                } else {
+                // 清楚不要的检测字段
+                let fieldsArr = Object.keys(fields);
+                let props = fieldsArr.slice(1);
+                if(props.length) {
+                    form.clearValidate(props)
+                }
+                let formEl = form.$el;
+                setTimeout(() =&gt; {
+                    let FirstInputEl =  formEl
+                    .querySelector(
+                    &quot;.is-error input[type='text'],.is-error input[type='password'],.is-required input[type='text'],.is-required input[type='password']&quot;
+                    );
+                    // 使第一个input聚焦
+                    FirstInputEl.focus();
+                    FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView();
+                }, 0);
+                throw new Error(fields[fieldsArr[0]][0].message);
+                }
+            } catch (e) {
+                this.$errorMessage(e.message);
+            }
+        });
+      }
+  }
+
 </code></pre>
 
 </div>

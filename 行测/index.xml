@@ -6,10 +6,19 @@
     <description>Recent content in 行测s on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Nov 2019 10:45:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 21:13:18 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/%E8%A1%8C%E6%B5%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>排列组合错题</title>
+      <link>https://lijianqiang1997.github.io/%E8%A1%8C%E6%B5%8B/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E9%94%99%E9%A2%98/</link>
+      <pubDate>Thu, 05 Dec 2019 21:13:18 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%A1%8C%E6%B5%8B/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88%E9%94%99%E9%A2%98/</guid>
+      <description>// 错题1 4名男生和4名女生站成一排,若要求男女相间,则不同的排法数有 解法一： 一开始看到男女相间就想到了插空法 理所当然地写出了答案： A44*C54*A44 = 2880 忘记了四个空必须是连续的条件， 因此，插空法更适合于只对插空元素不能连续放置的题目，对摆放元素和插空元素都要求不能连续的题目最好用先分类在分步法 解法二： 两种放置方式无非就是女男女男女男女男女男和男女男女男女男女男女 2*(4*3*2*1*4*3*2*1) = 1152  // 错题2 排成一排的9个空位上，坐3人，使三处空位中有一处一个空位、有一处连续二个空位、有一处连续三个空位，有多少种不同坐法？ 依题意，三种空位隔开，考虑插空法 解法一： 用人插空位 先放空位A33, 在放人，因为人是可以连续的，分步放，现在空位空间插两个，再差剩下一个 3*2*4 解法一： 空位插人 先放人 A33 在放空位，A43  </description>
+    </item>
     
     <item>
       <title>排列组合</title>
