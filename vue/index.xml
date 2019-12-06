@@ -6,10 +6,19 @@
     <description>Recent content in Vues on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Dec 2019 15:50:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 16:20:03 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue Cli Scss 注入全局变量配置</title>
+      <link>https://lijianqiang1997.github.io/vue/vue-cli-scss-%E6%B3%A8%E5%85%A5%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 06 Dec 2019 16:20:03 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/vue/vue-cli-scss-%E6%B3%A8%E5%85%A5%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>// build/utils.js function generateLoaders (loader, loaderOptions) { const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader] if (loader) { loaders.push({ loader: loader + &#39;-loader&#39;, options: Object.assign({}, loaderOptions, { sourceMap: options.sourceMap }) }) } if (options.extract) { return ExtractTextPlugin.extract({ use: loaders, fallback: &#39;vue-style-loader&#39;, publicPath: &#39;../../&#39; }) } else { return [&#39;vue-style-loader&#39;].concat(loaders) } } return { css: generateLoaders(), postcss: generateLoaders(), less: generateLoaders(&#39;less&#39;), sass: generateLoaders(&#39;sass&#39;, { indentedSyntax: true }), scss: generateLoaders(&#39;sass&#39;).concat({ loader:&#39;sass-resources-loader&#39;, options:{ resources:path.</description>
+    </item>
     
     <item>
       <title>数字增加动画函数</title>
