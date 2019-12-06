@@ -4,7 +4,9 @@
         var img = null;
         return {
             setImg:function(src,imgEl){ 
-                imgEl = imgEl || img instanceof HTMLImageElement?document.createElement("img"):img.cloneNode();   
+                if(!imgEl) {
+                    imgEl = img?img.cloneNode():document.createElement("img");
+                }
                 imgEl.src = src;
                 imgEl.className += "show";
                 imgEl.parentElement && (imgEl.parentElement.cite = src);
@@ -14,14 +16,15 @@
 
     var proxyImg = (function(){
         //img对象  提前加载一张图片如果给这个图片加了一个src属性后就相当于在浏览器中缓存了一张图片
-        var image = new Image();
-        image.onload = function(){
-            createImg.setImg(this.src,this.el );
-        }
+        
         return {
-            setSrc:function(src,imgEL){
+            setSrc:function(src,imgEl){
+                var image = new Image();
                 image.src = src;
-               image.el = imgEL;
+                image.el = imgEl;
+                image.onload = function(){
+                    createImg.setImg(this.src,this.el );
+                }
             }
         }
     })()
@@ -38,7 +41,7 @@
                     imgEl = imgEls[i];
                     elInfo = imgEl.getBoundingClientRect();
                     if (elInfo.top <= window.innerHeight) {
-                        src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random()*10)
+                        src = "http://lorempixel.com/1600/900?_t=" + (new Date() * Math.random()*10);
                         proxyImg.setSrc(src,imgEl);
                         // 数组splice操作会影响循环
                         arrTemp.splice(i, 1);
@@ -49,6 +52,7 @@
 
             if (imgEls.length === 0) {
                 window.removeEventListener("scroll", showImg);
+                window.removeEventListener("resize", showImg);
             }
         }
     window.addEventListener("DOMContentLoaded", function () {
@@ -57,4 +61,5 @@
     })
     window.addEventListener("load", showImg)
     window.addEventListener("scroll", showImg)
+    window.addEventListener("resize", showImg)
 })();
