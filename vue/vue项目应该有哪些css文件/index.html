@@ -155,10 +155,11 @@
 <div class="post">
   <h1>Vue项目应该有哪些css文件</h1>
   <time datetime=2019-12-10T16:26:44&#43;0800 class="post-date">Tue, Dec 10, 2019</time>
-  <pre><code>normalize.css // 初始化类
+  <pre><code>
+normalize.css // 初始化类
 base.scss // 常用类，按钮啊等
 common.scss // 公共类,颜色，外边距，字体大小...
-module.scss // 模块类
+module.scss(不必须) // 模块类，表单模块，文章模块，按钮模块，可以封装成组件写在组件里
 ui-reset.scss // 重置ui框架的类
 theme.scss // css主题变量
 mixin.scss // mixin类
