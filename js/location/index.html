@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vues &middot; 学习笔记</title>
+  <title>Location &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -25,7 +25,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://lijianqiang1997.github.io/vue/index.xml" rel="alternate" type="application/rss+xml" title="学习笔记" />
   <script src="https://lijianqiang1997.github.io/js/init.js"></script>
 <script src="https://lijianqiang1997.github.io/js/custom-api.js"></script>
 </head>
@@ -87,7 +86,7 @@
               
           
               
-                  <li class="sidebar-nav-item active">
+                  <li class="sidebar-nav-item">
                       <a href="/vue/">
                           <svg t="1574732008457" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="24" height="24"><path d="M615.6 123.6h165.5L512 589.7 242.9 123.6H63.5L512 900.4l448.5-776.9z" fill="#41B883"></path><path d="M781.1 123.6H615.6L512 303 408.4 123.6H242.9L512 589.7z" fill="#34495E"></path></svg>
                           <span>vue</span>
@@ -122,53 +121,151 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
+    <style>
+  .main-return {
+    display: none;
+  }
+  
+  @media (min-width: 48em) {
+    .main-return {
+      position: fixed;
+      top: 0;
+      left: 14rem;
+      display: block;
+      width: 4rem;
+      border: 1px solid #2c96b2;  
+      border-radius: 5px;  
+      line-height: 2rem;
+      text-align: center;
+      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
+      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify.css" />
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify-toolbar.css" />
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/vue%E9%A1%B9%E7%9B%AE%E5%BA%94%E8%AF%A5%E6%9C%89%E5%93%AA%E4%BA%9Bcss%E6%96%87%E4%BB%B6/">Vue项目应该有哪些css文件</a> <time class="pull-right post-list" datetime="2019-12-10T16:26:44&#43;0800">Tue, Dec 10, 2019</time></span>
-  </li>
+<script src="https://lijianqiang1997.github.io/js/jquery-1.10.1.min.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify-addBash.js"></script>
+<script src="https://lijianqiang1997.github.io/js/changePre.js"></script>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/scss-can-not-get-resolve%E9%94%99%E8%AF%AF/">Scss Can Not Get Resolve错误</a> <time class="pull-right post-list" datetime="2019-12-06T16:21:32&#43;0800">Fri, Dec 6, 2019</time></span>
-  </li>
+<a href="javascript:history.go(-1)" class="main-return">返回</a>
+<div class="post">
+  <h1>Location</h1>
+  <time datetime=2019-12-08T12:47:37&#43;0800 class="post-date">Sun, Dec 8, 2019</time>
+  <table>
+<thead>
+<tr>
+<th>location属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/vue-cli-scss-%E6%B3%A8%E5%85%A5%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/">Vue Cli Scss 注入全局变量配置</a> <time class="pull-right post-list" datetime="2019-12-06T16:20:03&#43;0800">Fri, Dec 6, 2019</time></span>
-  </li>
+<tbody>
+<tr>
+<td>href</td>
+<td>stringifier USVString</td>
+<td>包含整个URL的一个DOMString</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/%E6%95%B0%E5%AD%97%E5%A2%9E%E5%8A%A0%E5%8A%A8%E7%94%BB%E5%87%BD%E6%95%B0/">数字增加动画函数</a> <time class="pull-right post-list" datetime="2019-12-06T15:50:44&#43;0800">Fri, Dec 6, 2019</time></span>
-  </li>
+<tr>
+<td>origin</td>
+<td>readonly USVString</td>
+<td>包含页面来源的域名的标准形式DOMString。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/%E5%B1%9E%E6%80%A7%E6%9F%A5%E6%89%BE%E5%87%BD%E6%95%B0/">属性查找函数</a> <time class="pull-right post-list" datetime="2019-12-06T14:22:45&#43;0800">Fri, Dec 6, 2019</time></span>
-  </li>
+<tr>
+<td>protocol</td>
+<td>USVString</td>
+<td>包含URL对应协议的一个DOMString，最后有一个&rdquo;:&ldquo;。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/vue-cli%E6%A8%A1%E6%9D%BF/">Vue Cli模板</a> <time class="pull-right post-list" datetime="2019-12-05T14:44:38&#43;0800">Thu, Dec 5, 2019</time></span>
-  </li>
+<tr>
+<td>username</td>
+<td>USVString</td>
+<td>包含URL中域名前的用户名的一个DOMString。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/vue-cli2%E9%85%8D%E7%BD%AEscss/">Vue Cli2配置scss</a> <time class="pull-right post-list" datetime="2019-12-04T16:32:34&#43;0800">Wed, Dec 4, 2019</time></span>
-  </li>
+<tr>
+<td>password</td>
+<td>USVString</td>
+<td>包含URL域名前的密码的一个 DOMString。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/%E5%88%A4%E6%96%ADpc%E6%88%96%E8%80%85%E7%A7%BB%E5%8A%A8%E7%AB%AF/">判断pc或者移动端</a> <time class="pull-right post-list" datetime="2019-11-25T14:27:54&#43;0800">Mon, Nov 25, 2019</time></span>
-  </li>
+<tr>
+<td>host</td>
+<td>USVString</td>
+<td>包含了域名的一个DOMString，可能在该串最后带有一个&rdquo;:&ldquo;并跟上URL的端口号。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/%E5%88%86%E4%BA%AB%E6%88%91%E5%B0%81%E8%A3%85%E7%9A%84axios/">分享我封装的axios</a> <time class="pull-right post-list" datetime="2019-11-23T21:25:58&#43;0800">Sat, Nov 23, 2019</time></span>
-  </li>
+<tr>
+<td>hostname</td>
+<td>USVString</td>
+<td>包含URL域名的一个DOMString。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/%E7%94%A8%E6%88%B7%E9%95%BF%E6%97%B6%E9%97%B4%E6%9C%AA%E6%93%8D%E4%BD%9C%E8%87%AA%E5%8A%A8%E9%80%80%E5%87%BA/">用户长时间未操作自动退出</a> <time class="pull-right post-list" datetime="2019-11-22T16:38:36&#43;0800">Fri, Nov 22, 2019</time></span>
-  </li>
+<tr>
+<td>port</td>
+<td>USVString</td>
+<td>包含端口号的一个DOMString。</td>
+</tr>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/vue/%E7%82%B9%E5%87%BB%E5%AD%90%E5%85%83%E7%B4%A0%E8%B7%B3%E8%BD%AC%E5%9B%9E%E9%80%80%E4%B8%8D%E4%B8%A2%E5%A4%B1%E6%95%B0%E6%8D%AE/">点击子元素跳转回退不丢失数据</a> <time class="pull-right post-list" datetime="2019-11-22T14:30:11&#43;0800">Fri, Nov 22, 2019</time></span>
-  </li>
+<tr>
+<td>pashname</td>
+<td>USVString</td>
+<td>包含URL中路径部分的一个DOMString，开头有一个“/&ldquo;。</td>
+</tr>
 
-</ul>
+<tr>
+<td>search</td>
+<td>USVString</td>
+<td>包含URL参数的一个DOMString，开头有一个“?”。</td>
+</tr>
+
+<tr>
+<td>hash</td>
+<td>USVString</td>
+<td>包含块标识符的DOMString，开头有一个“#”。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>location方法</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>assign(url)</td>
+<td>void</td>
+<td>加载给定URL的内容资源到这个Location对象所关联的对象上。</td>
+</tr>
+
+<tr>
+<td>replace(url)</td>
+<td>void</td>
+<td>用给定的URL替换掉当前的资源。与 assign() 方法不同的是用 replace()替换的新页面不会被保存在会话的历史 History中，这意味着用户将不能用后退按钮转到该页面。</td>
+</tr>
+
+<tr>
+<td>reload(flag)</td>
+<td>void</td>
+<td>重新加载来自当前 URL的资源。他有一个特殊的可选参数，类型为 Boolean，该参数为true时会导致该方法引发的刷新一定会从服务器上加载数据。如果是 false或没有制定这个参数，浏览器可能从缓存当中加载页面。</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
     </main>
 
     

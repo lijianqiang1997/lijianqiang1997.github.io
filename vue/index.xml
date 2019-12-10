@@ -6,10 +6,19 @@
     <description>Recent content in Vues on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Dec 2019 16:21:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 16:26:44 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue项目应该有哪些css文件</title>
+      <link>https://lijianqiang1997.github.io/vue/vue%E9%A1%B9%E7%9B%AE%E5%BA%94%E8%AF%A5%E6%9C%89%E5%93%AA%E4%BA%9Bcss%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Tue, 10 Dec 2019 16:26:44 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/vue/vue%E9%A1%B9%E7%9B%AE%E5%BA%94%E8%AF%A5%E6%9C%89%E5%93%AA%E4%BA%9Bcss%E6%96%87%E4%BB%B6/</guid>
+      <description>normalize.css // 初始化类 base.scss // 常用类，按钮啊等 common.scss // 公共类,颜色，外边距，字体大小... module.scss // 模块类 ui-reset.scss // 重置ui框架的类 theme.scss // css主题变量 mixin.scss // mixin类  </description>
+    </item>
     
     <item>
       <title>Scss Can Not Get Resolve错误</title>

@@ -6,10 +6,29 @@
     <description>Recent content in 设计模式s on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2019 10:43:51 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 22:00:35 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>单例模式</title>
+      <link>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 08 Dec 2019 22:00:35 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>实现单例模式 // 方式1 var Singleton = function(name) { this.name = name; this.instance = null; }; Singleton.prototype.getName = function() { alert(this.name) } Singleton.getInstance = function(name) { if(!this.instance) { this.instance = new Singleton(name) } return this.instance; } var a = Singleton.getInstance(&amp;quot;a&amp;quot;); var b = Singleton.getInstance(&amp;quot;b&amp;quot;); a === b // true // 方式2 var Singleton = function(name) { this.name = name; }; Singleton.prototype.getName = function() { alert(this.name) } Singleton.getInstance = (function(name) { var instance = null; return function(name) { if(!</description>
+    </item>
+    
+    <item>
+      <title>适配器模式</title>
+      <link>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 08 Dec 2019 17:21:37 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>适配器模式是为了让新旧两个接口适配
+//以下例子显示不同地图 var baiduMap = { show: funciton() { console.log(&amp;quot;渲染百度地图&amp;quot;); } }; var googleMap = { show: function() { console.log(&amp;quot;渲染谷歌地图&amp;quot;); } } var renderMap = function(map) { if(map.show instanceof Function) { map.show(); } } // 但是如果有一天百度地图的show方法变成了display方法 // 这是我们要添加一个适配器名为baiduMapAdapter var baiduMap = { display: funciton() { console.log(&amp;quot;渲染百度地图&amp;quot;); } }; var baiduMapAdapter = { show: function() { return baiduMap.display(); } }; render(baiduMapAdapter) // 假设广东省的数据格式如下 var getGDCity = function() { var guangdongCity = [{ name: &#39;shenzhen&#39;, id: 11 },{ name: &#39;guangzhou&#39;, id: 12 }]; return guangdongCity }; var render = function(fn) { console.</description>
+    </item>
     
     <item>
       <title>strategy</title>

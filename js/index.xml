@@ -6,10 +6,37 @@
     <description>Recent content in Js on 学习笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2019 16:38:25 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 09:35:21 +0800</lastBuildDate>
     
 	<atom:link href="https://lijianqiang1997.github.io/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Performance</title>
+      <link>https://lijianqiang1997.github.io/js/performance/</link>
+      <pubDate>Tue, 10 Dec 2019 09:35:21 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/js/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RequestAnimationFrame</title>
+      <link>https://lijianqiang1997.github.io/js/requestanimationframe/</link>
+      <pubDate>Tue, 10 Dec 2019 09:31:44 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/js/requestanimationframe/</guid>
+      <description>window.requestAnimation(callback)     参数 类型 说明     callback function 下一次重绘之前更新动画帧所调用的函数(即上面所说的回调函数)。该回调函数会被传入DOMHighResTimeStamp参数，该参数与performance.now()的返回值相同，它表示requestAnimationFrame() 开始去执行回调函数的时刻。       返回值 类型 说明     callback long 一个 long 整数，请求 ID ，是回调列表中唯一的标识。是个非零值，没别的意义。你可以传这个值给 window.cancelAnimationFrame() 以取消回调函数。    例子 var start = null; var element = document.getElementById(&#39;SomeElementYouWantToAnimate&#39;); element.style.position = &#39;absolute&#39;; function step(timestamp) { if (!start) start = timestamp; var progress = timestamp - start; element.style.left = Math.</description>
+    </item>
+    
+    <item>
+      <title>Location</title>
+      <link>https://lijianqiang1997.github.io/js/location/</link>
+      <pubDate>Sun, 08 Dec 2019 12:47:37 +0800</pubDate>
+      
+      <guid>https://lijianqiang1997.github.io/js/location/</guid>
+      <description>   location属性 类型 说明     href stringifier USVString 包含整个URL的一个DOMString   origin readonly USVString 包含页面来源的域名的标准形式DOMString。   protocol USVString 包含URL对应协议的一个DOMString，最后有一个&amp;rdquo;:&amp;ldquo;。   username USVString 包含URL中域名前的用户名的一个DOMString。   password USVString 包含URL域名前的密码的一个 DOMString。   host USVString 包含了域名的一个DOMString，可能在该串最后带有一个&amp;rdquo;:&amp;ldquo;并跟上URL的端口号。   hostname USVString 包含URL域名的一个DOMString。   port USVString 包含端口号的一个DOMString。   pashname USVString 包含URL中路径部分的一个DOMString，开头有一个“/&amp;ldquo;。   search USVString 包含URL参数的一个DOMString，开头有一个“?”。   hash USVString 包含块标识符的DOMString，开头有一个“#”。       location方法 类型 说明     assign(url) void 加载给定URL的内容资源到这个Location对象所关联的对象上。   replace(url) void 用给定的URL替换掉当前的资源。与 assign() 方法不同的是用 replace()替换的新页面不会被保存在会话的历史 History中，这意味着用户将不能用后退按钮转到该页面。   reload(flag) void 重新加载来自当前 URL的资源。他有一个特殊的可选参数，类型为 Boolean，该参数为true时会导致该方法引发的刷新一定会从服务器上加载数据。如果是 false或没有制定这个参数，浏览器可能从缓存当中加载页面。    </description>
+    </item>
     
     <item>
       <title>自动生成类插件</title>
