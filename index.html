@@ -155,22 +155,11 @@
       margin: 0;
       overflow: hidden;
     }
-    .post-img-container:before {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      font-size: 16px;
-      line-height: 30px;
-      color: #fff;
-      text-align: center;
-      background: rgba(0,0,0,.6);
-      content: '请稍等';
-    }
+     
     .post-img-container:after {
       display: block;
       padding-bottom: 56.25%;
-      content: '';
+      content: ''; 
     }
     .post:first-child .post-img {
       display: block;
@@ -182,9 +171,11 @@
       display: none;
       width: 100%;
       height: 100%;
-      background: #000;
     }
     .post-img.show {
+      display: block;
+    }
+    .post-canvas {
       display: block;
     }
   </style>
@@ -198,9 +189,11 @@
   </h2>
   <time datetime="2019-12-10T16:26:44&#43;0800" class="post-date">Tue, Dec 10, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Vue项目应该有哪些css文件"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -214,9 +207,11 @@
   </h2>
   <time datetime="2019-12-10T09:31:44&#43;0800" class="post-date">Tue, Dec 10, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="RequestAnimationFrame"></canvas>
+  </div>
+ 
   
   
   
@@ -230,9 +225,11 @@
   </h2>
   <time datetime="2019-12-09T08:19:13&#43;0800" class="post-date">Mon, Dec 9, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="响应式数据"></canvas>
+  </div>
+ 
   
   
   
@@ -246,9 +243,11 @@
   </h2>
   <time datetime="2019-12-08T22:00:35&#43;0800" class="post-date">Sun, Dec 8, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="单例模式"></canvas>
+  </div>
+ 
   
   
   
@@ -262,9 +261,11 @@
   </h2>
   <time datetime="2019-12-08T17:21:37&#43;0800" class="post-date">Sun, Dec 8, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="适配器模式"></canvas>
+  </div>
+ 
   
   
   
@@ -278,9 +279,11 @@
   </h2>
   <time datetime="2019-12-08T12:47:37&#43;0800" class="post-date">Sun, Dec 8, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Location"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -292,9 +295,11 @@
   </h2>
   <time datetime="2019-12-07T19:39:52&#43;0800" class="post-date">Sat, Dec 7, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="React初学习"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -306,9 +311,11 @@
   </h2>
   <time datetime="2019-12-06T16:21:32&#43;0800" class="post-date">Fri, Dec 6, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Scss Can Not Get Resolve错误"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -320,9 +327,11 @@
   </h2>
   <time datetime="2019-12-06T16:20:03&#43;0800" class="post-date">Fri, Dec 6, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Vue Cli Scss 注入全局变量配置"></canvas>
+  </div>
+ 
   
   
   
@@ -336,9 +345,11 @@
   </h2>
   <time datetime="2019-12-06T15:50:44&#43;0800" class="post-date">Fri, Dec 6, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="数字增加动画函数"></canvas>
+  </div>
+ 
   
   
   
@@ -352,9 +363,11 @@
   </h2>
   <time datetime="2019-12-06T14:22:45&#43;0800" class="post-date">Fri, Dec 6, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="属性查找函数"></canvas>
+  </div>
+ 
   
   
   
@@ -368,9 +381,11 @@
   </h2>
   <time datetime="2019-12-05T21:13:18&#43;0800" class="post-date">Thu, Dec 5, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="排列组合错题"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -382,9 +397,11 @@
   </h2>
   <time datetime="2019-12-05T14:44:38&#43;0800" class="post-date">Thu, Dec 5, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Vue Cli模板"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -398,9 +415,11 @@
   </h2>
   <time datetime="2019-12-04T14:27:00&#43;0800" class="post-date">Wed, Dec 4, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Article"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -412,9 +431,11 @@
   </h2>
   <time datetime="2019-12-04T14:16:39&#43;0800" class="post-date">Wed, Dec 4, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Cite"></canvas>
+  </div>
+ 
   
   
   
@@ -428,9 +449,11 @@
   </h2>
   <time datetime="2019-12-04T14:03:09&#43;0800" class="post-date">Wed, Dec 4, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="blockquote"></canvas>
+  </div>
+ 
   
   
   
@@ -444,9 +467,11 @@
   </h2>
   <time datetime="2019-12-04T13:47:01&#43;0800" class="post-date">Wed, Dec 4, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="figcaption"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -458,9 +483,11 @@
   </h2>
   <time datetime="2019-12-04T13:21:36&#43;0800" class="post-date">Wed, Dec 4, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="figure"></canvas>
+  </div>
+ 
   
   
   
@@ -474,9 +501,11 @@
   </h2>
   <time datetime="2019-12-03T17:02:13&#43;0800" class="post-date">Tue, Dec 3, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text=".Page变量"></canvas>
+  </div>
+ 
   
   
   
@@ -490,9 +519,11 @@
   </h2>
   <time datetime="2019-12-03T15:32:44&#43;0800" class="post-date">Tue, Dec 3, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="常用函数"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -504,9 +535,11 @@
   </h2>
   <time datetime="2019-12-03T10:25:10&#43;0800" class="post-date">Tue, Dec 3, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="DedicatedWorkerGlobalScope"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -518,9 +551,11 @@
   </h2>
   <time datetime="2019-12-02T16:01:53&#43;0800" class="post-date">Mon, Dec 2, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Worker Demo"></canvas>
+  </div>
+ 
   
   
   
@@ -534,9 +569,11 @@
   </h2>
   <time datetime="2019-12-02T16:01:47&#43;0800" class="post-date">Mon, Dec 2, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Worker"></canvas>
+  </div>
+ 
   
   
   
@@ -552,9 +589,11 @@
   </h2>
   <time datetime="2019-11-29T14:38:12&#43;0800" class="post-date">Fri, Nov 29, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="为什么创建空对象要使用Object.create(null)"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -566,9 +605,11 @@
   </h2>
   <time datetime="2019-11-29T14:23:08&#43;0800" class="post-date">Fri, Nov 29, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="记忆"></canvas>
+  </div>
+ 
   
   
   
@@ -582,9 +623,11 @@
   </h2>
   <time datetime="2019-11-28T10:40:21&#43;0800" class="post-date">Thu, Nov 28, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="正则demo"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -596,9 +639,11 @@
   </h2>
   <time datetime="2019-11-28T09:34:19&#43;0800" class="post-date">Thu, Nov 28, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Pratice1"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -610,9 +655,11 @@
   </h2>
   <time datetime="2019-11-27T16:38:25&#43;0800" class="post-date">Wed, Nov 27, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="自动生成类插件"></canvas>
+  </div>
+ 
   
   
   
@@ -628,9 +675,11 @@
   </h2>
   <time datetime="2019-11-26T23:06:36&#43;0800" class="post-date">Tue, Nov 26, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="策略模式"></canvas>
+  </div>
+ 
   
   
   
@@ -644,9 +693,11 @@
   </h2>
   <time datetime="2019-11-26T13:23:44&#43;0800" class="post-date">Tue, Nov 26, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="stroke-dashoffset"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -658,9 +709,11 @@
   </h2>
   <time datetime="2019-11-26T13:12:28&#43;0800" class="post-date">Tue, Nov 26, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="stroke-dasharray"></canvas>
+  </div>
+ 
   
   
   
@@ -674,9 +727,11 @@
   </h2>
   <time datetime="2019-11-25T14:27:54&#43;0800" class="post-date">Mon, Nov 25, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="判断pc或者移动端"></canvas>
+  </div>
+ 
   
   
   
@@ -690,9 +745,11 @@
   </h2>
   <time datetime="2019-11-25T13:29:04&#43;0800" class="post-date">Mon, Nov 25, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Hugo Menu参数"></canvas>
+  </div>
+ 
   
   
   
@@ -706,9 +763,11 @@
   </h2>
   <time datetime="2019-11-25T10:45:24&#43;0800" class="post-date">Mon, Nov 25, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="排列组合"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -720,9 +779,11 @@
   </h2>
   <time datetime="2019-11-25T10:18:51&#43;0800" class="post-date">Mon, Nov 25, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="导航栏的修改"></canvas>
+  </div>
+ 
   
   
   
@@ -738,9 +799,11 @@
   </h2>
   <time datetime="2019-11-23T21:38:08&#43;0800" class="post-date">Sat, Nov 23, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="表单检验函数"></canvas>
+  </div>
+ 
   
   
   
@@ -754,9 +817,11 @@
   </h2>
   <time datetime="2019-11-23T21:25:58&#43;0800" class="post-date">Sat, Nov 23, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="分享我封装的axios"></canvas>
+  </div>
+ 
   
   
   
@@ -772,9 +837,11 @@
   </h2>
   <time datetime="2019-11-22T14:30:11&#43;0800" class="post-date">Fri, Nov 22, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="点击子元素跳转回退不丢失数据"></canvas>
+  </div>
+ 
   
   
   
@@ -788,9 +855,11 @@
   </h2>
   <time datetime="2019-11-21T15:42:49&#43;0800" class="post-date">Thu, Nov 21, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="FormData"></canvas>
+  </div>
+ 
   
   
   
@@ -804,9 +873,11 @@
   </h2>
   <time datetime="2019-11-19T16:59:36&#43;0800" class="post-date">Tue, Nov 19, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="发布订阅模式"></canvas>
+  </div>
+ 
   
   
   
@@ -820,9 +891,11 @@
   </h2>
   <time datetime="2019-11-17T21:34:58&#43;0800" class="post-date">Sun, Nov 17, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="神术"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -834,9 +907,11 @@
   </h2>
   <time datetime="2019-11-14T20:28:54&#43;0800" class="post-date">Thu, Nov 14, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Form表单如何在提交时只显示一项错误项"></canvas>
+  </div>
+ 
   
   
   
@@ -850,9 +925,11 @@
   </h2>
   <time datetime="2019-11-12T11:15:10&#43;0800" class="post-date">Tue, Nov 12, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Snabbdom中的diff算法"></canvas>
+  </div>
+ 
   
   
   
@@ -866,9 +943,11 @@
   </h2>
   <time datetime="2019-11-12T11:11:44&#43;0800" class="post-date">Tue, Nov 12, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Diff算法初学习"></canvas>
+  </div>
+ 
   
   
   
@@ -882,9 +961,11 @@
   </h2>
   <time datetime="2019-11-10T21:22:29&#43;0800" class="post-date">Sun, Nov 10, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="享元模式"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -896,9 +977,11 @@
   </h2>
   <time datetime="2019-11-10T21:22:29&#43;0800" class="post-date">Sun, Nov 10, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="命令模式"></canvas>
+  </div>
+ 
   
   
   
@@ -912,9 +995,11 @@
   </h2>
   <time datetime="2019-11-09T12:19:59&#43;0800" class="post-date">Sat, Nov 9, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="职责链模式"></canvas>
+  </div>
+ 
   
   
   
@@ -928,9 +1013,11 @@
   </h2>
   <time datetime="2019-10-31T18:47:33&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Window命令初学习"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -942,9 +1029,11 @@
   </h2>
   <time datetime="2019-10-31T15:39:05&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Code"></canvas>
+  </div>
+ 
   
   
   
@@ -958,9 +1047,11 @@
   </h2>
   <time datetime="2019-10-31T15:27:14&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Margin"></canvas>
+  </div>
+ 
   
   
   
@@ -974,9 +1065,11 @@
   </h2>
   <time datetime="2019-10-31T14:35:53&#43;0800" class="post-date">Thu, Oct 31, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Picture"></canvas>
+  </div>
+ 
   
   
   
@@ -990,9 +1083,11 @@
   </h2>
   <time datetime="2019-10-30T10:33:34&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="使用hugo搭建github博客"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -1004,9 +1099,11 @@
   </h2>
   <time datetime="2019-10-30T10:31:17&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="Stackingcontext(层叠上下文)"></canvas>
+  </div>
+ 
   
   
 </article>
@@ -1018,9 +1115,11 @@
   </h2>
   <time datetime="2019-10-30T10:31:17&#43;0800" class="post-date">Wed, Oct 30, 2019</time>
   
-  <blockquote class="post-img-container" cite="http://lorempixel.com/1600/900">
-      <img src="http://lorempixel.com/1600/900" alt="" class="post-img">
-  </blockquote>
+  
+  <div class="post-img-container">
+    <canvas class="post-canvas post-img" data-text="将github仓库关联到本地"></canvas>
+  </div>
+ 
   
   
 </article>

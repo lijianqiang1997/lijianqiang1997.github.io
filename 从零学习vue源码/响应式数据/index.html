@@ -189,7 +189,7 @@ var uid = 0;
   };
 
   Dep.prototype.notify = function notify () {
-    // stabilize the subscriber list first
+    // 浅拷贝
     var subs = this.subs.slice();
     if (!config.async) {
       // subs aren't sorted in scheduler if not running async
@@ -212,6 +212,7 @@ var uid = 0;
     var dep = new Dep();
 
     var property = Object.getOwnPropertyDescriptor(obj, key);
+    // 如果不可配置,返回
     if (property &amp;&amp; property.configurable === false) {
       return
     }
