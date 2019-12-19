@@ -67,7 +67,8 @@
 
 (function () {
 
-    var Canvas = function (canvas) {
+    // Canvas类
+    var Canvas = function(canvas) {
         this.$el = canvas;
         if (canvas.getContext) {
             this.context = canvas.getContext("2d");
@@ -79,8 +80,9 @@
         this.fontSize = 40;
         this.text = canvas.dataset.text;
         this.id = null;
+        this.index = -1;
     };
-    Canvas.prototype.start = function () {
+    Canvas.prototype.start = function() {
         var canvas = this.$el,
             context = this.context,
             width = this.width,
@@ -93,7 +95,7 @@
         this.createText();
     };
 
-    Canvas.prototype.createText = function () {
+    Canvas.prototype.createText = function() {
         var text = this.text,
             textArr = text.split(""),
             context = this.context,
@@ -103,25 +105,29 @@
             height = this.height,
             middle = Math.round(height / 2),
             start = Math.round(width / 2),
-            i = 0,
             length = textArr.length,
+            i = Math.floor(length * Math.random()),
             _this = this,
             animateFn = null;
-        this.id = setTimeout(animateFn = function () {
+        this.id = setTimeout(animateFn = function() {
+            var index = _this.index;
+            if (index !== -1) {
+                i = (i + 1) % length;
+            }
+            _this.index = i;
             context.clearRect(0, 0, width, height);
-            context.fillText(textArr.slice(0, i + 1).join(""), start, middle);
-            i = (i + 1) % length;
+            context.fillText(textArr.slice(0, i).join(""), start, middle);
             _this.id = setTimeout(animateFn, 400)
-        }, 400)
+        }, 0)
     }
 
-    Canvas.prototype.stop = function () {
+    Canvas.prototype.stop = function() {
         clearTimeout(this.id);
     }
 
     var cache = {
         obj: [],
-        getCanvas: function (el) {
+        getCanvas: function(el) {
             var obj = this.obj,
                 i = 0,
                 length = obj.length,
@@ -142,17 +148,18 @@
         }
     };
 
-    var canvasShow = function () {
+    var canvasShow = function() {
         var canvasArr = Array.prototype.slice.call(document.querySelectorAll(".post-canvas"));
-        canvasArr.forEach(function (item, index, array) {
+        canvasArr.forEach(function(item, index, array) {
             var canvas = cache.getCanvas(item),
-            elInfo = item.getBoundingClientRect();
-            if(elInfo.top <= window.innerHeight) {
+                elInfo = item.getBoundingClientRect();
+            if (elInfo.top <= window.innerHeight) {
                 canvas.start();
             }
         })
     }
+
     window.addEventListener("load", canvasShow);
     window.addEventListener("resize", canvasShow);
-    window.addEventListener("scroll", canvasShow)
+    window.addEventListener("scroll", canvasShow);
 }());
