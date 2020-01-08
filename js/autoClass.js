@@ -213,7 +213,10 @@ newAutoClass.prototype.run = function ({
             if (!totalArr[index]) {
                 totalArr[index] = [];
             }
-            var arr = className.match(reg);
+            if(typeof className === 'string') {
+                var arr = className.match(reg);
+            }
+            
             if (arr) {
                 totalArr[index] = totalArr[index].concat(arr);
             }
@@ -235,6 +238,12 @@ newAutoClass.prototype.run = function ({
     if (log) {
         console.log(style)
     }
+    var styleEl = document.createElement("style");
+    styleEl.innerText = style;
+    document.head.appendChild(styleEl)
 }
 
-export default  new newAutoClass(["width","height","margin","line-height","color","font-size"]);
+window.addEventListener('load',function() {
+    var autoClass = new newAutoClass(["width","height","margin","line-height","color","font-size"]);
+    autoClass.run();
+})
