@@ -170,6 +170,18 @@ module.exports = {
         }]
     }
 }
+
+module.exports = {
+    module： {
+        rules: [{
+        test: /\.vue$/,
+        use: [{
+          loader: 'vue-loader',
+          options: vueLoaderConfig
+        }, 'fastclass-loader']
+      }]
+    }
+}
 </code></pre>
 
 <h4 id="vue-cli3配置方法">vue-cli3配置方法</h4>
