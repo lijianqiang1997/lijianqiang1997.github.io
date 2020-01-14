@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>分数大小比较 &middot; 学习笔记</title>
+  <title>Page Level 参数 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -163,12 +163,16 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>分数大小比较</h1>
-  <time datetime=2020-01-06T16:52:01&#43;0800 class="post-date">Mon, Jan 6, 2020</time>
-  <pre><code>比较 38/40  39/42
+  <h1>Page Level 参数</h1>
+  <time datetime=2020-01-14T19:26:33&#43;0800 class="post-date">Tue, Jan 14, 2020</time>
+  <p>任何定义在内容文件头部的值(包括分类法),都会被包含在.Params变量中</p>
 
-题目等价于x/y 和x+1/y+2的大小比较
-
+<pre><code class="language-hugo">---
+title: &quot;Page Level 参数&quot;
+date: 2020-01-14T19:26:33+08:00
+draft: false
+---
+可以访问 {{.Params.title}} {{.Params.date}} {{.Params.draft}}
 </code></pre>
 
 

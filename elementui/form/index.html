@@ -133,14 +133,23 @@
       top: 0;
       left: 14rem;
       display: block;
-      width: 4rem;
-      border: 1px solid #2c96b2;  
-      border-radius: 5px;  
+      width: 5rem;
+      border: 1px solid #2c96b2; 
+      font-size: 16px;
       line-height: 2rem;
+      color:#fff;
       text-align: center;
-      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
-      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+      background: #0BB7FE; 
       text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+      
+      transition: 500ms;
+    }
+    .main-return:hover {
+      text-decoration: none;
+      background:rgba(11,165,254,1);
+    }
+    .main-return:focus,.main-return:active {
+      background:rgba(27,188,254,1);
     }
   }
 </style>
@@ -282,13 +291,16 @@
                 }
                 let formEl = form.$el;
                 setTimeout(() =&gt; {
-                    let FirstInputEl =  formEl
-                    .querySelector(
-                    &quot;.is-error input[type='text'],.is-error input[type='password'],.is-required input[type='text'],.is-required input[type='password']&quot;
-                    );
-                    // 使第一个input聚焦
-                    FirstInputEl.focus();
-                    FirstInputEl.scrollIntoViewIfNeeded?FirstInputEl.scrollIntoViewIfNeeded():FirstInputEl.scrollIntoView();
+                    let errorParent = formEl
+                        .querySelector(&quot;.el-form-item__error&quot;)
+                        .closest(&quot;.el-form-item__content&quot;);
+                    let FirstInputEl = errorParent.querySelector(&quot;input&quot;);
+                    if (FirstInputEl instanceof Element) {
+                        FirstInputEl.focus();
+                    }
+                    errorParent.scrollIntoViewIfNeeded
+                        ? errorParent.scrollIntoViewIfNeeded()
+                        : errorParent.scrollIntoView();
                 }, 0);
                 throw new Error(fields[fieldsArr[0]][0].message);
                 }
@@ -301,6 +313,8 @@
 
 </code></pre>
 
+
+  
 </div>
 
 

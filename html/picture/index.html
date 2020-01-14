@@ -133,14 +133,23 @@
       top: 0;
       left: 14rem;
       display: block;
-      width: 4rem;
-      border: 1px solid #2c96b2;  
-      border-radius: 5px;  
+      width: 5rem;
+      border: 1px solid #2c96b2; 
+      font-size: 16px;
       line-height: 2rem;
+      color:#fff;
       text-align: center;
-      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);   
-      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+      background: #0BB7FE; 
       text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+      
+      transition: 500ms;
+    }
+    .main-return:hover {
+      text-decoration: none;
+      background:rgba(11,165,254,1);
+    }
+    .main-return:focus,.main-return:active {
+      background:rgba(27,188,254,1);
     }
   }
 </style>
@@ -243,6 +252,8 @@ newElem.innerHTML = `Image: &lt;code&gt;${image.currentSrc}&lt;/code&gt;`;
 box.appendChild(newElem);
 </code></pre>
 
+
+  
 </div>
 
 

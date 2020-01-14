@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>分数大小比较 &middot; 学习笔记</title>
+  <title>项目中封装的组件 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -163,15 +163,481 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>分数大小比较</h1>
-  <time datetime=2020-01-06T16:52:01&#43;0800 class="post-date">Mon, Jan 6, 2020</time>
-  <pre><code>比较 38/40  39/42
+  <h1>项目中封装的组件</h1>
+  <time datetime=2020-01-14T16:02:05&#43;0800 class="post-date">Tue, Jan 14, 2020</time>
+  
 
-题目等价于x/y 和x+1/y+2的大小比较
+<h4 id="按钮">按钮</h4>
 
+<pre><code class="language-vue">// m-button.vue
+&lt;template&gt;
+  &lt;button
+    class=&quot;m-button&quot;
+    :disabled=&quot;clickStop&quot;
+    :class=&quot;{
+      'm-button--theme-skyblue': theme === 'skyblue',
+      'm-button--theme-light': theme === 'light',
+      'm-button--theme-gray': theme === 'gray',
+      'm-button--theme-lightGray': /^lightGray$/i.test(theme),
+      'm-button--disabled': disabled,
+      'm-button--size-large': size === 'large',
+      'm-button--size-middle': size === 'middle',
+      'm-button--size-small': size === 'small',
+      'm-button--size-smaller': size === 'smaller'
+    }&quot;
+    @click.prevent=&quot;stopReply&quot;
+    :style=&quot;{
+      width: width !== 0 &amp;&amp; width + 'px',
+      height: height !== 0 &amp;&amp; height + 'px',
+      'border-radius': radius !== 0 &amp;&amp; radius + 'px',
+      color: color !== '' &amp;&amp; color
+    }&quot;
+  &gt;
+    &lt;slot&gt;&lt;/slot&gt;
+  &lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      clickStop: false,
+      id: &quot;&quot;
+    };
+  },
+  props: {
+    htmlType: {
+      type: String,
+      default: &quot;&quot;
+    },
+    theme: {
+      type: String,
+      default: &quot;skyblue&quot;
+    },
+    text: {
+      type: String,
+      default: &quot;skyblue&quot;
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    width: {
+      type: Number,
+      default: 0
+    },
+    height: {
+      type: Number,
+      default: 0
+    },
+    radius: {
+      type: Number,
+      default: 0
+    },
+    size: {
+      type: String,
+      default: &quot;normal&quot;
+    },
+    color: {
+      type: String,
+      default: &quot;&quot;
+    },
+    ifClickStop: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    stopReply() {
+      if (this.ifClickStop) {
+        if (this.clickStop) {
+          return;
+        }
+        this.clickStop = true;
+        clearTimeout(this.id);
+        this.$emit(&quot;click&quot;);
+        this.id = setTimeout(() =&gt; {
+          this.clickStop = false;
+        }, 1000);
+      }else {
+        this.$emit(&quot;click&quot;);
+      }
+    }
+  }
+};
+&lt;/script&gt;
+
+&lt;style scoped lang=&quot;scss&quot;&gt;
+.m-button {
+  display: inline-flex;
+  height: 42px;
+  font-size: 14px;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  transition: 500ms;
+  cursor: pointer;
+}
+.m-button--theme-skyblue {
+  background: rgba(11, 183, 254, 1);
+}
+.m-button--theme-skyblue:hover {
+  background: rgba(11, 165, 254, 1);
+}
+.m-button--theme-skyblue:active {
+  background: rgba(27, 188, 254, 1);
+}
+
+.m-button--theme-gray {
+  background: rgba(140, 151, 151, 1);
+}
+.m-button--theme-gray:hover {
+}
+.m-button--theme-gray:active {
+}
+
+.m-button--theme-lightGray {
+  color: rgba(102, 102, 102, 1);
+  background: rgba(201, 202, 202, 1);
+}
+
+.m-button--theme-light {
+  background: rgba(11, 183, 254, 0.2);
+  border: 1px solid rgba(11, 183, 254, 1);
+  color: rgba(27, 188, 254, 1);
+  white-space: nowrap;
+  transition: 500ms;
+  &amp;:hover {
+    border: 1px solid rgba(11, 165, 254, 1);
+    color: #fff !important;
+    background: rgba(11, 165, 254, 1);
+  }
+  &amp;:active {
+    border: 1px solid rgba(27, 188, 254, 1);
+    color: #fff !important;
+    background: rgba(27, 188, 254, 1);
+  }
+  &amp;:focus {
+    border: 1px solid rgba(27, 188, 254, 1);
+    color: #fff !important;
+    background: rgba(27, 188, 254, 1);
+  }
+}
+.m-button--disabled,
+.m-button:disabled {
+  background: rgba(140, 151, 151, 1);
+  cursor: not-allowed;
+}
+.m-button--size-large {
+  width: 148px;
+}
+.m-button--size-middle {
+  width: 120px;
+}
+.m-button--size-small {
+  width: 92px;
+}
+.m-button--size-smaller {
+  width: 68px;
+  height: 32px;
+}
+&lt;/style&gt;
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>props</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>htmlType</td>
+<td>String</td>
+<td>&ldquo;</td>
+<td>原生type</td>
+</tr>
+
+<tr>
+<td>theme</td>
+<td>String</td>
+<td>&lsquo;skyblue&rsquo;</td>
+<td>[&lsquo;skyblue&rsquo;,&lsquo;gray&rsquo;,&lsquo;light&rsquo;]</td>
+</tr>
+
+<tr>
+<td>text</td>
+<td>String</td>
+<td>&ldquo;</td>
+<td></td>
+</tr>
+
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否禁用</td>
+</tr>
+
+<tr>
+<td>width</td>
+<td>Number</td>
+<td>0</td>
+<td>宽度</td>
+</tr>
+
+<tr>
+<td>height</td>
+<td>Number</td>
+<td>0</td>
+<td>高度</td>
+</tr>
+
+<tr>
+<td>radius</td>
+<td>Number</td>
+<td>0</td>
+<td>border-radius</td>
+</tr>
+
+<tr>
+<td>size</td>
+<td>String</td>
+<td>&lsquo;normal&rsquo;</td>
+<td>[&lsquo;smaller&rsquo;,&lsquo;small&rsquo;,&lsquo;middle&rsquo;,&lsquo;large&rsquo;]</td>
+</tr>
+
+<tr>
+<td>color</td>
+<td>String</td>
+<td>&ldquo;</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ifClickStop</td>
+<td>Boolean</td>
+<td>true</td>
+<td>是否禁止重复提交</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="tip-vue">tip.vue</h4>
+
+<pre><code class="language-vue">// tip.vue
+&lt;template&gt;
+  &lt;div class=&quot;tip&quot; :class=&quot;`tip--${type}`&quot;&gt;
+    &lt;span class=&quot;tip-icon iconfont&quot; :class=&quot;getIcon&quot;&gt;&lt;/span&gt;
+    &lt;p class=&quot;tip-text&quot;&gt;
+      {{ text }}
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    text: {
+      type: String,
+      default: &quot;&quot;
+    },
+    type: {
+      type: String,
+      default: &quot;error&quot;
+    }
+  },
+  data() {
+    return {
+      iconMap: new Map([
+        [&quot;error&quot;, &quot;icon-gaojingkongxin&quot;],
+        [&quot;success&quot;, &quot;icon-chenggong&quot;]
+      ])
+    };
+  },
+  methods: {
+    
+  },
+  computed: {
+    getIcon() {
+      let { iconMap, type } = this;
+      console.log(iconMap,type)
+      if (iconMap.has(type)) {
+        return iconMap.get(type);
+      }
+      return &quot;&quot;;
+    }
+  }
+};
+&lt;/script&gt;
+
+&lt;style scoped lang=&quot;scss&quot;&gt;
+.tip {
+  display: flex;
+  height: 40px;
+  padding: 0 11px;
+  border: 1px solid;
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+  &amp;--error {
+    color: #e09e00;
+    background: #fcf5e5;
+  }
+  &amp;--success {
+    background: rgba(36, 185, 85, 0.1);
+    color: rgba(36, 185, 85, 1);
+  }
+}
+.tip-icon {
+  margin: -.25ex 7px 0 0;
+  font-size: 18px;
+}
+.tip-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+&lt;/style&gt;
+</code></pre>
+
+<h4 id="验证码">验证码</h4>
+
+<pre><code class="language-vue">// CodeButton.vue
+
+&lt;template&gt;
+  &lt;m-button
+    theme=&quot;light&quot;
+    @click.prevent=&quot;getCode&quot;
+    class=&quot;codeButton&quot;
+    :class=&quot;{ countDownButton: showcountDownText }&quot;
+    role=&quot;button&quot;
+    :height=&quot;34&quot;
+    &gt;{{ showcountDownText ? countDownText : text }}&lt;/m-button
+  &gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import CommonInterface from &quot;@api/common.js&quot;;
+
+export default {
+  data() {
+    return {
+      countDownText: &quot;秒后重新发送&quot;,
+      showcountDownText: false,
+      phone: &quot;&quot;
+    };
+  },
+  mounted: function() {
+    this.phone = this.tel || this.$store.state.tel;
+  },
+  props: {
+    text: {
+      type: String,
+      default: &quot;获取验证码&quot;
+    },
+    time: {
+      type: Number,
+      default: 60
+    },
+    interval: {
+      type: Number,
+      default: 1
+    },
+    tel: {
+      type: String,
+      default: &quot;&quot;
+    },
+    templateId: {
+      type: String,
+      default: &quot;&quot;
+    }
+  },
+  methods: {
+    getCode() {
+      this.sendCode();
+      this.countDown();
+    },
+    countDown() {
+      if (this.showcountDownText) return;
+      let id;
+      let { time, interval } = this;
+      this.showcountDownText = time &gt; 0;
+
+      const downTimeFn = () =&gt; {
+        this.countDownText = time + &quot;秒后重新发送&quot;;
+        if (time &lt;= 0) {
+          this.showcountDownText = false;
+          clearTimeout(id);
+          this.$emit(&quot;timeEnd&quot;);
+          return;
+        }
+        time -= interval;
+        id = setTimeout(downTimeFn, interval * 1000);
+      };
+      downTimeFn();
+    },
+    async sendCode() {
+      try {
+        let tel = this.phone;
+        if (
+          this.templateId &amp;&amp;
+          !this.showcountDownText &amp;&amp;
+          tel &amp;&amp;
+          /^1[3456789]\d{9}$/.test(tel)
+        ) {
+          let result = await CommonInterface.sendCode({
+            phone: this.phone,
+            templateId: this.templateId
+          });
+          let { nonce, curTime, checkSum } = result;
+          this.$message({
+            type: &quot;success&quot;,
+            message: result.message,
+            duration: 5000,
+            offset: 60
+          });
+          this.$emit(&quot;codeReturn&quot;, { nonce, curTime, checkSum });
+        }
+      } catch (e) {
+        this.$errorMessage(e.message);
+      }
+    }
+  }`
+};
+&lt;/script&gt;
+
+&lt;style scoped lang=&quot;scss&quot;&gt;
+.codeButton {
+  @extend .btn-lightBlue;
+  display: flex;
+  min-width: 106px;
+  height: 34px;
+  font-size: 12px;
+  color: rgba(11, 183, 254, 1);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+  background: rgba(11, 183, 254, 0.2);
+  border: 1px solid rgba(11, 183, 254, 1);
+  border-radius: 2px;
+}
+.countDownButton {
+  cursor: default;
+}
+&lt;/style&gt;
 </code></pre>
 
 
+  
+      <link rel="stylesheet" href="https://lijianqiang1997.github.io/css/anchorLink.css"></link>
+    <script src="https://lijianqiang1997.github.io/js/anchorLink.js"></script>
   
 </div>
 
