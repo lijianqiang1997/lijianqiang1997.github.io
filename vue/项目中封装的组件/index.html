@@ -167,7 +167,7 @@
   <time datetime=2020-01-14T16:02:05&#43;0800 class="post-date">Tue, Jan 14, 2020</time>
   
 
-<h4 id="按钮">按钮</h4>
+<h3 id="按钮">按钮</h3>
 
 <pre><code class="language-vue">// m-button.vue
 &lt;template&gt;
@@ -344,6 +344,8 @@ export default {
 &lt;/style&gt;
 </code></pre>
 
+<h4 id="按钮参数说明">按钮参数说明</h4>
+
 <table>
 <thead>
 <tr>
@@ -427,7 +429,7 @@ export default {
 </tbody>
 </table>
 
-<h4 id="tip-vue">tip.vue</h4>
+<h3 id="tip-vue">tip.vue</h3>
 
 <pre><code class="language-vue">// tip.vue
 &lt;template&gt;
@@ -505,7 +507,36 @@ export default {
 &lt;/style&gt;
 </code></pre>
 
-<h4 id="验证码">验证码</h4>
+<h4 id="tip参数说明">tip参数说明</h4>
+
+<table>
+<thead>
+<tr>
+<th>props</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>&ldquo;</td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>String</td>
+<td>&lsquo;error&rsquo;</td>
+<td>&mdash;</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="验证码">验证码</h3>
 
 <pre><code class="language-vue">// CodeButton.vue
 
@@ -633,6 +664,56 @@ export default {
 }
 &lt;/style&gt;
 </code></pre>
+
+<h4 id="验证码参数说明">验证码参数说明</h4>
+
+<table>
+<thead>
+<tr>
+<th>props</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>&lsquo;获取验证码&rsquo;</td>
+<td>按钮文字</td>
+</tr>
+
+<tr>
+<td>time</td>
+<td>String</td>
+<td>60</td>
+<td>倒计时总时间</td>
+</tr>
+
+<tr>
+<td>interval</td>
+<td>String</td>
+<td>1</td>
+<td>倒计时每次时间</td>
+</tr>
+
+<tr>
+<td>tel</td>
+<td>String</td>
+<td>&rdquo;&rdquo;</td>
+<td>手机号</td>
+</tr>
+
+<tr>
+<td>templateId</td>
+<td>String</td>
+<td>&rdquo;&rdquo;</td>
+<td>&mdash;</td>
+</tr>
+</tbody>
+</table>
 
 
   

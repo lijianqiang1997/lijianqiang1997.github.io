@@ -4,10 +4,33 @@
     right: 0;
     padding: 10px 20px;
     background:#fff;
+    box-shadow: -2px 2px 3px rgba(0,0,0,.5);
 }
 .anchorList-item {
     list-style: none;
 }
+.anchorList-item a.active,
 :target {
     color: red;
 }
+.anchorList-item-1 {
+    padding: 0;
+}
+.anchorList-item-1 {
+   text-indent: 2em;
+}
+.anchorList-item-2 {
+    text-indent: 4em;
+}
+.anchorList-item-3 {
+    text-indent: 6em;
+ }
+ .anchorList-item-4 {
+    text-indent: 8em;
+ }
+ .anchorList-item-5 {
+    text-indent: 10em;
+ }
+ .anchorList-item-6 {
+    text-indent: 12em;
+ }
