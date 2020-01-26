@@ -183,9 +183,9 @@
 <div class="post">
   <h1>时间切片</h1>
   <time datetime=2020-01-09T14:28:53&#43;0800 class="post-date">Thu, Jan 9, 2020</time>
-  <pre><code class="language-js">// src/scheduler.js
+  <pre><code class="language-js">// src/scheduler.js 
 
-// scheduleCallback =&gt; planWork =&gt; flushWork =&gt; flush =&gt; planWork=&gt;...
+// 流程：scheduleCallback =&gt; planWork =&gt; flushWork =&gt; flush =&gt; planWork=&gt;...
 
 import { push, pop, peek } from &quot;./heapify&quot;;
 // 任务队列
