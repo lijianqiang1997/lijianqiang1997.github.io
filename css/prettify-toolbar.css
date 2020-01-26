@@ -3,6 +3,11 @@ pre.prettyprint {
     border-top-right-radius: 0;
     margin-top: 0;
 }
+pre.prettyprint.fold {
+    height: 5px;
+    padding: 0;
+    overflow: hidden;
+}
 ol.linenums {
     padding: 0;
     margin-left: 0;
@@ -41,4 +46,36 @@ ol.linenums li {
    margin-right: 0;
    color: #fff;
    box-shadow: inset -2px 3px 1px 0px #3c3d39, 0 -1px 12px rgba(0,0,0,0.5);
+}
+.code-pretty-toolbar__expand {
+    position: absolute;
+    bottom: 0;
+    width: 26px;
+    height: 26px;
+    background: #1E1F1A;
+    box-shadow: inset 2px 3px 1px 0px #3c3d39, 0 -1px 12px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.code-pretty-toolbar__expand:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background:#ddd;
+    content: '';
+    transform:translate(-50%,-50%);
+}
+.code-pretty-toolbar__expand:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 50%;
+    background:#ddd;
+    content: '';
+    transform:translate(-50%,-50%);
+}
+.code-pretty-toolbar__expand.active:after {
+    display: none;
 }

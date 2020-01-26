@@ -11,6 +11,7 @@ var createToolBar = function(codeClass,filePath) {
         toolbar = container.cloneNode(),
         fileEl = document.createElement("code"),
         title = document.createElement("header"),
+        expand = document.createElement("a"),
         lang,
         fileStr,
         matches = [];
@@ -18,6 +19,7 @@ var createToolBar = function(codeClass,filePath) {
     toolbar.className = "code-pretty-toolbar";
     fileEl.className = "code-pretty-toolbar__file";
     title.className = "code-pretty-toolbar__title";
+    expand.className = "code-pretty-toolbar__expand";
     if(codeClass) {
        lang = codeClass.split("-").pop();
        if(langObj[lang]) {
@@ -34,6 +36,7 @@ var createToolBar = function(codeClass,filePath) {
         fileEl.textContent = filePath.trim();
     }
     toolbar.appendChild(title);
+    toolbar.appendChild(expand);
     toolbar.appendChild(fileEl);
     container.appendChild(toolbar);
     return container;
