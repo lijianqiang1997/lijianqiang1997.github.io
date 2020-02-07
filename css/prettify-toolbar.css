@@ -52,6 +52,7 @@ ol.linenums li {
     bottom: 0;
     width: 26px;
     height: 26px;
+    border-radius: 5px 5px 0 0;
     background: #1E1F1A;
     box-shadow: inset 2px 3px 1px 0px #3c3d39, 0 -1px 12px rgba(0,0,0,0.5);
     cursor: pointer;
