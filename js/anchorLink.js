@@ -132,5 +132,31 @@ var matchHash = function() {
 	})
 	
 }
+var throttle =  function(func,delay) {
+	var timer = null;
+	return function() {
+		var _this = this;
+		var args = arguments;
+		if(!timer) {
+			timer = setTimeout(function(){
+				func.apply(args);
+				timer = null;
+			},delay);
+		}
+	}
+}
+// var scrollHash = function() {
+// 	var item = null;
+// 	var i = 0;
+// 	for(;item = hgroups[i++];) {
+		
+// 		// if(item.getBoundingClientRect().top>=0) {
+// 		 console.log(item,item.getBoundingClientRect().top>=0)
+// 		// 	anchorListItemLink[i].click();
+// 		 	break;
+// 		// }
+// 	}
+// }
 window.addEventListener('load',matchHash)
 window.addEventListener('hashchange',matchHash)
+// window.addEventListener('scroll',scrollHash)
