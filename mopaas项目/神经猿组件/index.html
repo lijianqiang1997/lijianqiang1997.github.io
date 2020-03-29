@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mopaas项目s &middot; 学习笔记</title>
+  <title>神经猿组件 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -25,7 +25,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/index.xml" rel="alternate" type="application/rss+xml" title="学习笔记" />
   <script src="https://lijianqiang1997.github.io/js/init.js"></script>
 <script src="https://lijianqiang1997.github.io/js/custom-api.js"></script>
 <script src="https://lijianqiang1997.github.io/js/autoClass.js"></script>
@@ -141,17 +140,437 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
+    <style>
+  .main-return {
+    display: none;
+  }
+  
+  @media (min-width: 48em) {
+    .main-return {
+      position: fixed;
+      top: 0;
+      left: 14rem;
+      display: block;
+      width: 5rem;
+      border: 1px solid #2c96b2; 
+      font-size: 16px;
+      line-height: 2rem;
+      color:#fff;
+      text-align: center;
+      background: #0BB7FE; 
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+      
+      transition: 500ms;
+    }
+    .main-return:hover {
+      text-decoration: none;
+      background:rgba(11,165,254,1);
+    }
+    .main-return:focus,.main-return:active {
+      background:rgba(27,188,254,1);
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify.css" />
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify-toolbar.css" />
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/%E7%A5%9E%E7%BB%8F%E7%8C%BF%E7%BB%84%E4%BB%B6/">神经猿组件</a> <time class="pull-right post-list" datetime="2020-03-29T23:04:38&#43;0800">Sun, Mar 29, 2020</time></span>
-  </li>
+<script src="https://lijianqiang1997.github.io/js/jquery-1.10.1.min.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify-addBash.js"></script>
+<script src="https://lijianqiang1997.github.io/js/changePre.js"></script>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/%E7%A5%9E%E7%BB%8F%E7%8C%BF/">神经猿</a> <time class="pull-right post-list" datetime="2020-03-29T22:22:02&#43;0800">Sun, Mar 29, 2020</time></span>
-  </li>
+<a href="javascript:history.go(-1)" class="main-return">返回</a>
+<div class="post">
+  <h1>神经猿组件</h1>
+  <time datetime=2020-03-29T23:04:38&#43;0800 class="post-date">Sun, Mar 29, 2020</time>
+  <pre><code class="language-vue">// DataSelect.vue
+&lt;template&gt;
+  &lt;div class=&quot;data-select&quot;&gt;
+    &lt;el-form ref=&quot;form&quot; :model=&quot;form&quot; class=&quot;data-select-form&quot;&gt;
+      &lt;el-input
+        v-model=&quot;searchValue&quot;
+        class=&quot;data-select-form__searchInput&quot;
+        placeholder=&quot;搜索&quot;
+        suffix-icon=&quot;el-icon-search&quot;
+        @keyup.enter.native=&quot;handleSearch&quot;
+      /&gt;
+      &lt;el-select v-model=&quot;selectValue&quot; placeholder=&quot;全部状态&quot; @change=&quot;selectChange&quot;&gt;
+        &lt;el-option
+          v-for=&quot;item in selectList&quot;
+          :key=&quot;item.value&quot;
+          :label=&quot;item.label&quot;
+          :value=&quot;item.value&quot;
+        &gt;
+          {{ item.label }}
+        &lt;/el-option&gt;
+      &lt;/el-select&gt;
+      &lt;div v-if=&quot;rightBtns.length&quot; class=&quot;data-select-form-btnContainer&quot;&gt;
+        &lt;el-button v-for=&quot;(item,index) in rightBtns&quot; :key=&quot;index&quot; @click=&quot;handleBtn(item)&quot;&gt;{{ item.text }}&lt;/el-button&gt;
+      &lt;/div&gt;
+    &lt;/el-form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 
-</ul>
+&lt;script&gt;
+
+export default {
+  props: {
+    search: {
+      type: Boolean,
+      default: true
+    },
+    selectList: {
+      type: Array,
+      default: function() {
+        return []
+      }
+    },
+    rightBtns: {
+      type: Array,
+      default: function() {
+        return []
+      }
+    }
+  },
+  data() {
+    return {
+      searchValue: '',
+      selectValue: '',
+      form: {}
+    }
+  },
+  methods: {
+    handleSearch() {
+      this.$emit('search', this.searchValue)
+    },
+    selectChange() {
+      this.$emit('selectChange', this.selectValue)
+    },
+    handleBtn(item) {
+      var type = item.type
+      var fn = type + 'Handle'
+      if (this[fn]) {
+        this[fn](item)
+      }
+    },
+    addHandle(item) {
+      if (item.to &amp;&amp; item.to.path) {
+        this.$router.push(item.to.path)
+      }
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot; scoped&gt;
+.data-select-form {
+  display: flex;
+  align-items: center;
+  margin-right: -16px;
+  &gt; * {
+    margin-right: 16px;
+  }
+  input::placeholder {
+  }
+  .data-select-form__searchInput {
+    width: 360px;
+  }
+  &gt;&gt;&gt; .el-input__suffix .el-input__icon {
+      line-height: 30px;
+    }
+  &gt;&gt;&gt; .el-input__inner {
+    height: 30px;
+    padding: 0 8px;
+    font-size: 14px;
+    color: #8d929c;
+    background: rgba(245, 246, 249, 1);
+    opacity: 1;
+    border-radius: 2px;
+  }
+  .data-select-form-btnContainer {
+    margin-left: auto;
+    button {
+      height: 40px;
+      font-size:14px;
+      background: #4FC5C5;
+      color:rgba(255,255,255,1);
+      border-radius:2px;
+    }
+  }
+}
+&lt;/style&gt;
+
+</code></pre>
+
+<pre><code class="language-vue">// DataTable.vue
+&lt;template&gt;
+  &lt;div class=&quot;data&quot;&gt;
+    &lt;data-select
+      :search=&quot;!!baseSettings.search&quot;
+      :select-list=&quot;Array.isArray(baseSettings.selectList) &amp;&amp; baseSettings.selectList.length?baseSettings.selectList:[]&quot;
+      :right-btns=&quot;baseSettings.rightBtns&quot;
+      @search=&quot;search&quot;
+      @selectChange=&quot;selectChange&quot;
+    /&gt;
+    &lt;div class=&quot;data-table&quot;&gt;
+      &lt;el-table :data=&quot;showData&quot; style=&quot;width: 100%&quot; border&gt;
+        &lt;el-table-column
+          v-if=&quot;baseSettings.index&quot;
+          prop=&quot;time&quot;
+          label=&quot;序号&quot;
+          show-overflow-tooltip
+          type=&quot;index&quot;
+        /&gt;
+        &lt;template v-for=&quot;(item,index) in columns&quot;&gt;
+          &lt;el-table-column
+            :key=&quot;index&quot;
+            :prop=&quot;item.prop&quot;
+            :label=&quot;item.label&quot;
+            show-overflow-tooltip
+            width=&quot;150&quot;
+          /&gt;
+        &lt;/template&gt;
+        &lt;el-table-column prop=&quot;state&quot; label=&quot;操作&quot; show-overflow-tooltip width=&quot;170&quot;&gt;
+          &lt;template slot-scope=&quot;scope&quot;&gt;
+            &lt;p class=&quot;operate-p&quot;&gt;
+              &lt;el-button
+                v-for=&quot;(item,index) in baseSettings.operateBtns&quot;
+                :key=&quot;index&quot;
+                type=&quot;text&quot;
+                class=&quot;operate-btn&quot;
+                :data-id=&quot;scope.row.id&quot;
+                @click=&quot;handleOperate(scope.row,item)&quot;
+              &gt;{{ item.text }}&lt;/el-button&gt;
+            &lt;/p&gt;
+
+          &lt;/template&gt;
+        &lt;/el-table-column&gt;
+
+        &lt;div slot=&quot;empty&quot; class=&quot;data-table-noData&quot;&gt;
+          &lt;img
+            src=&quot;../../assets/images/Institution-opening/noData.png&quot;
+            alt=&quot;Clock&quot;
+            srcset=&quot;
+              ../../assets/images/Institution-opening/noData.png    1x,
+              ../../assets/images/Institution-opening/noData@2x.png 2x
+            &quot;
+          &gt;
+          &lt;p class=&quot;mar-t-24 mar-b-0 pad-0&quot;&gt;暂无机构开通&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/el-table&gt;
+    &lt;/div&gt;
+    &lt;table-pagination /&gt;
+    &lt;m-dialog ref=&quot;yDialog&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import mDialog from '@/components/MDialog'
+import dataSelect from '@/components/DataSelect'
+import tablePagination from '@/components/TablePagination'
+export default {
+  components: {
+    dataSelect,
+    tablePagination,
+    mDialog
+  },
+  props: {
+    baseSettings: {
+      type: Object, default: function() {
+        return {
+
+        }
+      }
+    },
+    columns: {
+      type: Array, default: function() {
+        return []
+      }
+    }
+  },
+  data() {
+    return {
+      showData: [],
+      args: {}
+    }
+  },
+  created() {
+    if (this.baseSettings.dataInterface.args) {
+      this.args = { ...this.baseSettings.dataInterface.args }
+    }
+  },
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    search(value) {
+      this.args.search = value
+      this.getData()
+    },
+    // 待改，select哪个字段
+    selectChange(selectValue) {
+      this.args.currentPage = selectValue
+      this.getData()
+    },
+    async getData() {
+      try {
+        const interfaceFn = this.baseSettings.dataInterface.fn
+        const args = this.args
+        if (interfaceFn) {
+          var res = await interfaceFn(args)
+          this.showData = res.list
+        }
+      } catch (e) {
+        this.$errorMessage(e.message)
+      }
+    },
+    handleOperate(row, item) {
+      var type = item.type
+      var fnStr = type + 'Operate'
+      if (this[fnStr]) {
+        this[fnStr](row, item)
+      }
+    },
+    stopOperate(row, item) {
+      this.showDialog(row, item)
+    },
+    deleteOperate(row, item) {
+      this.showDialog(row, item)
+    },
+    editOperate(row, item) {
+      const { name } = item.to
+      this.$router.push({
+        name,
+        params: {
+          ...row
+        }
+
+      })
+    },
+    showDialog(row, item) {
+      if (Object.keys(item.dialog).length) {
+        this.$refs['yDialog'].show({
+          title: item.dialog.title,
+          interface: item.interface,
+          textArr: item.dialog.textArr,
+          arg: row[item.arg]
+        })
+      }
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped lang=&quot;scss&quot;&gt;
+.data {
+  display: flex;
+  padding: 21px 24px;
+  background: #fff;
+  flex: 1;
+  flex-flow: column wrap;
+  .data-table {
+    display: flex;
+    margin: 21px 0 24px;
+    flex: 1;
+    &gt;&gt;&gt; .el-table {
+      border: 0 none;
+      flex: 1;
+    }
+    &gt;&gt;&gt; .el-table:before {
+      content: none;
+    }
+    &gt;&gt;&gt; .el-table__header {
+      tr {
+        height: 48px;
+      }
+      th {
+        border: 0 none;
+        background: #f6f4fc;
+        font-size: 14px;
+        color: rgba(141, 146, 156, 1);
+        font-weight: normal;
+      }
+    }
+    &gt;&gt;&gt; .el-table__body {
+      border-spacing: 0 8px;
+      tr {
+        height: 68px;
+        box-shadow: 0px 2px 4px rgba(0, 139, 255, 0.08);
+      }
+      td {
+        border: 0 none;
+        font-size: 14px;
+        color: rgba(141, 146, 156, 1);
+      }
+    }
+  }
+  &gt;&gt;&gt; .table-pagination {
+    margin-top: auto;
+  }
+  .data-table-noData {
+    line-height: 1;
+  }
+}
+&lt;/style&gt;
+
+&lt;style lang=&quot;scss&quot; scoped&gt;
+.state-span {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0 8px;
+  line-height: 22px;
+  background: rgba(255, 193, 1, 1);
+  opacity: 1;
+  border-radius: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #fff;
+
+  &amp;.effective,
+  &amp;[data-state=&quot;effective&quot;] {
+    background: #4fc5c5;
+    &amp;:after {
+      content: &quot;有效&quot;;
+    }
+  }
+  &amp;.expired,
+  &amp;[data-state=&quot;expired&quot;] {
+    background: #ffc101;
+    &amp;:after {
+      content: &quot;已过期&quot;;
+    }
+  }
+  &amp;.stop,
+  &amp;[data-state=&quot;stop&quot;] {
+    background: #5f437e;
+    &amp;:after {
+      content: &quot;已停用&quot;;
+    }
+  }
+}
+&lt;/style&gt;
+&lt;style lang=&quot;scss&quot; scoped&gt;
+.operate-p {
+  display: flex;
+  padding-right: 24px;
+  align-items: center;
+}
+.operate-btn {
+  font-size:14px;
+  color:#4FC5C5;
+  &amp;+.operate-btn {
+    margin-lefT: 24px;
+  }
+}
+&lt;/style&gt;
+
+</code></pre>
+
+
+  
+</div>
+
+
     </main>
 
     
