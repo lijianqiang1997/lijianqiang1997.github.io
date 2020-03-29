@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>资料分析 &middot; 学习笔记</title>
+  <title>路由带params跳转 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -181,83 +181,15 @@
 
 <a href="javascript:history.go(-1)" class="main-return">返回</a>
 <div class="post">
-  <h1>资料分析</h1>
-  <time datetime=2020-01-31T20:38:28&#43;0800 class="post-date">Fri, Jan 31, 2020</time>
-  
-
-<h3 id="常见概念">常见概念</h3>
-
-<pre><code>同比：与上年同一时期相比
-环比：与上一个周期相比
-贡献率 = 某部分的增长率/总体增长量*100%
+  <h1>路由带params跳转</h1>
+  <time datetime=2020-03-27T14:22:13&#43;0800 class="post-date">Fri, Mar 27, 2020</time>
+  <pre><code class="language-js">$router.push({
+    name: '', // 必须使用name,而不是path
+    params:{}
+})
 </code></pre>
 
-<h4 id="利润率">利润率</h4>
 
-<pre><code>销售利润率 = 销售利润总额/销售总收入*100%
-产值利润率 = 销售利润总额/总产值*100%
-净利润率 = 净利润（税后利润）/主营业务收入*100%
-主营业务利润率 = 利润总额/主营业务收入*100%
-</code></pre>
-
-<h4 id="顺差与逆差">顺差与逆差</h4>
-
-<pre><code>进出口总额 = 进口额+出口额
-顺差额 = 净出口额 = 出口额 - 进口额
-逆差额 = 进口额 - 出口额
-结论： 顺差额 = 2*出口额 - 进出口总额
-             = 进出口总额 - 2*进口额
-</code></pre>
-
-<h4 id="基期比重">基期比重</h4>
-
-<pre><code>现期总量为A、增长率为a%,份量为B、增长率为b%
-基期比重 = B/(1+b%)/A/(1+a%) = B/A*(1+a%)/(1+b%)
-现期比重较基期变化 = B/A-B/A*(1+a%)/(1+b%) = B/A*(b%-a%)/(1+b%)
-</code></pre>
-
-<h4 id="倍数与增长">倍数与增长</h4>
-
-<pre><code>某指标现期总量为A、总数为B,分别增长a%、b%,则
-基期平均数 = A/B*(1+b%)/(1+a%)
-现期平均增长率 = (A/B - A/B*(1+b%)/(1+a%))/(A/B*(1+b%)/(1+a%)) = (1+a%)/(1+b%)-1 = (a%-b%)/(1+b%)
-</code></pre>
-
-<h4 id="加权平均数与增长">加权平均数与增长</h4>
-
-<pre><code>某总量的分量A1、A2,分别增长x%、y%，则现期总量较基期的变化幅度为
-z% = (A1+A2)/(A1/(1+x%)/A2/(1+y%))-1
-当x=y时，x=y=z
-当x≠y时，A1/(1+x%)&gt;A2/(1+y%)时，在x和x+y/2之间，
-        A1/(1+x%)&lt;A2/(1+y%)时，在y和x+y/2之间，
-</code></pre>
-
-<h4 id="隔年增长">隔年增长</h4>
-
-<pre><code>假设第N年某指标为A,同比增长m%,增速同比增长n个百分点，则
-    隔年基期量 = A/(1+m%)/(1+(m-n)%)
-    隔年增长率 = (1+m%)*(1+m%-n%)-1
-
-</code></pre>
-
-<h4 id="年均增长率">年均增长率</h4>
-
-<p>A = B（1+r）^n
-r = (根号A/B)^1/n -1
-当r&lt;10%时，A=B(1+nr)</p>
-
-<h3 id="做题方法">做题方法</h3>
-
-<ol>
-<li>首尾数法： 不仅仅是首和尾，一般第二位数字选项就会不同，只需计算到第二位就可以选出答案</li>
-<li>增长百分率估算：x/(1-a%) &gt; x(1+a%),但是两个值会比较接近，可以根据25%,50%，75%这样的特殊点对选项估算</li>
-<li>回落： 表示下降</li>
-</ol>
-
-
-  
-      <link rel="stylesheet" href="https://lijianqiang1997.github.io/css/anchorLink.css"></link>
-    <script src="https://lijianqiang1997.github.io/js/anchorLink.js"></script>
   
 </div>
 
