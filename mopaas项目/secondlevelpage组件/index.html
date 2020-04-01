@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mopaas项目s &middot; 学习笔记</title>
+  <title>SecondLevelPage组件 &middot; 学习笔记</title>
   <meta name="description" content="" />
 
   
@@ -25,7 +25,6 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/index.xml" rel="alternate" type="application/rss+xml" title="学习笔记" />
   <script src="https://lijianqiang1997.github.io/js/init.js"></script>
 <script src="https://lijianqiang1997.github.io/js/custom-api.js"></script>
 <script src="https://lijianqiang1997.github.io/js/autoClass.js"></script>
@@ -141,21 +140,564 @@
 </aside>
 
     <main class="content container">
-    <ul class="posts">
+    <style>
+  .main-return {
+    display: none;
+  }
+  
+  @media (min-width: 48em) {
+    .main-return {
+      position: fixed;
+      top: 0;
+      left: 14rem;
+      display: block;
+      width: 5rem;
+      border: 1px solid #2c96b2; 
+      font-size: 16px;
+      line-height: 2rem;
+      color:#fff;
+      text-align: center;
+      background: #0BB7FE; 
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);   
+      
+      transition: 500ms;
+    }
+    .main-return:hover {
+      text-decoration: none;
+      background:rgba(11,165,254,1);
+    }
+    .main-return:focus,.main-return:active {
+      background:rgba(27,188,254,1);
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify.css" />
+<link rel="stylesheet" href="https://lijianqiang1997.github.io/css/prettify-toolbar.css" />
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/secondlevelpage%E7%BB%84%E4%BB%B6/">SecondLevelPage组件</a> <time class="pull-right post-list" datetime="2020-04-01T14:49:44&#43;0800">Wed, Apr 1, 2020</time></span>
-  </li>
+<script src="https://lijianqiang1997.github.io/js/jquery-1.10.1.min.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify.js"></script>
+<script src="https://lijianqiang1997.github.io/js/prettify-addBash.js"></script>
+<script src="https://lijianqiang1997.github.io/js/changePre.js"></script>
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/%E7%A5%9E%E7%BB%8F%E7%8C%BF%E7%BB%84%E4%BB%B6/">神经猿组件</a> <time class="pull-right post-list" datetime="2020-03-29T23:04:38&#43;0800">Sun, Mar 29, 2020</time></span>
-  </li>
+<a href="javascript:history.go(-1)" class="main-return">返回</a>
+<div class="post">
+  <h1>SecondLevelPage组件</h1>
+  <time datetime=2020-04-01T14:49:44&#43;0800 class="post-date">Wed, Apr 1, 2020</time>
+  
 
-  <li data-not-draft="true">
-    <span><a href="https://lijianqiang1997.github.io/mopaas%E9%A1%B9%E7%9B%AE/%E7%A5%9E%E7%BB%8F%E7%8C%BF/">神经猿</a> <time class="pull-right post-list" datetime="2020-03-29T22:22:02&#43;0800">Sun, Mar 29, 2020</time></span>
-  </li>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;mainRight-container&quot;&gt;
 
-</ul>
+    &lt;el-form
+      v-if=&quot;success&quot;
+      ref=&quot;ruleForm&quot;
+      label-width=&quot;80px&quot;
+      size=&quot;mini&quot;
+      class=&quot;employee-add-form&quot;
+      :rules=&quot;rules&quot;
+      :model=&quot;ruleForm&quot;
+    &gt;
+      &lt;choose-dialog ref=&quot;chooseDialog&quot; @choose=&quot;handleChoose($event)&quot; /&gt;
+      &lt;div v-for=&quot;(item,index) in forms&quot; :key=&quot;index&quot; class=&quot;form-list&quot;&gt;
+        &lt;header v-if=&quot;item.title&quot; class=&quot;form-list-title&quot;&gt;{{ item.title }}&lt;/header&gt;
+        &lt;el-form-item
+          v-for=&quot;(formItem,formItemIndex) in item.data&quot;
+          :key=&quot;formItemIndex&quot;
+          :label=&quot;formItem.label&quot;
+          :prop=&quot;formItem.prop&quot;
+        &gt;
+
+          &lt;template v-if=&quot;formItem.type==='input'&quot;&gt;
+            &lt;span v-html=&quot;formItem.prefix&quot; /&gt;
+            &lt;el-input
+              v-model=&quot;ruleForm[formItem.prop]&quot;
+              :data-model=&quot;formItem.prop&quot;
+              :disabled=&quot;'disabled' in formItem.input?Boolean(formItem.input.disabled):false&quot;
+              :placeholder=&quot;formItem.input.placeholder&quot;
+              :type=&quot;'type' in formItem.input ?formItem.input.type:'text'&quot;
+            /&gt;
+            &lt;span v-html=&quot;formItem.suffix&quot; /&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='textarea'&quot;&gt;
+            &lt;span v-html=&quot;formItem.prefix&quot; /&gt;
+            &lt;el-input
+              v-model=&quot;ruleForm[formItem.prop]&quot;
+              :data-model=&quot;formItem.prop&quot;
+              :disabled=&quot;'disabled' in formItem.input?Boolean(formItem.input.disabled):false&quot;
+              :placeholder=&quot;formItem.input.placeholder&quot;
+              type=&quot;textarea&quot;
+              :rows=&quot;5&quot;
+            /&gt;
+            &lt;span v-html=&quot;formItem.suffix&quot; /&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='select'&quot;&gt;
+            &lt;el-select
+              v-model=&quot;ruleForm[formItem.prop]&quot;
+              :placeholder=&quot;formItem.input.placeholder&quot;
+            &gt;
+              &lt;el-option
+                v-for=&quot;selectItem in formItem.input.selectList&quot;
+                :key=&quot;selectItem.value&quot;
+                :label=&quot;selectItem.label&quot;
+                :value=&quot;selectItem.value&quot;
+              &gt;
+                {{ selectItem.label }}
+              &lt;/el-option&gt;
+            &lt;/el-select&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='province'&quot;&gt;
+            &lt;province @selectChange=&quot;provinceChange&quot; /&gt;
+          &lt;/template&gt;
+          &lt;template v-else-if=&quot;formItem.type==='choose'&quot;&gt;
+            &lt;el-input v-model=&quot;ruleForm[formItem.prop]&quot; disabled /&gt;
+            &lt;el-button class=&quot;form-list-item__btn&quot; @click=&quot;showChooseDialog(formItem.prop,formItem.baseSettings,formItem.columns)&quot;&gt;选择&lt;/el-button&gt;
+          &lt;/template&gt;
+          &lt;template v-else-if=&quot;formItem.type==='date'&quot;&gt;
+            &lt;el-date-picker
+              v-model=&quot;ruleForm[formItem.prop]&quot;
+              align=&quot;right&quot;
+              type=&quot;date&quot;
+              placeholder=&quot;选择日期&quot;
+              @[formItem.event.type]=&quot;formItem.event.fn(ruleForm)&quot;
+            /&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='radio'&quot;&gt;
+            &lt;el-radio-group v-model=&quot;ruleForm[formItem.prop]&quot;&gt;
+              &lt;el-radio
+                v-for=&quot;(radioItem,radioIndex) in formItem.radioList&quot;
+                :key=&quot;radioIndex&quot;
+                :label=&quot;radioItem.label&quot;
+              &gt;{{ radioItem.value }}&lt;/el-radio&gt;
+
+            &lt;/el-radio-group&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='checkbox'&quot;&gt;
+            &lt;el-checkbox-group v-model=&quot;ruleForm[formItem.prop]&quot;&gt;
+              &lt;el-checkbox
+                v-for=&quot;(checkItem,checkIndex) in formItem.checkList&quot;
+                :key=&quot;checkIndex&quot;
+                :label=&quot;checkItem.label&quot;
+              &gt;{{ checkItem.value }}&lt;/el-checkbox&gt;
+            &lt;/el-checkbox-group&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='uploadImg'&quot;&gt;
+            &lt;upload-img v-model=&quot;ruleForm.logoId&quot; /&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='combine'&quot;&gt;
+            &lt;input-combine /&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='tag'&quot;&gt;
+            &lt;tag-select :value.sync=&quot;ruleForm[formItem.prop]&quot; :tags=&quot;formItem.tagList&quot; /&gt;
+          &lt;/template&gt;
+
+          &lt;template v-else-if=&quot;formItem.type==='edit'&quot;&gt;
+            &lt;Editormd /&gt;
+          &lt;/template&gt;
+        &lt;/el-form-item&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;form-btnConatiner&quot;&gt;
+        &lt;el-button
+          class=&quot;form-btnConatiner__btn&quot;
+          data-state=&quot;cancel&quot;
+          @click=&quot;$router.go(-1)&quot;
+        &gt;取消&lt;/el-button&gt;
+        &lt;el-button
+          class=&quot;form-btnConatiner__btn&quot;
+          data-state=&quot;success&quot;
+          @click=&quot;onSubmit&quot;
+        &gt;确定&lt;/el-button&gt;
+      &lt;/div&gt;
+    &lt;/el-form&gt;
+    &lt;choose-dialog /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import tagSelect from './components/tag-select'
+import inputCombine from './components/inputCombine'
+import tree from './components/tree'
+import validate from '@/utils/form-validate/index'
+import Editormd from '@/components/Editormd'
+import uploadImg from './components/upload-img'
+import province from './components/province.vue'
+import { addOrg, judgeName } from '@/api/mechanism'
+import { isFunction } from '@/utils/checkType'
+import chooseDialog from './components/choose-dialog'
+
+export default {
+  components: {
+    province,
+    uploadImg,
+    Editormd,
+    inputCombine,
+    tagSelect,
+    tree,
+    chooseDialog
+  },
+  props: {
+    baseSettings: {
+      type: Object,
+      default: function() {
+        return {
+
+        }
+      }
+    },
+    forms: {
+      type: Array,
+      default: function() {
+        return []
+      }
+    }
+  },
+  data() {
+    return {
+      success: false,
+      ruleForm: {
+
+      },
+      rules: {
+
+      }
+    }
+  },
+  async mounted() {
+    var form = {}
+    var ruleObj = {}
+    var typeInitial = {
+      checkbox: function() {
+        return []
+      },
+      tag: function() {
+        return []
+      }
+    }
+
+    var setProp = function(type, typeInitial) {
+      var result = ''
+      if (type in typeInitial) {
+        if (isFunction(typeInitial[type])) {
+          result = typeInitial[type]()
+        } else {
+          result = typeInitial[type]
+        }
+      }
+      return result
+    }
+    this.forms.forEach(fields =&gt; {
+      fields.data.forEach(field =&gt; {
+        var { prop, rules, type } = field
+        form[prop] = setProp(type, typeInitial)
+        ruleObj[prop] = []
+        if (Array.isArray(rules) &amp;&amp; rules.length) {
+          rules.forEach(item =&gt; {
+            ruleObj[prop].push(isFunction(item) ? item.apply(this) : item)
+          })
+        }
+      })
+    })
+    await (this.ruleForm = form)
+    await (this.rules = ruleObj)
+
+    var { mounted } = this.baseSettings
+    if (isFunction(mounted)) {
+      mounted.apply(this)
+    }
+    this.success = true
+  },
+  methods: {
+    showChooseDialog(prop, baseSettings, columns) {
+      this.$refs.chooseDialog.show({
+        prop,
+        baseSettings,
+        columns
+      })
+    },
+    provinceChange(province, city) {
+      this.ruleForm.province = province
+      this.ruleForm.city = city
+    },
+    handleChoose({ value, prop }) {
+      console.log(value, prop)
+      this.ruleForm[prop] = value
+    },
+    onSubmit() {
+      var form = this.$refs['ruleForm']
+      var interfaceFn = this.baseSettings.interface
+      var successFn = this.baseSettings.successFn
+      console.log(!isFunction(interfaceFn))
+      if (!isFunction(interfaceFn)) {
+        return
+      }
+      form.validate(async(valid, fields) =&gt; {
+        try {
+          if (valid) {
+            // 调用接口
+            await interfaceFn(this.ruleForm)
+            // 调用成功后的相关操作
+            if (isFunction(successFn)) {
+              successFn.apply(this)
+            }
+          } else {
+            // 清楚不要的检测字段
+            const fieldsArr = Object.keys(fields)
+            const props = fieldsArr.slice(1)
+            if (props.length) {
+              form.clearValidate(props)
+            }
+            const formEl = form.$el
+            setTimeout(() =&gt; {
+              const errorParent = formEl
+                .querySelector('.el-form-item__error')
+                .closest('.el-form-item__content')
+              const FirstInputEl = errorParent.querySelector('input')
+              if (FirstInputEl instanceof Element) {
+                FirstInputEl.focus()
+              }
+              errorParent.scrollIntoViewIfNeeded
+                ? errorParent.scrollIntoViewIfNeeded()
+                : errorParent.scrollIntoView()
+            }, 0)
+            throw new Error(fields[fieldsArr[0]][0].message)
+          }
+        } catch (e) {
+          this.$errorMessage(e.message)
+        }
+      })
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre>
+
+<h4 id="input">input</h4>
+
+<pre><code class="language-js">{
+    prop: 'name',
+    field: 'name',
+    label: '数据集名称',
+    type: 'input',
+    input: {
+        type: 'text',
+        placeholder: '请输入数据集名称',
+        diaabled: 'false'
+    },
+    rules: [
+        { required: true, message: '请输入数据集名称', trigger: 'blur'}
+    ]
+}
+</code></pre>
+
+<h4 id="textarea">textarea</h4>
+
+<pre><code class="language-textarea">{
+    prop: 'logoId',
+    field: 'logoId',
+    label: '数据集简介',
+    type: 'textarea',
+    input: {
+        placeholder: '最多可输入200个字'
+    },
+    tip: '视频封面是指在商品列表展示的图片。建议尺寸750*560px或4：3，JPG、PNG格式， 图片小于5M。',
+    rules: [
+        { required: true, message: '请上传课程封面', trigger: 'blur' }
+    ]
+}
+</code></pre>
+
+<h4 id="select">select</h4>
+
+<pre><code class="language-select">{
+    prop: 'direction',
+    field: 'direction',
+    label: '数据集文件',
+    type: 'select',
+    input: {
+    placeholder: '请选择课程方向',
+    selectList: [
+        {
+        label: '云计算与大数据',
+        value: '云计算与大数据'
+        },
+        {
+        label: '人工智能',
+        value: '人工智能'
+        }
+    ]
+    },
+    rules: [
+    { required: true, message: '请输入机构属性', trigger: 'blur' }
+    ]
+}
+</code></pre>
+
+<h4 id="province">province</h4>
+
+<pre><code class="language-province">{
+    prop: 'province',
+    field: ['province', 'city'],
+    label: '所属省份',
+    type: 'province',
+    input: [
+    {
+        placeholder: '请选择省份'
+    },
+    {
+        plcaeholder: '全部'
+    }
+    ],
+    rules: []
+}
+</code></pre>
+
+<h4 id="radio">radio</h4>
+
+<pre><code class="language-radio">{
+    prop: 'status',
+    field: 'status',
+    label: '状态',
+    type: 'radio',
+    input: {
+    placeholder: '请选择状态'
+    },
+    radioList: [
+    {
+        label: 0,
+        value: '启用'
+    },
+    {
+        label: 1,
+        value: '禁用'
+    }
+    ],
+    rules: [
+    { required: true, message: '请输入状态', trigger: 'blur' }
+    ]
+}
+</code></pre>
+
+<h4 id="checkbox">checkbox</h4>
+
+<pre><code>{
+    prop: 'webinfoMenuIds',
+    field: 'webinfoMenuIds',
+    label: '授权',
+    type: 'checkbox',
+    checkList: [
+    {
+        label: 0,
+        value: '网站首页'
+    },
+    {
+        label: 1,
+        value: '课程'
+    },
+    {
+        label: 2,
+        value: '项目'
+    },
+    {
+        label: 3,
+        value: '数据集'
+    },
+    {
+        label: 4,
+        value: '面试'
+    },
+    {
+        label: 5,
+        value: '讨论'
+    },
+    {
+        label: 6,
+        value: '资料'
+    },
+    {
+        label: 7,
+        value: '个人中心'
+    }
+    ],
+    rules: [
+    { required: true, message: '请选择授权', trigger: 'blur' }
+    ]
+},
+</code></pre>
+
+<h4 id="uploadimg">uploadImg</h4>
+
+<pre><code>{
+    prop: 'logoId',
+    field: 'logoId',
+    label: 'LOGO',
+    type: 'uploadImg',
+    tip: '建议尺寸160*40px，JPG、PNG、JPEG格式， 图片小于5M。'
+}
+</code></pre>
+
+<h4 id="combine">combine</h4>
+
+<pre><code>{
+    prop: 'videos',
+    field: 'videos',
+    label: '数据集概述',
+    type: 'combine',
+    rules: [
+    { required: true, message: '请补全视频信息', trigger: 'blur' }
+    ]
+},
+</code></pre>
+
+<h4 id="tag">tag</h4>
+
+<pre><code>{
+    prop: 'labels',
+    field: 'labels',
+    label: '数据集分类',
+    type: 'tag',
+    tagList: [
+    {
+        label: 'Python',
+        value: 'Python'
+    },
+    {
+        label: '人工智能',
+        value: '人工智能'
+    }, {
+        label: '大数据',
+        value: '大数据'
+    }
+    ],
+    rules: [
+    { required: true, message: '请选择标签', trigger: 'blur' }
+    ]
+},
+</code></pre>
+
+<h4 id="edit">edit</h4>
+
+<pre><code>{
+    prop: 'videos',
+    field: 'videos',
+    label: '数据集概述',
+    type: 'edit',
+    rules: [
+    { required: true, message: '请补全视频信息', trigger: 'blur' }
+    ]
+},
+</code></pre>
+
+
+  
+</div>
+
+
     </main>
 
     
